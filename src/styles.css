@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Julius+Sans+One&display=swap');
+
+* {
+    --background-grey: #141414;
+    --background-grey-80: #141414CC;
+    --background-grey-50: #14141480;
+    --background-grey-30: #1414144D;
+    --shadow: rgba(0,0,0,0.4);
+    --font-color: #aaa;
+    --side-gradient: linear-gradient(to right, var(--background-grey-50), rgba(0,0,0,0) 30%);
+    --julius: 'Julius Sans One', sans-serif;
+    --heebo: 'Heebo', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+}
+
+html {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    background-color: var(--background-grey);
+    color: var(--font-color);
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    margin-top: -22px;
+    padding: 0;
+}

@@ -1,1 +1,25 @@
-<p>skills works!</p>
+<div class="skillCont">
+    <h3>Skills</h3>
+    <div class="carouselCont">
+        <button class="leftArrowButton arrowButton" (click)="shiftLeft()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="54px" viewBox="0 -960 960 960" width="54px" fill="#999999" class="leftArrow arrow">
+                <path d="M561-226.43 306.43-481 561-735.57 617.57-679l-198 198 198 198L561-226.43Z"/>
+            </svg>
+        </button>
+        <div class="cardCarouselCont">
+            @for (skill of skillList; track skill) {
+                <div class="cardCont">
+                    <div class="card" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; --color: {{skill.color}}">
+                        <!-- <span>{{skill.title}}</span>
+                        <p>{{skill.description}}</p> -->
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="rightArrowButton arrowButton" (click)="shiftRight()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="54px" viewBox="0 -960 960 960" width="54px" fill="#999999" class="rightArrow arrow">
+                <path d="m485.91-480-184-184L376-738.09 634.09-480 376-221.91 301.91-296l184-184Z"/>
+            </svg>
+        </button>
+    </div>
+</div>
