@@ -2,23 +2,31 @@
     <h3>Skills</h3>
     <div class="carouselCont">
         <button class="leftArrowButton arrowButton" (click)="shiftLeft()">
-            <svg xmlns="http://www.w3.org/2000/svg" height="54px" viewBox="0 -960 960 960" width="54px" fill="#999999" class="leftArrow arrow">
-                <path d="M561-226.43 306.43-481 561-735.57 617.57-679l-198 198 198 198L561-226.43Z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="0 -960 960 960" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
+                <path d="M561-216 296-481l265-265 67 67-198 198 198 198-67 67Z"/>
             </svg>
         </button>
         <div class="cardCarouselCont">
             @for (skill of skillList; track skill) {
                 <div class="cardCont">
-                    <div class="card" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; --color: {{skill.color}}">
-                        <!-- <span>{{skill.title}}</span>
-                        <p>{{skill.description}}</p> -->
+                    <div class="card" style="--color: {{skill.color}}">
+                        <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
+                        <div class="cardDetail">
+                            <div class="titleCont">
+                                <span>{{skill.title}}</span>
+                                @if (skill.years) {
+                                    <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
+                                }
+                            </div>
+                            <p>{{skill.description}}</p>
+                        </div>
                     </div>
                 </div>
             }
         </div>
         <button class="rightArrowButton arrowButton" (click)="shiftRight()">
-            <svg xmlns="http://www.w3.org/2000/svg" height="54px" viewBox="0 -960 960 960" width="54px" fill="#999999" class="rightArrow arrow">
-                <path d="m485.91-480-184-184L376-738.09 634.09-480 376-221.91 301.91-296l184-184Z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="0 -960 960 960" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="rightArrow arrow">
+                <path d="M506-481 308-679l67-67 265 265-265 265-67-67 198-198Z"/>
             </svg>
         </button>
     </div>

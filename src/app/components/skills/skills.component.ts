@@ -1,131 +1,148 @@
 import { Component, ElementRef } from '@angular/core';
 
-let skills: {title: String, description: String, url: String, size: String, color: String}[] = [
+let skills: {title: String, years?: String, description: String, url: String, size: String, color: String}[] = [
   {
     title: 'Angular', 
-    description: 'I have over 3 years of experience in Angular. This entire website was created with Angular 17. I also have experience with AngularJs and upgrading AngularJs application to newer versions of Angular.',
+    years: '3+',
+    description: 'I used Angular to develop the frontend of business applications during my internship at Union Pacific Railroad. I also have experience with AngularJs and upgrading AngularJs applications to newer versions of Angular. This website was created with Angular 17.',
     url: '../../../assets/images/angular\ logo.png',
-    size: 'cover',
+    size: '100%',
     color: 'white'
   },
   {
     title: 'React',
-    description: '',
+    years: '1+',
+    description: 'I learned React in my last year of college and used it to develop the frontend for my capstone project. Since I learned React after knowing Angular I was able to become proficient in React much faster.',
     url: '../../../assets/images/react\ logo.png',
-    size: '100%',
+    size: '95%',
     color: 'white'
   },
   { 
     title: 'HTML',
-    description: '',
+    years: '4+',
+    description: 'I am an expert in HTML as it is one of the languages I have used the most.',
     url: '../../../assets/images/html\ logo.png',
     size: '90%',
     color: 'white'
   },
   { 
     title: 'CSS/SCSS',
-    description: '',
+    years: '4+',
+    description: 'I am an expert in CSS and placed in the top 3% of all users who have taken the LinkedIn CSS skill assessment. I am confident I can complete any design needed using CSS and JavaScript/TypeScript.',
     url: '../../../assets/images/css\ logo.png',
     size: '145%',
     color: 'white'
   },
   { 
+    title: 'JavaScript',
+    years: '6+',
+    description: 'JavaScript was the first programming language I ever learned. I started programming at my job at Code Ninjas where I taught kids how to program games using JavaScript.',
+    url: '../../../assets/images/js\ logo.png',
+    size: '100%',
+    color: 'white'
+  },
+  { 
     title: 'TypeScript',
-    description: '',
+    years: '3+',
+    description: 'More recently I have switched from JavaScript to TypeScript while programming with Angular. My JavaScript skills have transferred over to TypeScript and I now prefer using TypeScript over JavaScript.',
     url: '../../../assets/images/ts\ logo.png',
     size: '105%',
     color: 'white'
   },
   { 
-    title: 'JavaScript',
-    description: '',
-    url: '../../../assets/images/js\ logo.png',
-    size: 'cover',
-    color: 'white'
-  },
-  { 
     title: 'Java',
-    description: '',
+    years: '4+',
+    description: 'Java was the language all my Computer Science major classes were taught in so I have a lot of experience applying it to different projects and concepts. I also worked on a Java backend in my first year at my internship at Union Pacific Railroad.',
     url: '../../../assets/images/java\ logo.png',
-    size: '170%',
-    color: 'white'
-  },
-  { 
-    title: 'SQL',
-    description: '',
-    url: '../../../assets/images/sql\ logo.png',
     size: '100%',
     color: 'white'
   },
   { 
     title: 'C#',
-    description: '',
+    years: '2+',
+    description: 'I have taken a few game development classes while working towards my Bachelor\'s and I learned C# in them. I also used C# for the backend of my capstone project.',
     url: '../../../assets/images/c\ logo.png',
     size: '80%',
-    color: 'white'
+    color: 'linear-gradient(127deg, rgba(240,230,255,1) 0%, rgba(182,147,233,1) 100%)'
   },
   { 
     title: 'Microsoft Office',
-    description: '',
-    url: '../../../assets/images/microsoft\ office\ logo.jpg',
+    years: '11+',
+    description: 'I have been using Microsoft Office products consistently since middle school so I am very familiar with all of their products.',
+    url: '../../../assets/images/microsoft\ office\ logo.png',
     size: '160%',
-    color: 'white'
+    color: 'linear-gradient(127deg, rgba(255,230,231,1) 0%, rgba(255,219,176,1) 100%)'
   },
   { 
     title: 'JIRA/Agile Development',
-    description: '',
-    url: '../../../assets/images/jira\ logo.jpg',
-    size: 'cover',
+    years: '4+',
+    description: 'I used JIRA at my internship at Union Pacific Railroad. I also used other forms of agile development software for different group projects throughout college.',
+    url: '../../../assets/images/jiraLogo.png',
+    size: '100%',
+    color: 'linear-gradient(127deg, rgba(222,236,255,1) 0%, rgba(187,235,255,1) 100%)'
+  },
+  { 
+    title: 'SQL',
+    years: '2+',
+    description: 'I used SQL during college for a few different projects. I became very comfortable with it after taking a Database Management class in my last semester.',
+    url: '../../../assets/images/sql.png',
+    size: '100%',
     color: 'white'
   },
   { 
-    title: 'GitHub',
-    description: '',
-    url: '../../../assets/images/github\ logo.png',
-    size: '95%',
-    color: 'white'
+    title: 'NodeJs',
+    years: '2+',
+    description: 'I used NodeJs during my internship at Union Pacific Railroad.',
+    url: '../../../assets/images/node\ logo.png',
+    size: '90%',
+    color: 'linear-gradient(127deg, rgba(244,255,239,1) 0%, rgba(209,255,188,1) 100%)'
   },
   { 
     title: 'Accessible Website Design',
-    description: '',
+    years: '2+',
+    description: 'I learned proper website accessibility standards while at my internship at Union Pacific. I was in charge of implementing accessibility features to a few applications during my time there.',
     url: '../../../assets/images/web\ access\ icon.png',
-    size: 'cover',
+    size: '100%',
     color: 'white'
   },
   { 
     title: 'Mobile Application Development',
-    description: '',
+    years: '2+',
+    description: 'I worked on a few projects during my internship at Union Pacific that were for both web and mobile devices. I also helped convert some web applications to work on mobile as well.',
     url: '../../../assets/images/mobileDev.png',
     size: '90%',
-    color: 'white'
+    color: 'linear-gradient(127deg, rgba(200,235,255,1) 0%, rgba(222,210,255,1) 50%, rgba(255,197,197,1) 100%)'
   },
   { 
     title: 'AWS',
-    description: '',
+    years: '1+',
+    description: 'I have experience using AWS servers for hosting different applications in a Software Engineering class I took during college.',
     url: '../../../assets/images/aws\ logo.png',
     size: '90%',
     color: 'white'
   },
   { 
-    title: 'Fast Learner',
-    description: '',
-    url: '../../../assets/images/fast\ learn\ icon.jpg',
-    size: '120%',
+    title: 'GitHub',
+    years: '4+',
+    description: 'I have used GitHub for almost every project I have ever worked on. I used it during my entire internship and throughout college.',
+    url: '../../../assets/images/github\ logo.png',
+    size: '95%',
     color: 'white'
   },
   { 
     title: 'Communication',
-    description: '',
-    url: '../../../assets/images/communication.jpg',
-    size: '120%',
-    color: 'white'
+    description: 'I have good verbal and written communication skills. I also thrive in team environments and work well with others.',
+    url: '../../../assets/images/communication.png',
+    size: '130%',
+    color: 'linear-gradient(27deg, rgba(181,253,249,1) 0%, rgba(255,255,255,1) 51%, rgba(253,181,185,1) 100%)'
   },
   { 
     title: 'UI/UX Design',
-    description: '',
+    years: '2+',
+    description: 'I gained UI/UX design skills during my internship at Union Pacific where I was able to work with a design team to implement good UX practices for the applications.',
     url: '../../../assets/images/UIdesign.png',
     size: '85%',
-    color: 'white'
+    color: 'linear-gradient(127deg, rgba(255,230,230,1) 0%, rgba(251,167,172,1) 100%)'
   }
 ];
 let pages: any = Math.ceil(skills.length / 5);
@@ -139,6 +156,7 @@ export class SkillsComponent {
   
   shifted = 0;
   skillList = skills;
+  arrowSize = 60;
   
   constructor(public element: ElementRef) {}
   
@@ -160,7 +178,7 @@ export class SkillsComponent {
     if (this.shifted < pages - 2) {
       this.shifted++;
       cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
-    } else {
+    } else if (this.shifted == pages - 2) {
       this.shifted++;
       cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
       setTimeout(() => {
@@ -179,7 +197,7 @@ export class SkillsComponent {
     if (this.shifted > 1) {
       this.shifted--;
       cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
-    } else {
+    } else if (this.shifted == 1) {
       this.shifted--;
       cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
       setTimeout(() => {

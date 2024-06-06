@@ -42,27 +42,95 @@ h3 {
 
 .card {
     position: relative;
+    font-family: var(--roboto);
     height: 100%;
     width: 95%;
     margin: auto;
     border-radius: 16px;
     box-shadow: 0px 0px 12px 2px var(--shadow);
     z-index: 4;
+    overflow: hidden;
     transition: all 0.3s;
     transition-delay: 0.5s;
-    background-color: var(--color);
-    background-position: center;
-    background-image: var(--url);
-    background-size: var(--size);
-    background-repeat: no-repeat;
+    background: var(--color);
 }
 
 .card:hover {
-    transform: scale(1.2);
+    transform: scale(1.5);
     box-shadow: 0px 0px 15px 4px var(--shadow);
     z-index: 6;
     transition: all 0.5s;
     transition-delay: 1s;
+
+    .iconbg {
+        height: 45%;
+        width: 45%;
+        margin: auto;
+        transition: all 0.5s;
+        transition-delay: 1s;
+    }
+
+    .cardDetail {
+        display: block;
+        height: 55%;
+        background-color: var(--background-grey);
+        transition: all 0.5s;
+        transition-delay: 1s;
+    }
+}
+
+.iconbg {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    border-radius: 16px;
+    background-position: center;
+    background-image: var(--url);
+    background-size: var(--size);
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    transition-delay: 0.5s;
+}
+
+.cardDetail {
+    font-size: 14px;
+    height: 0%;
+    padding: 4px;
+    transition: all 0.3s;
+    transition-delay: 0.5s;
+
+    > p {
+        padding: 8px;
+        padding-top: 0px;
+        text-overflow: ellipsis;
+    }
+}
+
+.titleCont {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    align-items: center;
+
+    > span {
+        margin-left: 8px;
+        margin-top: 4px;
+        font-size: 1.3em;
+        font-weight: 600;
+    }
+}
+
+.years {
+    background: var(--color);
+    font-weight: 600;
+    border-radius: 25px;
+    margin: 4px;
+    margin-left: auto;
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    width: fit-content;
+    color: black;
 }
 
 /* Shared arrow button CSS */
@@ -96,7 +164,7 @@ h3 {
 }
 
 .rightArrow {
-    margin-right: -1vw;
+    margin-right: auto;
 }
 
 /* Left Arrow Button CSS */
@@ -107,5 +175,5 @@ h3 {
 }
 
 .leftArrow {
-    margin-left: 0.5vw;
+    margin-left: auto;
 }
