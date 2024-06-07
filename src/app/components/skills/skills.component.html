@@ -7,21 +7,53 @@
             </svg>
         </button>
         <div class="cardCarouselCont">
-            @for (skill of skillList; track skill) {
-                <div class="cardCont">
-                    <div class="card" style="--color: {{skill.color}}">
-                        <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
-                        <div class="cardDetail">
-                            <div class="titleCont">
-                                <span>{{skill.title}}</span>
-                                @if (skill.years) {
-                                    <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
-                                }
+            @for (skill of skillList; track skill; let index = $index) {
+                @if (index == 0 || (index + 1) % cardNum == 1) {
+                    <div class="cardCont">
+                        <div class="card" style="--color: {{skill.color}}; transform-origin: left;">
+                            <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
+                            <div class="cardDetail">
+                                <div class="titleCont">
+                                    <span>{{skill.title}}</span>
+                                    @if (skill.years) {
+                                        <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
+                                    }
+                                </div>
+                                <p>{{skill.description}}</p>
                             </div>
-                            <p>{{skill.description}}</p>
                         </div>
                     </div>
-                </div>
+                } @else if ((index + 1) % cardNum == 0 ) {
+                    <div class="cardCont">
+                        <div class="card" style="--color: {{skill.color}}; transform-origin: right;">
+                            <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
+                            <div class="cardDetail">
+                                <div class="titleCont">
+                                    <span>{{skill.title}}</span>
+                                    @if (skill.years) {
+                                        <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
+                                    }
+                                </div>
+                                <p>{{skill.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                } @else {
+                    <div class="cardCont">
+                        <div class="card" style="--color: {{skill.color}}">
+                            <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
+                            <div class="cardDetail">
+                                <div class="titleCont">
+                                    <span>{{skill.title}}</span>
+                                    @if (skill.years) {
+                                        <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
+                                    }
+                                </div>
+                                <p>{{skill.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                }
             }
         </div>
         <button class="rightArrowButton arrowButton" (click)="shiftRight()">

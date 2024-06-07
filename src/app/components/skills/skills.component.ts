@@ -145,7 +145,8 @@ let skills: {title: String, years?: String, description: String, url: String, si
     color: 'linear-gradient(127deg, rgba(255,230,230,1) 0%, rgba(251,167,172,1) 100%)'
   }
 ];
-let pages: any = Math.ceil(skills.length / 5);
+let cardNum: number = 5;
+let pages: any = Math.ceil(skills.length / cardNum);
 
 @Component({
   selector: 'app-skills',
@@ -157,6 +158,7 @@ export class SkillsComponent {
   shifted = 0;
   skillList = skills;
   arrowSize = 60;
+  cardNum = cardNum;
   
   constructor(public element: ElementRef) {}
   
