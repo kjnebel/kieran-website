@@ -1,1 +1,50 @@
-<p>experience works!</p>
+<div class="expCont">
+    <h3>Experience</h3>
+    <div class="carouselCont">
+        <button class="leftArrowButton arrowButton" (click)="shiftLeft()">
+            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="0 -960 960 960" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
+                <path d="M561-216 296-481l265-265 67 67-198 198 198 198-67 67Z"/>
+            </svg>
+        </button>
+        <div class="cardCarouselCont">
+            @for (exp of expList; track exp; let index = $index) {
+                @if ((index + 1) % cardNum == 0 ) {
+                    <div class="cardCont">
+                        <div class="number">{{index + 1}}</div>
+                        <div class="card" style="--color: {{exp.color}}; transform-origin: right;">
+                            <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
+                            <div class="cardDetail">
+                                <span>{{exp.comp}}</span>
+                                @if (exp.dates) {
+                                    <div class="dates" style="--color: {{exp.color}}">{{exp.dates}}</div>
+                                }
+                                <p>{{exp.resp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                } @else {
+                    <div class="cardCont">
+                        <div class="number">{{index + 1}}</div>
+                        <div class="card" style="--color: {{exp.color}}">
+                            <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
+                            <div class="cardDetail">
+                                <span>{{exp.comp}}</span>
+                                @if (exp.dates) {
+                                    <div class="dates" style="--color: {{exp.color}}">{{exp.dates}}</div>
+                                }
+                                <p>{{exp.resp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        @if (pages > 1) {
+            <button class="rightArrowButton arrowButton" (click)="shiftRight()">
+                <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="0 -960 960 960" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="rightArrow arrow">
+                    <path d="M506-481 308-679l67-67 265 265-265 265-67-67 198-198Z"/>
+                </svg>
+            </button>
+        }
+    </div>
+</div>

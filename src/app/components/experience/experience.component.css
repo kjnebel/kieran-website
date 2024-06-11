@@ -1,0 +1,53 @@
+/* Skills Container */
+.expCont {
+    position: relative;
+    margin-top: 6.4vh;
+    height: fit-content;
+    width: 100vw;
+    mix-blend-mode: normal;
+    z-index: 8;
+}
+
+h3 {
+    position: relative;
+    z-index: 3;
+}
+
+.cardCarouselCont {
+    height: calc((90vw / 4) * 0.90);
+}
+
+.cardCont {
+    position: relative;
+    width: calc(90vw / 4);
+    height: calc((90vw / 4) * 0.90);
+}
+
+.card {
+    position: absolute;
+    right: 0;
+    width: 59%;
+    margin: 0;
+    z-index: 10;
+}
+
+.number {
+    padding-left: 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    height: 100%;
+    width: 39%;
+    font-size: calc((90vw / 4) * 0.90);
+    font-family: var(--roboto);
+    color: black;
+    -webkit-text-stroke: 6px rgb(128, 128, 128);
+}
+
+span {
+    margin-left: 8px;
+    margin-top: 4px;
+    font-size: 1.3em;
+    font-weight: 600;
+}

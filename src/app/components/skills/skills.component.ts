@@ -20,7 +20,7 @@ let skills: {title: String, years?: String, description: String, url: String, si
   { 
     title: 'HTML',
     years: '4+',
-    description: 'I am an expert in HTML as it is one of the languages I have used the most.',
+    description: 'I am an expert in HTML as it is one of the languages I have used the most. I used HTML at my internship at Union Pacific and throughout my college studies.',
     url: '../../../assets/images/html\ logo.png',
     size: '90%',
     color: 'white'
@@ -74,7 +74,7 @@ let skills: {title: String, years?: String, description: String, url: String, si
     color: 'linear-gradient(127deg, rgba(255,230,231,1) 0%, rgba(255,219,176,1) 100%)'
   },
   { 
-    title: 'JIRA/Agile Development',
+    title: 'JIRA',
     years: '4+',
     description: 'I used JIRA at my internship at Union Pacific Railroad. I also used other forms of agile development software for different group projects throughout college.',
     url: '../../../assets/images/jiraLogo.png',
@@ -134,7 +134,7 @@ let skills: {title: String, years?: String, description: String, url: String, si
     description: 'I have good verbal and written communication skills. I also thrive in team environments and work well with others.',
     url: '../../../assets/images/communication.png',
     size: '130%',
-    color: 'linear-gradient(27deg, rgba(181,253,249,1) 0%, rgba(255,255,255,1) 51%, rgba(253,181,185,1) 100%)'
+    color: 'white'
   },
   { 
     title: 'UI/UX Design',
