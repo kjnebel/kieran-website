@@ -31,7 +31,7 @@ let exp: {comp: String, dates: String, resp: String, position: String, url: Stri
   {
     comp: 'Amazon',
     dates: 'October 2023 - December 2023',
-    resp: 'Sort and handle packages for delivery. Trained new employees. Worked overnight shift 25 hours per week. Used Zebra device with finger scanner.',
+    resp: 'Sorted and handle packages for delivery. Trained new employees. Worked overnight shift 25 hours per week. Used Zebra device with finger scanner.',
     position: 'Warehouse Seasonal Temp',
     url: '../../../assets/images/amazon\ logo.png',
     size: '90%',

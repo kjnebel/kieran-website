@@ -147,6 +147,8 @@ let skills: {title: String, years?: String, description: String, url: String, si
 ];
 let cardNum: number = 5;
 let pages: any = Math.ceil(skills.length / cardNum);
+let arrowSize: number = 60;
+let shiftRate: number = 90;
 
 @Component({
   selector: 'app-skills',
@@ -157,8 +159,9 @@ export class SkillsComponent {
   
   shifted = 0;
   skillList = skills;
-  arrowSize = 60;
+  arrowSize = arrowSize;
   cardNum = cardNum;
+  pages = pages;
   
   constructor(public element: ElementRef) {}
   
@@ -168,9 +171,38 @@ export class SkillsComponent {
     
     try {
       window.addEventListener('load', function () {
+        if (window.innerWidth > 900 ) {
+          cardNum = 5;
+          arrowSize = 60;
+        } else if (window.innerWidth > 600) {
+          cardNum = 4;
+          arrowSize = 40;
+        } else {
+          cardNum = 3;
+          arrowSize = 30;
+          shiftRate = 80;
+        }
+        pages = Math.ceil(skills.length / cardNum);
         cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
         carouselCont?.setAttribute('style', `display: block;`);
       });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900 ) {
+          cardNum = 5;
+          arrowSize = 60;
+        } else if (window.innerWidth > 600) {
+          cardNum = 4;
+          arrowSize = 40;
+        } else {
+          cardNum = 3;
+          arrowSize = 30;
+          shiftRate = 80;
+        }
+        pages = Math.ceil(skills.length / cardNum);
+        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
+        carouselCont?.setAttribute('style', `display: block;`);
+      });
+      this.arrowSize = arrowSize;
     } catch(err) {}
   }
 
@@ -179,10 +211,10 @@ export class SkillsComponent {
     
     if (this.shifted < pages - 2) {
       this.shifted++;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
     } else if (this.shifted == pages - 2) {
       this.shifted++;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
       setTimeout(() => {
         this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: none;');
       }, 1000);
@@ -198,10 +230,10 @@ export class SkillsComponent {
     
     if (this.shifted > 1) {
       this.shifted--;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
     } else if (this.shifted == 1) {
       this.shifted--;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
       setTimeout(() => {
         this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: none;');
       }, 1000);
@@ -210,9 +242,5 @@ export class SkillsComponent {
     if (this.shifted < pages - 1) {
       this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: block;');
     }
-  }
-
-  log(text: string) {
-    console.log(text);
   }
 }

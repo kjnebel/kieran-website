@@ -8,3 +8,44 @@
     mix-blend-mode: normal;
     z-index: 9;
 }
+    
+/* Resizing Styling */
+@media only screen and (max-width: 600px) {
+    .cardCarouselCont, .cardCont, .arrowButton {
+        --scale: calc(80vw / 3);
+    }
+
+    .cardCarouselCont {
+        margin-left: 10vw;
+    }
+
+    .arrowButton {
+        width: 10vw;
+    }
+
+}
+        
+@media only screen and (min-width: 600px) {
+    .cardCarouselCont, .cardCont, .arrowButton {
+        --scale: calc(90vw / 4);
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .cardCarouselCont, .cardCont, .arrowButton {
+        --scale: calc(90vw / 5);
+    }
+}
+
+    
+@media only screen and (min-width: 1280px) {
+    .cardCarouselCont, .cardCont, .arrowButton {
+        --scale: calc(90vw / 5);
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .cardCarouselCont, .cardCont, .arrowButton {
+        --scale: calc(90vw / 5);
+    }
+}

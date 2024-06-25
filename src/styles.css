@@ -15,7 +15,8 @@
 
 html {
     position: absolute;
-    left: 0;
+    left: 0 !important;
+    right: 0 !important;
     width: 100vw;
     background-color: var(--background-grey);
     color: var(--font-color);
@@ -47,8 +48,9 @@ h3 {
 
 /* Card CSS */
 .cardCarouselCont {
+    --scale: calc(90vw / 5);
     position: relative;
-    height: calc((90vw / 5) * 0.95);
+    height: calc(var(--scale) * 0.95);
     margin-left: 5vw;
     transition: transform 1s ease-in-out;
 }
@@ -159,13 +161,14 @@ h3 {
 
 /* Shared arrow button CSS */
 .arrowButton {
+    --scale: calc(90vw / 5);
     cursor: pointer;
     position: absolute;
     bottom: 0;
     width: 5vw;
     border: none;
     outline: none;
-    height: calc((90vw / 5) * 0.97);
+    height: calc(var(--scale) * 0.97);
     z-index: 5;
     background-color: var(--background-grey-50);
 }

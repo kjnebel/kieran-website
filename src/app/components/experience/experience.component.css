@@ -31,6 +31,10 @@ h3 {
     z-index: 10;
 }
 
+.card:hover {
+    width: 69%;
+}
+
 .number {
     padding-left: 5%;
     position: absolute;
@@ -50,4 +54,26 @@ span {
     margin-top: 4px;
     font-size: 1.3em;
     font-weight: 600;
+}
+
+/* Resizing Styling */
+@media only screen and (max-width: 600px) {
+
+}
+        
+@media only screen and (min-width: 600px) {
+    
+}
+
+@media only screen and (min-width: 900px) {
+    
+}
+
+    
+@media only screen and (min-width: 1280px) {
+    
+}
+
+@media only screen and (min-width: 1920px) {
+    
 }
