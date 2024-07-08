@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 
-let skills: {title: String, years?: String, description: String, url: String, size: String, color: String}[] = [
+let skills: {title: string, years?: string, description: string, url: string, size: string, color: string}[] = [
   {
     title: 'Angular', 
     years: '3+',
@@ -147,7 +147,8 @@ let skills: {title: String, years?: String, description: String, url: String, si
 ];
 let cardNum: number = 5;
 let pages: any = Math.ceil(skills.length / cardNum);
-let arrowSize: number = 60;
+let arrowSize: number = 50;
+let downArrowSize: number = 20;
 let shiftRate: number = 90;
 
 @Component({
@@ -160,8 +161,16 @@ export class SkillsComponent {
   shifted = 0;
   skillList = skills;
   arrowSize = arrowSize;
+  downArrowSize = downArrowSize;
   cardNum = cardNum;
   pages = pages;
+  showModal = false;
+  skillTitle = '';
+  skillYears: string | undefined = '';
+  skillDesc = '';
+  skillColor = '';
+  skillUrl = '';
+  skillSize = '';
   
   constructor(public element: ElementRef) {}
   
@@ -242,5 +251,20 @@ export class SkillsComponent {
     if (this.shifted < pages - 1) {
       this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: block;');
     }
+  }
+
+  showMore(index: number) {
+    let skill = this.skillList[index];
+    this.skillTitle = skill.title;
+    this.skillYears = skill.years;
+    this.skillDesc = skill.description;
+    this.skillColor = skill.color;
+    this.skillUrl = skill.url;
+    this.skillSize = skill.size;
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }

@@ -8,6 +8,114 @@
     mix-blend-mode: normal;
     z-index: 9;
 }
+
+/* Show More button styling */
+.showMore {
+    cursor: pointer;
+    position: absolute;
+    padding: 0;
+    right: 8px;
+    bottom: 8px;
+    height: 2.5em;
+    width: 2.5em;
+    background-color: var(--background-light-grey);
+    border: none;
+    outline: none;
+    opacity: 0%;
+    border-radius: 50%;
+    transition: opacity 0.2s 0.2s !important;
+}
+
+.showMore:hover {
+    background-color: var(--background-lightest-grey);
+    transition: background-color 0s 0s !important;
+}
+
+.downArrow {
+    margin: auto;
+    display: flex;
+    align-content: center;
+}
+
+.skillsModal {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 90vh;
+    z-index: 100;
+    transition: all 0s;
+}
+
+.modalCard {
+    font-family: var(--roboto);
+    font-size: 20px;
+    height: 100%;
+    width: 95%;
+    margin: auto;
+    border-radius: 16px;
+    box-shadow: 0px 0px 12px 2px var(--shadow);
+    z-index: 4;
+    overflow: hidden;
+    transition: all 0s 0s;
+    background: var(--color);
+    transform-origin: center;
+    animation: fade-in 0.5s 1;
+
+    .iconbg {
+        background-size: calc(var(--size) / 1.2);
+        height: 45%;
+        width: 45%;
+        margin: auto;
+        transition: all 0.5s;
+    }
+
+    .cardDetail {
+        display: block;
+        height: 55%;
+        padding: 8px;
+        background-color: var(--background-grey);
+        transition: all 0.5s;
+
+        > .titleCont {
+            > span {
+                font-size: 1.6em;
+            }
+
+            .years {
+                margin-top: 8px;
+                margin-bottom: 8px;
+                font-size: 1em;
+                padding: 4px 8px 4px 8px;
+            }
+        }
+    }
+}
+
+.closeModal {
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    left: 1.3em;
+    font-family: var(--roboto);
+    font-weight: 600;
+    font-size: 22px;
+    color: white;
+    height: 40px;
+    width: 40px;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--background-grey-50);
+    opacity: 0%;
+    text-align: center;
+    animation: appear 0.1s 1 0.5s forwards;
+}
+
+.closeModal:hover {
+    background-color: var(--background-grey-30);
+}
     
 /* Resizing Styling */
 @media only screen and (max-width: 600px) {
@@ -48,4 +156,14 @@
     .cardCarouselCont, .cardCont, .arrowButton {
         --scale: calc(90vw / 5);
     }
+}
+
+@keyframes fade-in {
+    0% {height: 0%; width: 0%;}
+    100% {height: 100%; width: 95%;}
+}
+
+@keyframes appear {
+    0% {opacity: 0%;}
+    100% {opacity: 100%;}
 }

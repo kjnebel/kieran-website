@@ -27,7 +27,7 @@ export class HeaderComponent {
         window.addEventListener('mousemove', function (event: any) {
           let windowWidth = window.innerWidth / 2;
           let windowHeight = window.innerHeight / 2;
-          let moveRates = [4, 10, 20];
+          let moveRates = [5, 15, 25];
       
           layer1?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[0]}px, ${(windowHeight - event.pageY) / moveRates[0]}px)`);
           layer2?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[1]}px, ${(windowHeight - event.pageY) / moveRates[1]}px)`);
