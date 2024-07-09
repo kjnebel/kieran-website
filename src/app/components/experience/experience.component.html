@@ -14,11 +14,13 @@
                         <div class="card" style="--color: {{exp.color}}; transform-origin: right;">
                             <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
                             <div class="cardDetail">
-                                <span>{{exp.comp}}</span>
+                                <span>{{exp.position}}</span>
                                 @if (exp.dates) {
                                     <div class="dates" style="--color: {{exp.color}}">{{exp.dates}}</div>
                                 }
-                                <p>{{exp.resp}}</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -28,11 +30,13 @@
                         <div class="card" style="--color: {{exp.color}}">
                             <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
                             <div class="cardDetail">
-                                <span>{{exp.comp}}</span>
+                                <span>{{exp.position}}</span>
                                 @if (exp.dates) {
                                     <div class="dates" style="--color: {{exp.color}}">{{exp.dates}}</div>
                                 }
-                                <p>{{exp.resp}}</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -48,3 +52,31 @@
         }
     </div>
 </div>
+@if (showModal) {
+    <div class="modal" id="modal" role="dialog">
+        <div class="modalCard" style="--color: {{expColor}}">
+            <div class="iconbg" style="--url: url('{{expUrl}}'); --size: {{expSize}}; ">
+                <button class="closeModal" (click)="closeModal()">
+                    X
+                </button>
+            </div>
+            <div class="cardDetail">
+                <div class="titleCont">
+                    <span>{{expPos}}</span>
+                    <span>
+                        <div class="years" style="--color: {{expColor}}">{{expDates}}</div>
+                    </span>
+                    <p>{{expResp}}</p>
+                </div>
+                <div class="titleCont">
+                    <span>Skills Utilized</span>
+                    <div class="skillsCont">
+                        @for (skill of expSkillList; track skill; let index = $index) {
+                            <div class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)">{{skill.name}}</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

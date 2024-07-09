@@ -1,4 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
+import { toggleSkillModalOpen, toggleExpModalOpen } from '../../public/publicVariables';
 
 let skills: {title: string, years?: string, description: string, url: string, size: string, color: string}[] = [
   {
@@ -79,7 +80,7 @@ let skills: {title: string, years?: string, description: string, url: string, si
     description: 'I used JIRA at my internship at Union Pacific Railroad. I also used other forms of agile development software for different group projects throughout college.',
     url: '../../../assets/images/jiraLogo.png',
     size: '100%',
-    color: 'linear-gradient(127deg, rgba(222,236,255,1) 0%, rgba(187,235,255,1) 100%)'
+    color: 'linear-gradient(127deg, rgba(252,236,255,1) 0%, rgba(227,235,255,1) 100%)'
   },
   { 
     title: 'SQL',
@@ -150,6 +151,8 @@ let pages: any = Math.ceil(skills.length / cardNum);
 let arrowSize: number = 50;
 let downArrowSize: number = 20;
 let shiftRate: number = 90;
+let totalShift: number = 0;
+let shifted: number = 0;
 
 @Component({
   selector: 'app-skills',
@@ -158,7 +161,6 @@ let shiftRate: number = 90;
 })
 export class SkillsComponent {
   
-  shifted = 0;
   skillList = skills;
   arrowSize = arrowSize;
   downArrowSize = downArrowSize;
@@ -183,32 +185,42 @@ export class SkillsComponent {
         if (window.innerWidth > 900 ) {
           cardNum = 5;
           arrowSize = 60;
+          shiftRate = 90;
+          totalShift = shiftRate * shifted;
         } else if (window.innerWidth > 600) {
           cardNum = 4;
           arrowSize = 40;
+          shiftRate = 90;
+          totalShift = shiftRate * shifted;
         } else {
           cardNum = 3;
           arrowSize = 30;
           shiftRate = 80;
+          totalShift = shiftRate * shifted;
         }
         pages = Math.ceil(skills.length / cardNum);
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
+        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(-${totalShift}vw);`);
         carouselCont?.setAttribute('style', `display: block;`);
       });
       window.addEventListener('resize', function () {
         if (window.innerWidth > 900 ) {
           cardNum = 5;
           arrowSize = 60;
+          shiftRate = 90;
+          totalShift = shiftRate * shifted;
         } else if (window.innerWidth > 600) {
           cardNum = 4;
           arrowSize = 40;
+          shiftRate = 90;
+          totalShift = shiftRate * shifted;
         } else {
           cardNum = 3;
           arrowSize = 30;
           shiftRate = 80;
+          totalShift = shiftRate * shifted;
         }
         pages = Math.ceil(skills.length / cardNum);
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
+        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(-${totalShift}vw);`);
         carouselCont?.setAttribute('style', `display: block;`);
       });
       this.arrowSize = arrowSize;
@@ -218,18 +230,20 @@ export class SkillsComponent {
   shiftRight() {
     let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
     
-    if (this.shifted < pages - 2) {
-      this.shifted++;
-      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
-    } else if (this.shifted == pages - 2) {
-      this.shifted++;
-      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+    if (shifted < pages - 2) {
+      shifted++;
+      totalShift = shiftRate * shifted;
+      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
+    } else if (shifted == pages - 2) {
+      shifted++;
+      totalShift = shiftRate * shifted;
+      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
       setTimeout(() => {
         this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: none;');
       }, 1000);
     }
 
-    if (this.shifted > 0) {
+    if (shifted > 0) {
       this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: block;');
     }
   }
@@ -237,18 +251,20 @@ export class SkillsComponent {
   shiftLeft() {
     let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
     
-    if (this.shifted > 1) {
-      this.shifted--;
-      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
-    } else if (this.shifted == 1) {
-      this.shifted--;
-      cardCarousel.setAttribute('style', `transform: translateX(-${shiftRate * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+    if (shifted > 1) {
+      shifted--;
+      totalShift = shiftRate * shifted;
+      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
+    } else if (shifted == 1) {
+      shifted--;
+      totalShift = shiftRate * shifted;
+      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
       setTimeout(() => {
         this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: none;');
       }, 1000);
     }
 
-    if (this.shifted < pages - 1) {
+    if (shifted < pages - 1) {
       this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: block;');
     }
   }

@@ -9,7 +9,7 @@
         <div class="cardCarouselCont">
             @for (skill of skillList; track skill; let index = $index) {
                 @if (index == 0 || (index + 1) % cardNum == 1) {
-                    <div class="cardCont" id="card{{index}}">
+                    <div class="cardCont">
                         <div class="card" style="--color: {{skill.color}}; transform-origin: left;">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
@@ -20,17 +20,15 @@
                                             <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
                                         }
                                     </span>
-                                    <button class="showMore" (click)="showMore(index)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="downArrowSize + 'px'" viewBox="175 -810 600 600" [attr.width]="downArrowSize + 'px'" fill="#bbbbbb" class="downArrow arrow">
-                                            <path d="M480-320 216-584l67-67 197 197 197-197 67 67-264 264Z"/>
-                                        </svg>
-                                    </button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
                     </div>
                 } @else if ((index + 1) % cardNum == 0 ) {
-                    <div class="cardCont" id="card{{index}}">
+                    <div class="cardCont">
                         <div class="card" style="--color: {{skill.color}}; transform-origin: right;">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
@@ -41,17 +39,15 @@
                                             <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
                                         }
                                     </span>
-                                    <button class="showMore" (click)="showMore(index)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="downArrowSize + 'px'" viewBox="175 -810 600 600" [attr.width]="downArrowSize + 'px'" fill="#bbbbbb" class="downArrow arrow">
-                                            <path d="M480-320 216-584l67-67 197 197 197-197 67 67-264 264Z"/>
-                                        </svg>
-                                    </button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
                     </div>
                 } @else {
-                    <div class="cardCont" id="card{{index}}">
+                    <div class="cardCont">
                         <div class="card" style="--color: {{skill.color}}">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
@@ -62,11 +58,9 @@
                                             <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
                                         }
                                     </span>
-                                    <button class="showMore" (click)="showMore(index)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="downArrowSize + 'px'" viewBox="175 -810 600 600" [attr.width]="downArrowSize + 'px'" fill="#bbbbbb" class="downArrow arrow">
-                                            <path d="M480-320 216-584l67-67 197 197 197-197 67 67-264 264Z"/>
-                                        </svg>
-                                    </button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +76,7 @@
     </div>
 </div>
 @if (showModal) {
-    <div class="skillsModal" id="modal" role="dialog">
+    <div class="modal" id="modal" role="dialog">
         <div class="modalCard" style="--color: {{skillColor}}">
             <div class="iconbg" style="--url: url('{{skillUrl}}'); --size: {{skillSize}}; ">
                 <button class="closeModal" (click)="closeModal()">
