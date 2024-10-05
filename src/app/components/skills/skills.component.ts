@@ -1,7 +1,8 @@
 import { Component, ElementRef } from '@angular/core';
-import { toggleSkillModalOpen, toggleExpModalOpen } from '../../public/publicVariables';
 
-let skills: {title: string, years?: string, description: string, url: string, size: string, color: string}[] = [
+interface Skill {title: string, years?: string, description: string, url: string, size: string, color: string};
+
+let skills: Skill[] = [
   {
     title: 'Angular', 
     years: '3+',
@@ -29,7 +30,7 @@ let skills: {title: string, years?: string, description: string, url: string, si
   { 
     title: 'CSS/SCSS',
     years: '4+',
-    description: 'I am an expert in CSS and placed in the top 3% of all users who have taken the LinkedIn CSS skill assessment. I am confident I can complete any design needed using CSS and JavaScript/TypeScript.',
+    description: 'I am an expert in CSS and placed in the top 3% of all users who have taken the LinkedIn CSS skill assessment. I am confident I can complete any design needed using CSS and JavaScript / TypeScript.',
     url: '../../../assets/images/css\ logo.png',
     size: '145%',
     color: 'white'
@@ -107,14 +108,6 @@ let skills: {title: string, years?: string, description: string, url: string, si
     color: 'white'
   },
   { 
-    title: 'Mobile Application Development',
-    years: '2+',
-    description: 'I worked on a few projects during my internship at Union Pacific that were for both web and mobile devices. I also helped convert some web applications to work on mobile as well.',
-    url: '../../../assets/images/mobileDev.png',
-    size: '90%',
-    color: 'linear-gradient(127deg, rgba(200,235,255,1) 0%, rgba(222,210,255,1) 50%, rgba(255,197,197,1) 100%)'
-  },
-  { 
     title: 'AWS',
     years: '1+',
     description: 'I have experience using AWS servers for hosting different applications in a Software Engineering class I took during college.',
@@ -143,7 +136,23 @@ let skills: {title: string, years?: string, description: string, url: string, si
     description: 'I gained UI/UX design skills during my internship at Union Pacific where I was able to work with a design team to implement good UX practices for the applications.',
     url: '../../../assets/images/UIdesign.png',
     size: '85%',
-    color: 'linear-gradient(127deg, rgba(255,230,230,1) 0%, rgba(251,167,172,1) 100%)'
+    color: 'white'
+  },
+  { 
+    title: 'ASP.Net',
+    years: '2+',
+    description: 'I gained experience with ASP.Net at the University of Nebraska at Omaha while completing my B.S. in Computer Science.',
+    url: '../../../assets/images/asp.net.logo.png',
+    size: '110%',
+    color: 'white'
+  },
+  { 
+    title: 'Microsoft Azure',
+    years: '1+',
+    description: 'I am familiar with microsoft azure and have developed a few projects using it.',
+    url: '../../../assets/images/azure.png',
+    size: '90%',
+    color: 'white'
   }
 ];
 let cardNum: number = 5;
@@ -266,6 +275,28 @@ export class SkillsComponent {
 
     if (shifted < pages - 1) {
       this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: block;');
+    }
+  }
+
+  goToPage(page: number) {
+    let cardCarousel = document.querySelector('#skillsCardCarousel');
+    shifted = page - 1;
+    totalShift = shiftRate * shifted;
+    if (cardCarousel) {
+      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
+
+      if (shifted < pages - 1) {
+        document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: block;');
+      }
+      if (shifted === 0) {
+        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'display: none;');
+      }
+      if (shifted === pages - 1) {
+        document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: none;');
+      }
+      if (shifted > 0) {
+        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'display: block;');
+      }
     }
   }
 

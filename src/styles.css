@@ -2,7 +2,8 @@
 
 * {
     --background-light-grey: #222222;
-    --background-lightest-grey: #444444;
+    --background-lighter-grey: #444444;
+    --background-lightest-grey: #666666;
     --button-background: #898989b7;
     --button-hover: #b8b8b8b7;
     --background-grey: #141414;
@@ -10,11 +11,14 @@
     --background-grey-50: #14141480;
     --background-grey-30: #1414144D;
     --shadow: rgba(0,0,0,0.4);
-    --font-color: #aaa;
+    --box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.4);
+    --font-color: white;
     --side-gradient: linear-gradient(to right, var(--background-grey-50), rgba(0,0,0,0) 30%);
     --julius: 'Julius Sans One', sans-serif;
     --heebo: 'Heebo', sans-serif;
     --roboto: 'Roboto', sans-serif;
+
+    box-sizing: border-box;
 }
 
 html {
@@ -28,6 +32,7 @@ html {
 }
 
 body {
+    position: relative;
     margin: 0;
     margin-top: -22px;
     padding: 0;
@@ -36,12 +41,20 @@ body {
 
 /* Shared Component Classes */
 h3 {
-    font-size: 24px;
+    position: relative;
+    font-size: 1.5rem;
     font-family: var(--roboto);
     padding: 4px;
     margin-top: 0;
     margin-bottom: 0px;
     margin-left: 5vw;
+    z-index: 0;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
 }
 
 .carouselCont {
@@ -56,6 +69,7 @@ h3 {
     position: relative;
     height: calc(var(--scale) * 0.95);
     margin-left: 5vw;
+    margin-top: 12px;
     transition: transform 1s ease-in-out;
 }
 
@@ -79,29 +93,32 @@ h3 {
     transition: all 0.3s;
     transition-delay: 0.2s;
     background: var(--color);
+    border: 2px solid white;
 }
 
-.card:hover {
+.card:hover, .focusedCard {
     transform: scale(1.5);
     box-shadow: 0px 0px 15px 4px var(--shadow);
     z-index: 10;
-    transition: all 0.5s;
-    transition-delay: 0.5s;
+    transition: all 0.3s;
+    transition-delay: 0.3s;
 
     .iconbg {
         height: 65%;
         width: 65%;
         margin: auto;
-        transition: all 0.5s;
-        transition-delay: 0.5s;
+        transition: all 0.3s;
+        transition-delay: 0.3s;
     }
 
     .cardDetail {
         display: block;
         height: 35%;
-        background-color: var(--background-grey);
-        transition: all 0.5s;
-        transition-delay: 0.5s;
+        width: 100%;
+        background-color: var(--background-light-grey);
+        transition: all 0.3s;
+        transition-delay: 0.3s;
+        border-radius: 0;
 
         .showMore {
             opacity: 100%;
@@ -110,7 +127,23 @@ h3 {
     }
 }
 
-.iconbg {
+.focusedCard {
+    border-color: red;
+}
+
+.modalIconbg {
+    height: 45%;
+    width: 100%;
+    background-color: var(--color);
+}
+
+.iconCont {
+    height: 100%;
+    width: fit-content;
+    margin: auto;
+}
+
+.iconbg, .icon {
     height: 100%;
     width: 100%;
     margin: auto;
@@ -118,6 +151,7 @@ h3 {
     background-position: center;
     background-image: var(--url);
     background-size: var(--size);
+    background-color: var(--color);
     background-repeat: no-repeat;
     transition: all 0.3s;
     transition-delay: 0.2s;
@@ -125,10 +159,12 @@ h3 {
 
 .cardDetail {
     text-indent: 0;
-    font-size: 16px;
+    font-size: 1rem;
     height: 0%;
+    width: 100%;
     transition: all 0.3s;
     transition-delay: 0.2s;
+    background-color: var(--background-light-grey);
     
     > p {
         padding: 8px;
@@ -141,19 +177,21 @@ h3 {
     height: fit-content;
     width: calc(100% - 8px);
     align-items: center;
-    padding: 4px;
+    padding: 8px;
+    color: white;
+    background-color: var(--background-light-grey);
 
     > span {
         width: 100%;
         margin-top: 4px;
-        font-size: 1.3em;
+        font-size: 1rem;
         font-weight: 600;
     }
 }
 
 .years {
     background: white;
-    font-size: 12px;
+    font-size: .75rem;
     text-align: center;
     font-weight: 600;
     border-radius: 25px;
@@ -218,10 +256,10 @@ h3 {
     padding: 0;
     right: 8px;
     bottom: 8px;
-    height: 2.5em;
-    width: 2.5em;
+    height: 1.75rem;
+    width: 1.75rem;
     align-content: center;
-    background-color: var(--background-light-grey);
+    background-color: var(--background-lighter-grey);
     border: none;
     outline: none;
     opacity: 0%;
@@ -234,6 +272,38 @@ h3 {
     transition: background-color 0s 0s !important;
 }
 
+/* Skill capsule stylings */
+.skillsCont {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 30px;
+    background-color: var(--background-light-grey);
+    margin-top: 6px;
+}
+
+.skillCapsule {
+    background-color: var(--background-lighter-grey);
+    color: var(--color);
+    border-radius: 15px;
+    padding: 6px 8px 6px 8px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+    float: left;
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.skillCapsule:hover {
+    cursor: pointer;
+    background-color: var(--background-lightest-grey);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 6px 2px var(--color);
+    transition: all 0.2s;
+}
+
 
 .modal {
     position: fixed;
@@ -244,51 +314,54 @@ h3 {
     width: 50vw;
     height: 90vh;
     z-index: 100;
-    overflow: auto;
     transition: all 0s;
 }
 
 .modalCard {
     position: relative;
     font-family: var(--roboto);
-    font-size: 20px;
+    font-size: 1.25rem;
     height: 95%;
     width: 95%;
     margin: auto;
     border-radius: 16px;
     box-shadow: 0px 0px 12px 2px var(--shadow);
     z-index: 4;
-    overflow: hidden;
     transition: all 0s 0s;
-    background: var(--color);
+    background-color: var(--background-light-grey);
     transform-origin: center;
-    animation: fade-in 0.5s 1;
+    overflow: auto;
+    animation: fade-in 0.3s 1;
 
-    .iconbg {
-        background-size: calc(var(--size) / 1.2);
+    .modalIconbg {
         height: 45%;
-        width: 45%;
+        width: 100%;
+        background: var(--color);
         margin: auto;
-        transition: all 0.5s;
+        transition: all 0.3s;
+
+        .icon {
+            height: 100%;
+            width: 35%;
+        }
     }
 
     .cardDetail {
         display: block;
-        height: 55%;
+        height: fit-content;
         padding: 8px;
-        background-color: var(--background-grey);
-        transition: all 0.5s;
+        background-color: var(--background-light-grey);
+        transition: all 0.3s;
 
         > .titleCont {
             > span {
-                font-size: 1.6em;
+                font-size: 1.5rem;
             }
 
             .years {
                 margin-top: 8px;
                 margin-bottom: 8px;
-                font-size: 0.9em;
-                padding: 4px 8px 4px 8px;
+                font-size: 1rem;
             }
         }
     }
@@ -297,11 +370,11 @@ h3 {
 .closeModal {
     cursor: pointer;
     position: absolute;
-    top: 8px;
-    left: 8px;
+    top: 10px;
+    right: 10px;
     font-family: var(--roboto);
     font-weight: 600;
-    font-size: 22px;
+    font-size: 1.13rem;
     color: white;
     height: 40px;
     width: 40px;
@@ -311,7 +384,7 @@ h3 {
     background-color: var(--button-background);
     opacity: 0%;
     text-align: center;
-    animation: appear 0.1s 1 0.5s forwards;
+    animation: appear 0.1s 1 0.3s forwards;
 }
 
 .closeModal:hover {
@@ -320,10 +393,42 @@ h3 {
 
 @keyframes fade-in {
     0% {height: 0%; width: 0%;}
-    100% {height: 100%; width: 95%;}
+    100% {height: 95%; width: 95%;}
 }
 
 @keyframes appear {
     0% {opacity: 0%;}
     100% {opacity: 100%;}
+}
+
+/* Resizing Styling */
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 0.65rem;
+    }
+}
+        
+@media only screen and (min-width: 600px) {
+    html {
+        font-size: 0.75rem;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    html {
+        font-size: 0.85rem;
+    }
+}
+
+    
+@media only screen and (min-width: 1280px) {
+    html {
+        font-size: 1.15rem;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    html {
+        font-size: 1.25rem;
+    }
 }

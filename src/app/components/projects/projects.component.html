@@ -1,1 +1,58 @@
-<p>projects works!</p>
+<div class="projectCont">
+    <h3 id="projects">Projects</h3>
+    <div class="carouselCont">
+        <button class="leftArrowButton arrowButton" (click)="shiftLeft()" id="projectsLeftArrow">
+            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="200 -780 600 600" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
+                <path d="M561-216 296-481l265-265 67 67-198 198 198 198-67 67Z"/>
+            </svg>
+        </button>
+        <div class="cardCarouselCont" id="projectsCardCarousel">
+            @for (project of projectList; track project; let index = $index) {
+                <div class="cardCont">
+                    <div class="card" id="{{project.title}}" style="--color: {{project.color}}">
+                        <div class="iconbg" style="--url: url('{{project.picture}}')">
+                            <h4 class="projectTitle">{{project.title}}</h4>
+                        </div>
+                        <div class="cardDetail">
+                            <div class="titleCont">
+                                <h4>{{project.title}}</h4>
+                                <p>{{project.desc}}</p>
+                                <a class="showMore" href="{{project.url}}" target="_blank"><div class="btnIconCont"><img src="{{project.icon}}"/></div></a>
+                            </div>
+                            <div class="titleCont">
+                                <span>Skills Utilized</span>
+                                <div class="skillsCont">
+                                    @for (skill of project.skills; track skill; let index = $index) {
+                                        <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#skills">{{skill.name}}</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="rightArrowButton arrowButton" (click)="shiftRight()" id="projectsRightArrow">
+            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="200 -780 600 600" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="rightArrow arrow">
+                <path d="M506-481 308-679l67-67 265 265-265 265-67-67 198-198Z"/>
+            </svg>
+        </button>
+    </div>
+</div>
+@if (showModal) {
+    <div class="modal" id="modal" role="dialog">
+        <div class="modalCard">
+            <div class="modalIconbg">
+                <div class="icon" style="--url: url('{{projectPicture}}')">
+                    <button class="closeModal" (click)="closeModal()">X</button>
+                </div>
+            </div>
+            <div class="cardDetail">
+                <div class="titleCont">
+                    <span>{{projectTitle}}</span>
+                    <p>{{projectDesc}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

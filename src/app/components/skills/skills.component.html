@@ -1,16 +1,16 @@
 <div class="skillCont">
-    <h3>Skills</h3>
+    <h3 id="skills">Skills</h3>
     <div class="carouselCont">
-        <button class="leftArrowButton arrowButton" (click)="shiftLeft()">
+        <button class="leftArrowButton arrowButton" (click)="shiftLeft()" id="skillsLeftArrow">
             <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="200 -780 600 600" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
                 <path d="M561-216 296-481l265-265 67 67-198 198 198 198-67 67Z"/>
             </svg>
         </button>
-        <div class="cardCarouselCont">
+        <div class="cardCarouselCont" id="skillsCardCarousel">
             @for (skill of skillList; track skill; let index = $index) {
                 @if (index == 0 || (index + 1) % cardNum == 1) {
                     <div class="cardCont">
-                        <div class="card" style="--color: {{skill.color}}; transform-origin: left;">
+                        <div class="card" style="--color: {{skill.color}}; transform-origin: left;" id="{{skill.title}}">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
                                 <div class="titleCont">
@@ -29,7 +29,7 @@
                     </div>
                 } @else if ((index + 1) % cardNum == 0 ) {
                     <div class="cardCont">
-                        <div class="card" style="--color: {{skill.color}}; transform-origin: right;">
+                        <div class="card" style="--color: {{skill.color}}; transform-origin: right;" id="{{skill.title}}">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
                                 <div class="titleCont">
@@ -48,7 +48,7 @@
                     </div>
                 } @else {
                     <div class="cardCont">
-                        <div class="card" style="--color: {{skill.color}}">
+                        <div class="card" style="--color: {{skill.color}}" id="{{skill.title}}">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
                                 <div class="titleCont">
@@ -68,7 +68,7 @@
                 }
             }
         </div>
-        <button class="rightArrowButton arrowButton" (click)="shiftRight()">
+        <button class="rightArrowButton arrowButton" (click)="shiftRight()" id="skillsRightArrow">
             <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="200 -780 600 600" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="rightArrow arrow">
                 <path d="M506-481 308-679l67-67 265 265-265 265-67-67 198-198Z"/>
             </svg>
@@ -77,11 +77,11 @@
 </div>
 @if (showModal) {
     <div class="modal" id="modal" role="dialog">
-        <div class="modalCard" style="--color: {{skillColor}}">
-            <div class="iconbg" style="--url: url('{{skillUrl}}'); --size: {{skillSize}}; ">
-                <button class="closeModal" (click)="closeModal()">
-                    X
-                </button>
+        <div class="modalCard">
+            <div class="modalIconbg" style="--color: {{skillColor}}">
+                <div class="icon" style="--url: url('{{skillUrl}}'); --size: {{skillSize}}; --color: {{skillColor}}">
+                    <button class="closeModal" (click)="closeModal()">X</button>
+                </div>
             </div>
             <div class="cardDetail">
                 <div class="titleCont">

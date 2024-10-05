@@ -1,3 +1,104 @@
+/* Skills Container */
+.projectCont {
+    position: relative;
+    margin-top: 6.5vh;
+    height: fit-content;
+    width: 100vw;
+    mix-blend-mode: normal;
+    z-index: 6;
+    box-sizing: border-box;
+}
+
+.cardCarouselCont {
+    margin-left: 0;
+    height: 80vh;
+}
+
+.cardCont {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+}
+
+.card {
+    width: 90%;
+    margin: auto;
+    z-index: 20;
+    border: 2px solid white;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color);
+}
+
+.iconbg {
+    background-size: contain;
+}
+
+.card:hover {
+    transform: unset;
+
+    .projectTitle {
+        opacity: 0;
+    }
+
+    .iconbg {
+        height: 55%;
+    }
+
+    .cardDetail {
+        height: 45%;
+    }
+}
+
+.projectTitle {
+    position: absolute;
+    font-size: 2.5rem;
+    bottom: 16px;
+    left: 16px;
+    opacity: 100%;
+    transition: all 0.3s;
+    transition-delay: 0.3s;
+}
+
+.cardDetail {
+    display: block;
+    color: white;
+    width: calc(100% - 8px);
+    height: 35%;
+    padding: 8px;
+    transition: all 0.3s;
+    transition-delay: 0.3s;
+}
+
+/* Shared arrow button CSS */
+.arrowButton {
+    height: 80vh;
+}
+
+.showMore {
+    right: 16px;
+    bottom: 16px;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-content: center;
+    opacity: 0%;
+    border-radius: 50%;
+    transition: opacity 0.2s 0.2s !important;
+}
+
+.btnIconCont > img {
+    height: 100%;
+    width: 100%;
+}
+
+.btnIconCont {
+    height: auto;
+    width: 80%;
+    margin: auto;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
 /* Resizing Styling */
 @media only screen and (max-width: 600px) {
 

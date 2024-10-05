@@ -20,24 +20,26 @@ header {
     align-items: center;
     background: var(--side-gradient);
     z-index: 8;
-    pointer-events: none;
+    box-sizing: unset;
 }
 
 h1 {
     width: 100%;
-    font-size: 5em;
+    font-size: 5rem;
     text-align: center;
     padding-left: 20%;
     margin: 0;
     color: white;
     font-family: var(--julius);
     text-shadow: var(--shadow) 0px 0px 15px;
+    box-sizing: unset;
 }
 
 h2 {
     text-align: center;
     padding-left: 20%;
-    font-size: 2em;
+    color: #ccc;
+    font-size: 2rem;
     font-family: var(--roboto);
     width: 100%;
     margin: 0;
@@ -143,9 +145,8 @@ h2 {
         --radius: 6rem;
         top: 15vh;
         left: 33vw;
-        background-image: url('../../../assets/images/jiraLogo.png');
-        background-size: 120%;
-        background-position: 70% 70%;
+        background-image: url('../../../assets/images/c\ logo.png');
+        background-size: 90%;
     }
 }
 
@@ -189,7 +190,7 @@ h2 {
         --radius: 5rem;
         bottom: 27vh;
         left: 35vw;
-        background-image: url('../../../assets/images/aws\ logo.png');
+        background-image: url('../../../assets/images/asp.net.logo.png');
         background-size: 90%;
     }
 }
@@ -210,7 +211,7 @@ h2 {
 
 /* Resizing Styling */
 @media only screen and (max-width: 600px) {
-
+    
 }
         
 @media only screen and (min-width: 600px) {
@@ -227,5 +228,7 @@ h2 {
 }
 
 @media only screen and (min-width: 1920px) {
-    
+    .title {
+        font-size: 1.15rem;
+    }
 }

@@ -6,13 +6,19 @@
     width: 100vw;
     background: linear-gradient(to top, var(--background-grey) 40%, var(--background-grey-50) 60%, var(--background-grey-30) 70%, #14141400);
     mix-blend-mode: normal;
-    z-index: 9;
+    z-index: 8;
 }
 
 .downArrow {
     margin: auto;
     display: flex;
     align-content: center;
+}
+
+.modalCard {
+    .years {
+        padding: 4px 8px 4px 8px;
+    }
 }
     
 /* Resizing Styling */

@@ -25,6 +25,7 @@ import { SkillsComponent } from './components/skills/skills.component';
     AppRoutingModule
   ],
   providers: [
+    SkillsComponent,
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

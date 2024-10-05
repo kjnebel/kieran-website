@@ -54,11 +54,11 @@
 </div>
 @if (showModal) {
     <div class="modal" id="modal" role="dialog">
-        <div class="modalCard" style="--color: {{expColor}}">
-            <div class="iconbg" style="--url: url('{{expUrl}}'); --size: {{expSize}}; ">
-                <button class="closeModal" (click)="closeModal()">
-                    X
-                </button>
+        <div class="modalCard">
+            <div class="modalIconbg" style="--color: {{expColor}}">
+                <div class="icon" style="--url: url('{{expUrl}}'); --size: {{expSize}}; --color: {{expColor}}">
+                    <button class="closeModal" (click)="closeModal()">X</button>
+                </div>
             </div>
             <div class="cardDetail">
                 <div class="titleCont">
@@ -72,7 +72,7 @@
                     <span>Skills Utilized</span>
                     <div class="skillsCont">
                         @for (skill of expSkillList; track skill; let index = $index) {
-                            <div class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)">{{skill.name}}</div>
+                            <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#skills">{{skill.name}}</a>
                         }
                     </div>
                 </div>

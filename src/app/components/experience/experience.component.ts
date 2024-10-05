@@ -1,11 +1,15 @@
 import { Component, ElementRef } from '@angular/core';
 import { toggleExpModalOpen } from '../../public/publicVariables';
+import { SkillsComponent } from '../skills/skills.component';
 
-let skills: {id: number, name: string, color: string}[] = [
+interface Skill {id: number, name: string, color: string}
+interface Experience {comp: string, dates: string, resp: string, position: string, reasonForLeaving?: string, url: string, size: string, color: string, skills: Skill[]}
+
+let skills: Skill[] = [
 /*0*/  {id: 0, name: 'Angular', color: '#dd0031'}, 
 /*1*/  {id: 1, name: 'React', color: '#61dafb'}, 
 /*2*/  {id: 2, name: 'HTML', color: '#f16529'}, 
-/*3*/  {id: 3, name: 'CSS/SCSS', color: '#2965f1'}, 
+/*3*/  {id: 3, name: 'CSS/SCSS', color: '#6993f5'}, 
 /*4*/  {id: 4, name: 'JavaScript', color: '#f0db4f'}, 
 /*5*/  {id: 5, name: 'TypeScript', color: '#2d79c7'}, 
 /*6*/  {id: 6, name: 'Java', color: '#cb2d2e'}, 
@@ -16,15 +20,15 @@ let skills: {id: number, name: string, color: string}[] = [
 /*11*/  {id: 11, name: 'NodeJs', color: '#68a063'}, 
 /*12*/  {id: 12, name: 'Accessible Website Design', color: '#0383b4'}, 
 /*13*/  {id: 13, name: 'Mobile Application Development', color: '#ffffff'}, 
-/*14*/  {id: 14, name: 'AWS', color: '#202b3c'}, 
+/*14*/  {id: 14, name: 'AWS', color: 'white'}, 
 /*15*/  {id: 15, name: 'GitHub', color: '#ffffff'}, 
 /*16*/  {id: 16, name: 'Communication', color: '#ffffff'}, 
 /*17*/  {id: 17, name: 'UI/UX Design', color: '#69b0ee'}
 ];
-let exp: {comp: string, dates: string, resp: string, position: string, url: string, size: string, color: string, skills: {id: number, name: string, color: string}[]}[] = [
+let exp: Experience[] = [
   {
     comp: 'Union Pacific Railroad',
-    dates: 'March 2021 - March 2024',
+    dates: 'Mar 2021 - Mar 2024',
     resp: 'I worked closely with my team to develop business-wide safety applications using Angular versions 11 – 16. Worked on many business-critical applications. Used project management software like Jira to manage projects. Proficient use of communication tools like Microsoft Teams to meet with team members and business partners. Increased my knowledge of Angular, HTML, CSS, Typescript, Java, and SQL',
     position: 'IT Intern',
     url: '../../../assets/images/union\ pacific\ logo.png',
@@ -49,7 +53,7 @@ let exp: {comp: string, dates: string, resp: string, position: string, url: stri
   },
   {
     comp: 'Code Ninjas',
-    dates: 'March 2019 - August 2020',
+    dates: 'Mar 2019 - Aug 2020',
     resp: 'Taught kids how to code games using JavaScript. Developed curriculum for summer camps which involved different types of coding and robotics. Was the lead instructor at many summer camps.',
     position: 'Code Instructor',
     url: '../../../assets/images/code\ ninjas\ logo.png',
@@ -64,7 +68,7 @@ let exp: {comp: string, dates: string, resp: string, position: string, url: stri
   },
   {
     comp: 'Certified Transmissions',
-    dates: 'May 2020 - August 2020',
+    dates: 'May 2020 - Aug 2020',
     resp: 'Worked 45 hours a week at the transmission factory managing parts. Washed and distributed parts to builders. Painted cases of the transmissions. Worked with large machinery.',
     position: 'Parts Handler',
     url: '../../../assets/images/certified\ transmissions\ logo.jpg',
@@ -77,7 +81,7 @@ let exp: {comp: string, dates: string, resp: string, position: string, url: stri
   },
   {
     comp: 'Amazon',
-    dates: 'October 2023 - December 2023',
+    dates: 'Oct 2023 - Dec 2023',
     resp: 'Sorted and handle packages for delivery. Trained new employees. Worked overnight shift 25 hours per week. Used a Zebra device with finger scanner.',
     position: 'Warehouse Seasonal Temp',
     url: '../../../assets/images/amazon\ logo.png',
@@ -93,6 +97,7 @@ let pages = 1;
 let cardNum: number = 4;
 let arrowSize: number = 50;
 let downArrowSize: number = 20;
+let skill: HTMLElement | null;
 
 @Component({
   selector: 'app-experience',
@@ -115,9 +120,9 @@ export class ExperienceComponent {
   expColor = '';
   expUrl = '';
   expSize = '';
-  expSkillList: {id: number, name: string, color: string}[] = [];
+  expSkillList: Skill[] = [];
 
-  constructor(public element: ElementRef) {}
+  constructor(public element: ElementRef, private skillsComp: SkillsComponent) {}
 
   ngOnInit() {
     let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
@@ -194,7 +199,6 @@ export class ExperienceComponent {
     this.expUrl = exp.url;
     this.expSize = exp.size;
     this.expSkillList = exp.skills;
-    console.log(this.expSkillList);
     if(!this.showModal) {
       this.showModal = toggleExpModalOpen();
     } else {
@@ -209,6 +213,24 @@ export class ExperienceComponent {
   }
 
   goToSkill(skillId: number) {
-    console.log(skillId);
+    this.closeModal();
+    skill = document.getElementById(skills[skillId].name);
+    if (!skill?.classList.contains('focusedCard')) {
+      skill?.classList.toggle('focusedCard', true);
+    }
+    setTimeout(() => {
+      skill?.addEventListener('mouseover', removeClass);
+      window.addEventListener('click', removeClass);
+    }, 10);
+    let page = Math.floor(skillId / cardNum);
+    this.skillsComp.goToPage(page);
   }
+}
+
+const removeClass = function() {
+  if (skill?.classList.contains('focusedCard')) {
+    skill?.classList.toggle('focusedCard', false);
+  }
+  skill?.removeEventListener('mouseover', removeClass);
+  window.removeEventListener('click', removeClass);
 }
