@@ -9,21 +9,21 @@
         <div class="cardCarouselCont" id="projectsCardCarousel">
             @for (project of projectList; track project; let index = $index) {
                 <div class="cardCont">
-                    <div class="card" id="{{project.title}}" style="--color: {{project.color}}">
+                    <div class="card" id="{{project.id}}" style="--color: {{project.color}}">
                         <div class="iconbg" style="--url: url('{{project.picture}}')">
-                            <h4 class="projectTitle">{{project.title}}</h4>
+                            <h4 class="projectTitle" style="--fontColor: {{project.fontColor}}">{{project.title}}</h4>
                         </div>
                         <div class="cardDetail">
                             <div class="titleCont">
                                 <h4>{{project.title}}</h4>
                                 <p>{{project.desc}}</p>
-                                <a class="showMore" href="{{project.url}}" target="_blank"><div class="btnIconCont"><img src="{{project.icon}}"/></div></a>
+                                <a class="showMore" href="{{project.url}}" target="_blank"><div class="btnIconCont"><img src="../../../assets/images/openNew.png"/></div></a>
                             </div>
                             <div class="titleCont">
                                 <span>Skills Utilized</span>
                                 <div class="skillsCont">
                                     @for (skill of project.skills; track skill; let index = $index) {
-                                        <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#skills">{{skill.name}}</a>
+                                        <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#webDev">{{skill.name}}</a>
                                     }
                                 </div>
                             </div>

@@ -182,6 +182,10 @@ export class SkillsComponent {
   skillColor = '';
   skillUrl = '';
   skillSize = '';
+
+  get cardNumber() {
+    return cardNum;
+  }
   
   constructor(public element: ElementRef) {}
   

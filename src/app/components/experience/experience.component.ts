@@ -1,30 +1,10 @@
 import { Component, ElementRef } from '@angular/core';
 import { toggleExpModalOpen } from '../../public/publicVariables';
 import { SkillsComponent } from '../skills/skills.component';
+import { skills, Skill } from '../../public/publicVariables';
 
-interface Skill {id: number, name: string, color: string}
 interface Experience {comp: string, dates: string, resp: string, position: string, reasonForLeaving?: string, url: string, size: string, color: string, skills: Skill[]}
 
-let skills: Skill[] = [
-/*0*/  {id: 0, name: 'Angular', color: '#dd0031'}, 
-/*1*/  {id: 1, name: 'React', color: '#61dafb'}, 
-/*2*/  {id: 2, name: 'HTML', color: '#f16529'}, 
-/*3*/  {id: 3, name: 'CSS/SCSS', color: '#6993f5'}, 
-/*4*/  {id: 4, name: 'JavaScript', color: '#f0db4f'}, 
-/*5*/  {id: 5, name: 'TypeScript', color: '#2d79c7'}, 
-/*6*/  {id: 6, name: 'Java', color: '#cb2d2e'}, 
-/*7*/  {id: 7, name: 'C#', color: '#a27add'}, 
-/*8*/  {id: 8, name: 'Microsoft Office', color: '#d83c03'}, 
-/*9*/  {id: 9, name: 'JIRA', color: '#1772ed'}, 
-/*10*/  {id: 10, name: 'SQL', color: '#db7533'}, 
-/*11*/  {id: 11, name: 'NodeJs', color: '#68a063'}, 
-/*12*/  {id: 12, name: 'Accessible Website Design', color: '#0383b4'}, 
-/*13*/  {id: 13, name: 'Mobile Application Development', color: '#ffffff'}, 
-/*14*/  {id: 14, name: 'AWS', color: 'white'}, 
-/*15*/  {id: 15, name: 'GitHub', color: '#ffffff'}, 
-/*16*/  {id: 16, name: 'Communication', color: '#ffffff'}, 
-/*17*/  {id: 17, name: 'UI/UX Design', color: '#69b0ee'}
-];
 let exp: Experience[] = [
   {
     comp: 'Union Pacific Railroad',
@@ -36,6 +16,7 @@ let exp: Experience[] = [
     color: 'white',
     skills: [
       skills[0],
+      skills[1],
       skills[2],
       skills[3],
       skills[4],
@@ -43,12 +24,13 @@ let exp: Experience[] = [
       skills[6],
       skills[8],
       skills[9],
+      skills[10],
       skills[11],
       skills[12],
       skills[13],
+      skills[14],
       skills[15],
-      skills[16],
-      skills[17]
+      skills[16]
     ]
   },
   {
@@ -62,8 +44,8 @@ let exp: Experience[] = [
     skills: [
       skills[4],
       skills[2],
-      skills[16],
-      skills[17]
+      skills[15],
+      skills[16]
     ]
   },
   {
@@ -75,8 +57,8 @@ let exp: Experience[] = [
     size: '100%',
     color: 'black',
     skills: [
-      skills[16],
-      skills[8]
+      skills[8],
+      skills[15]
     ]
   },
   {
@@ -88,8 +70,8 @@ let exp: Experience[] = [
     size: '90%',
     color: 'white',
     skills: [
-      skills[16],
-      skills[8]
+      skills[8],
+      skills[15]
     ]
   }
 ];
@@ -98,6 +80,7 @@ let cardNum: number = 4;
 let arrowSize: number = 50;
 let downArrowSize: number = 20;
 let skill: HTMLElement | null;
+let active: boolean = false;
 
 @Component({
   selector: 'app-experience',
@@ -214,15 +197,20 @@ export class ExperienceComponent {
 
   goToSkill(skillId: number) {
     this.closeModal();
+    if (active) {
+      removeClass();
+    }
     skill = document.getElementById(skills[skillId].name);
     if (!skill?.classList.contains('focusedCard')) {
       skill?.classList.toggle('focusedCard', true);
+      active = true;
     }
     setTimeout(() => {
       skill?.addEventListener('mouseover', removeClass);
       window.addEventListener('click', removeClass);
     }, 10);
-    let page = Math.floor(skillId / cardNum);
+    console.log(this.skillsComp.cardNumber)
+    let page = Math.ceil((skillId + 1) / this.skillsComp.cardNumber);
     this.skillsComp.goToPage(page);
   }
 }
@@ -233,4 +221,5 @@ const removeClass = function() {
   }
   skill?.removeEventListener('mouseover', removeClass);
   window.removeEventListener('click', removeClass);
+  active = false;
 }
