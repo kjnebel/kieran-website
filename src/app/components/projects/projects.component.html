@@ -1,5 +1,5 @@
-<div class="projectCont">
-    <h3 id="projects">Projects</h3>
+<div class="projectCont" id="projects">
+    <h3>Projects</h3>
     <div class="carouselCont">
         <button class="leftArrowButton arrowButton" (click)="shiftLeft()" id="projectsLeftArrow">
             <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="200 -780 600 600" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
@@ -7,7 +7,7 @@
             </svg>
         </button>
         <div class="cardCarouselCont" id="projectsCardCarousel">
-            @for (project of projectList; track project; let index = $index) {
+            @for (project of projectList; track project;) {
                 <div class="cardCont">
                     <div class="card" id="{{project.id}}" style="--color: {{project.color}}">
                         <div class="iconbg" style="--url: url('{{project.picture}}')">
@@ -20,9 +20,9 @@
                                 <a class="showMore" href="{{project.url}}" target="_blank"><div class="btnIconCont"><img src="../../../assets/images/openNew.png"/></div></a>
                             </div>
                             <div class="titleCont">
-                                <span>Skills Utilized</span>
+                                <h5>Skills Utilized</h5>
                                 <div class="skillsCont">
-                                    @for (skill of project.skills; track skill; let index = $index) {
+                                    @for (skill of project.skills; track skill;) {
                                         <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#webDev">{{skill.name}}</a>
                                     }
                                 </div>
@@ -39,20 +39,3 @@
         </button>
     </div>
 </div>
-@if (showModal) {
-    <div class="modal" id="modal" role="dialog">
-        <div class="modalCard">
-            <div class="modalIconbg">
-                <div class="icon" style="--url: url('{{projectPicture}}')">
-                    <button class="closeModal" (click)="closeModal()">X</button>
-                </div>
-            </div>
-            <div class="cardDetail">
-                <div class="titleCont">
-                    <span>{{projectTitle}}</span>
-                    <p>{{projectDesc}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-}

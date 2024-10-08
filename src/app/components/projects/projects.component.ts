@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { SkillsComponent } from '../skills/skills.component';
-import { skills, Skill } from '../../public/publicVariables';
+import { skills, Skill, tempShifted, tempTotalShift, resetVar } from '../../public/publicVariables';
 
 let projects: {id: string, title: string, desc: string, url: string, picture: string, skills: Skill[], color: string, fontColor: string}[] = [
   {
@@ -15,6 +15,8 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
       skills[3],
       skills[4],
       skills[5],
+      skills[11],
+      skills[12],
       skills[14],
       skills[16]
     ],
@@ -52,9 +54,20 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
     title: 'Fullstack Chart App',
     desc: 'This application is a basic fullstack project designed to take data from the back end and display it as charts in the front end. It was developed using a Django back end, Next.js Frontend, Docker to package the back end, and ApexCharts.js for the charts in the frontend. For the Next.js I used React with Typescript. The Django back end was implemented using Python.',
     url: 'https://github.com/kjnebel/ChartApp',
-    picture: '',
-    skills: [],
-    color: '',
+    picture: '../../../assets/images/chartapp.png',
+    skills: [
+      skills[1],
+      skills[2],
+      skills[3],
+      skills[4],
+      skills[5],
+      skills[11],
+      skills[14],
+      skills[19],
+      skills[20],
+      skills[21]
+    ],
+    color: '#2a3133',
     fontColor: 'white'
   },
   {
@@ -66,7 +79,6 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
     skills: [
       skills[2],
       skills[3],
-      skills[4],
       skills[6],
       skills[10],
       skills[13],
@@ -80,9 +92,17 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
     title: 'CodeAcademy Projects',
     desc: 'I completed these projects while working through CodeAcademy\'s Full-stack Engineer Career path.',
     url: 'https://github.com/kjnebel/CodeAcademyProjects',
-    picture: '',
-    skills: [],
-    color: '',
+    picture: '../../../assets/images/codecademy.png',
+    skills: [
+      skills[2],
+      skills[3],
+      skills[4],
+      skills[9],
+      skills[12],
+      skills[14],
+      skills[16]
+    ],
+    color: '#000000',
     fontColor: 'white'
   },
   {
@@ -94,7 +114,6 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
     skills: [
       skills[2],
       skills[3],
-      skills[4],
       skills[6],
       skills[10],
       skills[13],
@@ -178,6 +197,14 @@ export class ProjectsComponent {
 
   shiftRight() {
     let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
+
+    if (tempShifted != 0) {
+      shifted = tempShifted;
+      if (tempTotalShift != 0) {
+        totalShift = tempTotalShift;
+      }
+      resetVar();
+    }
     
     if (shifted < pages - 2) {
       shifted++;
@@ -199,6 +226,14 @@ export class ProjectsComponent {
 
   shiftLeft() {
     let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
+
+    if (tempShifted != 0) {
+      shifted = tempShifted;
+      if (tempTotalShift != 0) {
+        totalShift = tempTotalShift;
+      }
+      resetVar();
+    }
     
     if (shifted > 1) {
       shifted--;
@@ -215,28 +250,6 @@ export class ProjectsComponent {
 
     if (shifted < pages - 1) {
       this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: block;');
-    }
-  }
-
-  goToPage(page: number) {
-    let cardCarousel = document.querySelector('#projectsCardCarousel');
-    shifted = page - 1;
-    totalShift = shiftRate * shifted;
-    if (cardCarousel) {
-      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-
-      if (shifted < pages - 1) {
-        document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: block;');
-      }
-      if (shifted === 0) {
-        document.querySelector('#projectsLeftArrow')?.setAttribute('style', 'display: none;');
-      }
-      if (shifted === pages - 1) {
-        document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: none;');
-      }
-      if (shifted > 0) {
-        document.querySelector('#projectsLeftArrow')?.setAttribute('style', 'display: block;');
-      }
     }
   }
 

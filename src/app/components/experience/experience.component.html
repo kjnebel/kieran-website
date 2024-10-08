@@ -1,5 +1,5 @@
 <div class="expCont">
-    <h3>Experience</h3>
+    <h3 id="experience">Experience</h3>
     <div class="carouselCont">
         <button class="leftArrowButton arrowButton" (click)="shiftLeft()">
             <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="0 -960 960 960" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
@@ -11,7 +11,7 @@
                 @if ((index + 1) % cardNum == 0 ) {
                     <div class="cardCont">
                         <div class="number">{{index + 1}}</div>
-                        <div class="card" style="--color: {{exp.color}}; transform-origin: right;">
+                        <div class="card" style="--color: {{exp.color}}; transform-origin: right;" id="{{exp.comp}}">
                             <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
                             <div class="cardDetail">
                                 <span>{{exp.position}}</span>
@@ -27,7 +27,7 @@
                 } @else {
                     <div class="cardCont">
                         <div class="number">{{index + 1}}</div>
-                        <div class="card" style="--color: {{exp.color}}">
+                        <div class="card" style="--color: {{exp.color}}" id="{{exp.comp}}">
                             <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
                             <div class="cardDetail">
                                 <span>{{exp.position}}</span>
@@ -62,16 +62,16 @@
             </div>
             <div class="cardDetail">
                 <div class="titleCont">
-                    <span>{{expPos}}</span>
+                    <h4>{{expPos}}</h4>
                     <span>
                         <div class="years" style="--color: {{expColor}}">{{expDates}}</div>
                     </span>
                     <p>{{expResp}}</p>
                 </div>
                 <div class="titleCont">
-                    <span>Skills Utilized</span>
+                    <h5>Skills Utilized</h5>
                     <div class="skillsCont">
-                        @for (skill of expSkillList; track skill; let index = $index) {
+                        @for (skill of expSkillList; track skill;) {
                             <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#webDev">{{skill.name}}</a>
                         }
                     </div>

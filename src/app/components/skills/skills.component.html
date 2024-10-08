@@ -2,7 +2,7 @@
     <h3 id="skills">Skills</h3>
     <div class="carouselCont">
         <button class="leftArrowButton arrowButton" (click)="shiftLeft()" id="skillsLeftArrow">
-            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="200 -780 600 600" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="200 -780 600 600" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow" id="left">
                 <path d="M561-216 296-481l265-265 67 67-198 198 198 198-67 67Z"/>
             </svg>
         </button>
@@ -85,7 +85,7 @@
             </div>
             <div class="cardDetail">
                 <div class="titleCont">
-                    <span>{{skillTitle}}</span>
+                    <h4>{{skillTitle}}</h4>
                     <span>
                         @if (skillYears) {
                             <div class="years" style="--color: {{skillColor}}">{{skillYears}} years</div>
@@ -93,6 +93,26 @@
                     </span>
                     <p>{{skillDesc}}</p>
                 </div>
+                @if (skillJobList.length !== 0) {
+                    <div class="titleCont">
+                        <h5>Experience</h5>
+                        <div class="jobsCont">
+                            @for (job of skillJobList; track job;) {
+                                <a class="jobCapsule" style="--color: {{job.color}}" (click)="goToJob(job.id)" href="#left">{{job.comp}}</a>
+                            }
+                        </div>
+                    </div>
+                }
+                @if (skillProjectList.length !== 0) {
+                    <div class="titleCont">
+                        <h5>Projects</h5>
+                        <div class="projectsCont">
+                            @for (project of skillProjectList; track project;) {
+                                <a class="projectCapsule" style="--picture: {{project.image}}" (click)="goToProject(project.id)" href="#projects">{{project.title}}</a>
+                            }
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>

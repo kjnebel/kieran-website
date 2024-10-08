@@ -26,6 +26,8 @@ import { SkillsComponent } from './components/skills/skills.component';
   ],
   providers: [
     SkillsComponent,
+    ExperienceComponent,
+    ProjectsComponent,
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,9 @@
 let experienceModalOpen = false;
 let skillsModalOpen = false;
 
+export let tempShifted = 0;
+export let tempTotalShift = 0;
+
 export function toggleExpModalOpen() {
     if (experienceModalOpen) {
         experienceModalOpen = false;
@@ -23,6 +26,8 @@ export function toggleSkillModalOpen() {
 
 
 export interface Skill {id: number, name: string, color: string};
+export interface Experience {id: number, comp: string, color: string};
+export interface Project {id: number, title: string, image: string, element: string};
 
 export var skills: Skill[] = [
   /*0*/  {id: 0, name: 'Angular', color: '#dd0031'}, 
@@ -43,5 +48,49 @@ export var skills: Skill[] = [
   /*15*/  {id: 15, name: 'Communication', color: '#ffffff'}, 
   /*16*/  {id: 16, name: 'UI/UX Design', color: '#69b0ee'},
   /*17*/  {id: 17, name: 'ASP.Net', color: '#06a2e6'},
-  /*18*/  {id: 18, name: 'Microsoft Azure', color: '#3bc8f3'}
+  /*18*/  {id: 18, name: 'Microsoft Azure', color: '#3bc8f3'},
+  /*19*/  {id: 19, name: 'Django', color: 'white'},
+  /*20*/  {id: 20, name: 'Docker', color: '#0092e6'},
+  /*21*/  {id: 21, name: 'Python', color: '#ffe15c'},
 ];
+
+export var jobs: Experience[] = [
+    /*0*/ {id: 0, comp:'Union Pacific Railroad', color: '#ef3c40'},
+    /*1*/ {id: 1, comp:'Code Ninjas', color: '#3090c0'},
+    /*2*/ {id: 2, comp:'Certified Transmissions', color: '#fef104'},
+    /*3*/ {id: 3, comp:'Amazon', color: '#ff9b05'}
+]
+
+export var projects: Project[] = [
+    /*0*/ {id: 0, title:'AI Chatbot App', image: '../../../assets/images/AI\ Chatbot.png', element: 'aiChatbot'},
+    /*1*/ {id: 1, title:'UP Projects', image: '../../../assets/images/upProjects.png', element: 'upProjects'},
+    /*2*/ {id: 2, title:'Fullstack Chart App', image: '../../../assets/images/chartapp.png', element: 'chartApp'},
+    /*3*/ {id: 3, title:'Toy Store Website', image: '../../../assets/images/ToyStore.png', element: 'toyStore'},
+    /*4*/ {id: 4, title:'CodeAcademy Projects', image: '../../../assets/images/codecademy.png', element: 'codeAcademy'},
+    /*5*/ {id: 5, title:'Restaurant Reservation App', image: '../../../assets/images/restaurant.png', element: 'restaurant'}
+]
+
+export function goToProjPage(page: number) {
+    let cardCarousel = document.querySelector('#projectsCardCarousel');
+    tempShifted = page - 1;
+    tempTotalShift = 100 * tempShifted;
+    if (cardCarousel) {
+      cardCarousel.setAttribute('style', `transform: translateX(-${tempTotalShift}vw); width: ${window.innerWidth * 6}px;`);
+
+      if (tempShifted < 5) {
+        document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: block;');
+      } else if (tempShifted === 5) {
+        document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: none;');
+      }
+      if (tempShifted === 0) {
+        document.querySelector('#projectsLeftArrow')?.setAttribute('style', 'display: none;');
+      } else if (tempShifted > 0) {
+        document.querySelector('#projectsLeftArrow')?.setAttribute('style', 'display: block;');
+      }
+    }
+}
+
+export function resetVar() {
+    tempShifted = 0;
+    tempTotalShift = 0;
+}

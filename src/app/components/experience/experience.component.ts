@@ -27,7 +27,6 @@ let exp: Experience[] = [
       skills[10],
       skills[11],
       skills[12],
-      skills[13],
       skills[14],
       skills[15],
       skills[16]
@@ -42,8 +41,8 @@ let exp: Experience[] = [
     size: '90%',
     color: 'white',
     skills: [
-      skills[4],
       skills[2],
+      skills[4],
       skills[15],
       skills[16]
     ]
@@ -81,6 +80,9 @@ let arrowSize: number = 50;
 let downArrowSize: number = 20;
 let skill: HTMLElement | null;
 let active: boolean = false;
+let shiftRate: number = 90;
+let totalShift: number = 0;
+let shifted: number = 0;
 
 @Component({
   selector: 'app-experience',
@@ -104,6 +106,10 @@ export class ExperienceComponent {
   expUrl = '';
   expSize = '';
   expSkillList: Skill[] = [];
+
+  get cardNumber() {
+    return cardNum;
+  }
 
   constructor(public element: ElementRef, private skillsComp: SkillsComponent) {}
 
@@ -191,6 +197,28 @@ export class ExperienceComponent {
 
   }
 
+  goToPage(page: number) {
+    let cardCarousel = document.querySelector('#skillsCardCarousel');
+    shifted = page - 1;
+    totalShift = shiftRate * shifted;
+    // if (cardCarousel) {
+    //   cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
+
+    //   if (shifted < pages - 1) {
+    //     document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: block;');
+    //   }
+    //   if (shifted === 0) {
+    //     document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 0;');
+    //   }
+    //   if (shifted === pages - 1) {
+    //     document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: none;');
+    //   }
+    //   if (shifted > 0) {
+    //     document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 1;');
+    //   }
+    // }
+  }
+
   closeModal() {
     this.showModal = toggleExpModalOpen();
   }
@@ -209,7 +237,6 @@ export class ExperienceComponent {
       skill?.addEventListener('mouseover', removeClass);
       window.addEventListener('click', removeClass);
     }, 10);
-    console.log(this.skillsComp.cardNumber)
     let page = Math.ceil((skillId + 1) / this.skillsComp.cardNumber);
     this.skillsComp.goToPage(page);
   }

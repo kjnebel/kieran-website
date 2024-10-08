@@ -20,6 +20,11 @@
         padding: 4px 8px 4px 8px;
     }
 }
+
+.leftArrowButton {
+    display: block;
+    opacity: 0;
+}
     
 /* Resizing Styling */
 @media only screen and (max-width: 600px) {

@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
-
-interface Skill {title: string, years?: string, description: string, url: string, size: string, color: string};
+import { jobs, projects, Experience, Project, goToProjPage } from '../../public/publicVariables';
+interface Skill {title: string, years?: string, description: string, url: string, size: string, color: string, jobs: Experience[], projects: Project[]};
 
 let skills: Skill[] = [
   {
@@ -9,7 +9,14 @@ let skills: Skill[] = [
     description: 'I used Angular to develop the frontend of business applications during my internship at Union Pacific Railroad. I also have experience with AngularJs and upgrading AngularJs applications to newer versions of Angular. This website was created with Angular 17.',
     url: '../../../assets/images/angular\ logo.png',
     size: '100%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+    ]
   },
   {
     title: 'React',
@@ -17,7 +24,14 @@ let skills: Skill[] = [
     description: 'I learned React in my last year of college and used it to develop the frontend for my capstone project. Since I learned React after knowing Angular I was able to become proficient in React much faster.',
     url: '../../../assets/images/react\ logo.png',
     size: '95%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[1],
+      projects[2],
+    ]
   },
   { 
     title: 'HTML',
@@ -25,7 +39,19 @@ let skills: Skill[] = [
     description: 'I am an expert in HTML as it is one of the languages I have used the most. I used HTML at my internship at Union Pacific and throughout my college studies.',
     url: '../../../assets/images/html\ logo.png',
     size: '90%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0],
+      jobs[1]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[2],
+      projects[3],
+      projects[4],
+      projects[5],
+    ]
   },
   { 
     title: 'CSS/SCSS',
@@ -33,7 +59,18 @@ let skills: Skill[] = [
     description: 'I am an expert in CSS and placed in the top 3% of all users who have taken the LinkedIn CSS skill assessment. I am confident I can complete any design needed using CSS and JavaScript / TypeScript.',
     url: '../../../assets/images/css\ logo.png',
     size: '145%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[2],
+      projects[3],
+      projects[4],
+      projects[5],
+    ]
   },
   { 
     title: 'JavaScript',
@@ -41,7 +78,17 @@ let skills: Skill[] = [
     description: 'JavaScript was the first programming language I ever learned. I started programming at my job at Code Ninjas where I taught kids how to program games using JavaScript.',
     url: '../../../assets/images/js\ logo.png',
     size: '100%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0],
+      jobs[1]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[2],
+      projects[4],
+    ]
   },
   { 
     title: 'TypeScript',
@@ -49,7 +96,15 @@ let skills: Skill[] = [
     description: 'More recently I have switched from JavaScript to TypeScript while programming with Angular. My JavaScript skills have transferred over to TypeScript and I now prefer using TypeScript over JavaScript.',
     url: '../../../assets/images/ts\ logo.png',
     size: '105%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[2],
+    ]
   },
   { 
     title: 'Java',
@@ -57,7 +112,15 @@ let skills: Skill[] = [
     description: 'Java was the language all my Computer Science major classes were taught in so I have a lot of experience applying it to different projects and concepts. I also worked on a Java backend in my first year at my internship at Union Pacific Railroad.',
     url: '../../../assets/images/java\ logo.png',
     size: '100%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[1],
+      projects[3],
+      projects[5],
+    ]
   },
   { 
     title: 'C#',
@@ -65,7 +128,9 @@ let skills: Skill[] = [
     description: 'I have taken a few game development classes while working towards my Bachelor\'s and I learned C# in them. I also used C# for the backend of my capstone project.',
     url: '../../../assets/images/c\ logo.png',
     size: '80%',
-    color: 'linear-gradient(127deg, rgba(240,230,255,1) 0%, rgba(182,147,233,1) 100%)'
+    color: 'linear-gradient(127deg, rgba(240,230,255,1) 0%, rgba(182,147,233,1) 100%)',
+    jobs: [],
+    projects: []
   },
   { 
     title: 'Microsoft Office',
@@ -73,7 +138,15 @@ let skills: Skill[] = [
     description: 'I have been using Microsoft Office products consistently since middle school so I am very familiar with all of their products.',
     url: '../../../assets/images/microsoft\ office\ logo.png',
     size: '160%',
-    color: 'linear-gradient(127deg, rgba(255,230,231,1) 0%, rgba(255,219,176,1) 100%)'
+    color: 'linear-gradient(127deg, rgba(255,230,231,1) 0%, rgba(255,219,176,1) 100%)',
+    jobs: [
+      jobs[0],
+      jobs[2],
+      jobs[3]
+    ],
+    projects: [
+      projects[1],
+    ]
   },
   { 
     title: 'JIRA',
@@ -81,7 +154,14 @@ let skills: Skill[] = [
     description: 'I used JIRA at my internship at Union Pacific Railroad. I also used other forms of agile development software for different group projects throughout college.',
     url: '../../../assets/images/jiraLogo.png',
     size: '100%',
-    color: 'linear-gradient(127deg, rgba(252,236,255,1) 0%, rgba(227,235,255,1) 100%)'
+    color: 'linear-gradient(127deg, rgba(252,236,255,1) 0%, rgba(227,235,255,1) 100%)',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[1],
+      projects[4],
+    ]
   },
   { 
     title: 'SQL',
@@ -89,7 +169,15 @@ let skills: Skill[] = [
     description: 'I used SQL during college for a few different projects. I became very comfortable with it after taking a Database Management class in my last semester.',
     url: '../../../assets/images/sql.png',
     size: '100%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[1],
+      projects[3],
+      projects[5],
+    ]
   },
   { 
     title: 'NodeJs',
@@ -97,7 +185,15 @@ let skills: Skill[] = [
     description: 'I used NodeJs during my internship at Union Pacific Railroad.',
     url: '../../../assets/images/node\ logo.png',
     size: '90%',
-    color: 'linear-gradient(127deg, rgba(244,255,239,1) 0%, rgba(209,255,188,1) 100%)'
+    color: 'linear-gradient(127deg, rgba(244,255,239,1) 0%, rgba(209,255,188,1) 100%)',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[2],
+    ]
   },
   { 
     title: 'Accessible Website Design',
@@ -105,7 +201,15 @@ let skills: Skill[] = [
     description: 'I learned proper website accessibility standards while at my internship at Union Pacific. I was in charge of implementing accessibility features to a few applications during my time there.',
     url: '../../../assets/images/web\ access\ icon.png',
     size: '100%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[4],
+    ]
   },
   { 
     title: 'AWS',
@@ -113,7 +217,12 @@ let skills: Skill[] = [
     description: 'I have experience using AWS servers for hosting different applications in a Software Engineering class I took during college.',
     url: '../../../assets/images/aws\ logo.png',
     size: '90%',
-    color: 'white'
+    color: 'white',
+    jobs: [],
+    projects: [
+      projects[3],
+      projects[5],
+    ]
   },
   { 
     title: 'GitHub',
@@ -121,14 +230,35 @@ let skills: Skill[] = [
     description: 'I have used GitHub for almost every project I have ever worked on. I used it during my entire internship and throughout college.',
     url: '../../../assets/images/github\ logo.png',
     size: '95%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[2],
+      projects[3],
+      projects[4],
+      projects[5],
+    ]
   },
   { 
     title: 'Communication',
     description: 'I have good verbal and written communication skills. I also thrive in team environments and work well with others.',
     url: '../../../assets/images/communication.png',
     size: '130%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0],
+      jobs[1],
+      jobs[2],
+      jobs[3]
+    ],
+    projects: [
+      projects[1],
+      projects[5]
+    ]
   },
   { 
     title: 'UI/UX Design',
@@ -136,7 +266,17 @@ let skills: Skill[] = [
     description: 'I gained UI/UX design skills during my internship at Union Pacific where I was able to work with a design team to implement good UX practices for the applications.',
     url: '../../../assets/images/UIdesign.png',
     size: '85%',
-    color: 'white'
+    color: 'white',
+    jobs: [
+      jobs[0],
+      jobs[1]
+    ],
+    projects: [
+      projects[0],
+      projects[1],
+      projects[4],
+      projects[5]
+    ]
   },
   { 
     title: 'ASP.Net',
@@ -144,7 +284,9 @@ let skills: Skill[] = [
     description: 'I gained experience with ASP.Net at the University of Nebraska at Omaha while completing my B.S. in Computer Science.',
     url: '../../../assets/images/asp.net.logo.png',
     size: '110%',
-    color: 'white'
+    color: 'white',
+    jobs: [],
+    projects: []
   },
   { 
     title: 'Microsoft Azure',
@@ -152,8 +294,47 @@ let skills: Skill[] = [
     description: 'I am familiar with microsoft azure and have developed a few projects using it.',
     url: '../../../assets/images/azure.png',
     size: '90%',
-    color: 'white'
+    color: 'white',
+    jobs: [],
+    projects: []
+  },
+  { 
+    title: 'Django',
+    years: '1+',
+    description: 'I am familiar with Django and have developed a few projects using it.',
+    url: '../../../assets/images/djangoLogo.png',
+    size: '95%',
+    color: 'white',
+    jobs: [],
+    projects: [
+      projects[2],
+    ]
+  },
+  { 
+    title: 'Docker',
+    years: '1+',
+    description: 'I am familiar with Docker and have developed a few projects using it.',
+    url: '../../../assets/images/dockerLogo.png',
+    size: '90%',
+    color: 'white',
+    jobs: [],
+    projects: [
+      projects[2],
+    ]
+  },
+  { 
+    title: 'Python',
+    years: '2+',
+    description: 'I am familiar with Python and have developed a few projects using it throughout my schoolwork and for personal projects.',
+    url: '../../../assets/images/python.png',
+    size: '90%',
+    color: 'white',
+    jobs: [],
+    projects: [
+      projects[2],
+    ]
   }
+  
 ];
 let cardNum: number = 5;
 let pages: any = Math.ceil(skills.length / cardNum);
@@ -162,6 +343,10 @@ let downArrowSize: number = 20;
 let shiftRate: number = 90;
 let totalShift: number = 0;
 let shifted: number = 0;
+let job: HTMLElement | null;
+let project: HTMLElement | null;
+let jobActive: boolean = false;
+let projectActive: boolean = false;
 
 @Component({
   selector: 'app-skills',
@@ -182,6 +367,8 @@ export class SkillsComponent {
   skillColor = '';
   skillUrl = '';
   skillSize = '';
+  skillJobList: Experience[] = [];
+  skillProjectList: Project[] = [];
 
   get cardNumber() {
     return cardNum;
@@ -257,7 +444,7 @@ export class SkillsComponent {
     }
 
     if (shifted > 0) {
-      this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: block;');
+      this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'opacity: 1;');
     }
   }
 
@@ -273,7 +460,7 @@ export class SkillsComponent {
       totalShift = shiftRate * shifted;
       cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
       setTimeout(() => {
-        this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: none;');
+        this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'opacity: 0;');
       }, 1000);
     }
 
@@ -291,15 +478,13 @@ export class SkillsComponent {
 
       if (shifted < pages - 1) {
         document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: block;');
-      }
-      if (shifted === 0) {
-        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'display: none;');
-      }
-      if (shifted === pages - 1) {
+      } else {
         document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: none;');
       }
-      if (shifted > 0) {
-        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'display: block;');
+      if (shifted === 0) {
+        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 0;');
+      } else {
+        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 1;');
       }
     }
   }
@@ -312,10 +497,54 @@ export class SkillsComponent {
     this.skillColor = skill.color;
     this.skillUrl = skill.url;
     this.skillSize = skill.size;
+    this.skillJobList = skill.jobs;
+    this.skillProjectList = skill.projects;
     this.showModal = true;
   }
 
   closeModal() {
     this.showModal = false;
   }
+
+  goToJob(jobId: number) {
+    this.closeModal();
+    if (jobActive) {
+      removeJobClass();
+    }
+    job = document.getElementById(jobs[jobId].comp);
+    if (!job?.classList.contains('focusedCard')) {
+      job?.classList.toggle('focusedCard', true);
+      jobActive = true;
+    }
+    setTimeout(() => {
+      job?.addEventListener('mouseover', removeJobClass);
+      window.addEventListener('click', removeJobClass);
+    }, 10);
+    // let page = Math.ceil((jobId + 1) / this.expComp.cardNumber);
+    // this.expComp.goToPage(page);
+  }
+
+  goToProject(projId: number) {
+    this.closeModal();
+    let page = projId + 1;
+    goToProjPage(page);
+  }
+}
+
+const removeJobClass = function() {
+  if (job?.classList.contains('focusedCard')) {
+    job?.classList.toggle('focusedCard', false);
+  }
+  job?.removeEventListener('mouseover', removeJobClass);
+  window.removeEventListener('click', removeJobClass);
+  jobActive = false;
+}
+
+const removeProjectClass = function() {
+  if (project?.classList.contains('focusedCard')) {
+    project?.classList.toggle('focusedCard', false);
+  }
+  project?.removeEventListener('mouseover', removeProjectClass);
+  window.removeEventListener('click', removeProjectClass);
+  projectActive = false;
 }
