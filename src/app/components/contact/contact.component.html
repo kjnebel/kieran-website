@@ -1,1 +1,20 @@
-<p>contact works!</p>
+<div class="contactCont">
+    <h3 id="contact">Contact</h3>
+    <div class="emailLink">
+        <div class="copyCont" (click)="copyEmail()">
+            <img src="../../../assets/images/copyIcon.png" class="copy" id="copyIcon"/>
+            <button>kierannebel&#64;gmail.com</button>
+        </div>
+    </div>
+    <div class="formCont">
+        <form [formGroup]="emailForm" (submit)="sendEmail()">
+            <label for="email">Email:</label>
+            <input formControlName="email" id="email" type="email" required email>
+            <label for="message">Message:</label>
+            <textarea formControlName="message" id="message" rows="5" required></textarea>
+            <div class="buttonCont">
+                <button type="submit" class="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</div>

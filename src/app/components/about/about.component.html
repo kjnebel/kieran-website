@@ -1,1 +1,78 @@
-<p>about works!</p>
+<div class="aboutCont">
+    <h3 id="About">Education</h3>
+    <div class="carouselCont">
+        <div class="cardCarouselCont" id="aboutCardCarousel">
+            @for (about of aboutList; track about; let index = $index) {
+                @if (index == 0 || (index + 1) % cardNum == 1) {
+                    <div class="cardCont">
+                        <div class="card" style="--color: {{about.color}}; transform-origin: left;" id="{{about.title}}">
+                            <div class="iconbg" style="--url: url('{{about.picture}}'); --size: {{about.size}}; "></div>
+                            <div class="cardDetail">
+                                <div class="titleCont">
+                                    <span>{{about.heading}}</span>
+                                    <p>{{about.title}}</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                } @else if ((index + 1) % cardNum == 0 ) {
+                    <div class="cardCont">
+                        <div class="card" style="--color: {{about.color}}; transform-origin: right;" id="{{about.title}}">
+                            <div class="iconbg" style="--url: url('{{about.picture}}'); --size: {{about.size}}; "></div>
+                            <div class="cardDetail">
+                                <div class="titleCont">
+                                    <span>{{about.heading}}</span>
+                                    <p>{{about.title}}</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                } @else {
+                    <div class="cardCont">
+                        <div class="card" style="--color: {{about.color}}" id="{{about.title}}">
+                            <div class="iconbg" style="--url: url('{{about.picture}}'); --size: {{about.size}}; "></div>
+                            <div class="cardDetail">
+                                <div class="titleCont">
+                                    <span>{{about.heading}}</span>
+                                    <p>{{about.title}}</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
+                                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+@if (showModal) {
+    <div class="modal" id="modal" role="dialog">
+        <div class="modalCard">
+            <div class="modalIconbg" style="--color: {{aboutColor}}">
+                <div class="icon" style="--url: url('{{aboutPic}}'); --size: {{aboutSize}}; --color: {{aboutColor}}">
+                    <button class="closeModal" (click)="closeModal()">X</button>
+                </div>
+            </div>
+            <div class="cardDetail">
+                <div class="titleCont">
+                    <h4>{{aboutHeading}}</h4>
+                    <ul>
+                        <li>{{aboutDesc}}</li>
+                        @if (aboutAdd !== '') {
+                            <li>{{aboutAdd}}</li>
+                        }
+                        <li>{{aboutTitle}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

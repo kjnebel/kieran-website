@@ -94,3 +94,6 @@ export function resetVar() {
     tempShifted = 0;
     tempTotalShift = 0;
 }
+
+export var key = 'd4e1022cfcfb1b016bd9c155c7349bfe';
+export var skey = '28e236a9d541dac79f979134bdc05976';
