@@ -8,13 +8,28 @@
     </div>
     <div class="formCont">
         <form [formGroup]="emailForm" (submit)="sendEmail()">
-            <label for="email">Email:</label>
-            <input formControlName="email" id="email" type="email" required email>
-            <label for="message">Message:</label>
-            <textarea formControlName="message" id="message" rows="5" required></textarea>
+            <div class="label">
+                <label for="email">Email:</label>
+                <span class="error">* Required</span>
+            </div>
+            <input formControlName="email" id="email" type="email" required email (change)="emailChange()">
+            @if (show) {
+                <span class="error red">Invalid Email</span>
+            }
+            <div class="label">
+                <label for="message">Message:</label>
+                <span class="error">* Required</span>
+            </div>
+            <textarea formControlName="message" id="message" rows="5" required (change)="messageChange()"></textarea>
             <div class="buttonCont">
                 <button type="submit" class="submit">Send</button>
             </div>
         </form>
+    </div>
+
+    <div class="confirmation">
+        @if (sent) {
+            <div class="confirm"><img src="../../../assets/images/check.png" class="copy"><p>Email Sent!</p></div>
+        }
     </div>
 </div>

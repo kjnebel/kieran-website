@@ -124,6 +124,21 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
     color: '',
     fontColor: 'white'
   },
+  {
+    id: 'codePen',
+    title: 'CodePen Designs',
+    desc: 'I completed some CodePen design challenges and have had some displayed in the official CodePen Collections.',
+    url: 'https://codepen.io/Kieran-Nebel',
+    picture: '../../../assets/images/codePen.png',
+    skills: [
+      skills[2],
+      skills[3],
+      skills[4],
+      skills[16]
+    ],
+    color: '#ddf7e3',
+    fontColor: '#253e24'
+  },
 ];
 let cardNum: number = 1;
 let pages: any = projects.length;

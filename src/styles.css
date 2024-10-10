@@ -401,9 +401,69 @@ h4 {
 }
 
 footer {
+    padding: 24px;
     height: 400px;
     width: 100%;
     background-color: black;
+}
+
+.text {
+    width: 100%;
+    height: 50%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+
+    > p {
+        font-size: 0.75rem;
+    }
+}
+
+.linkCont {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconLinks {
+    display: flex;
+    height: fit-content;
+    justify-content: space-around;
+    align-content: center;
+    width: 50%;
+}
+
+.iconLink, .iconLinkCont {
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#linkedInLink > .iconLink {
+    height: 51px;
+    width: 51px;
+}
+
+#codePenLink {
+    background-color: white;
+
+    > .iconLink {
+        padding: 1px;
+    }
+}
+
+#gitHubLink {
+    height: 51px;
+    width: 51px;
+    background-color: white;
+
+    > .iconLink {
+        width: 51px;
+    }
 }
 
 @keyframes fade-in {

@@ -67,7 +67,8 @@ export var projects: Project[] = [
     /*2*/ {id: 2, title:'Fullstack Chart App', image: '../../../assets/images/chartapp.png', element: 'chartApp'},
     /*3*/ {id: 3, title:'Toy Store Website', image: '../../../assets/images/ToyStore.png', element: 'toyStore'},
     /*4*/ {id: 4, title:'CodeAcademy Projects', image: '../../../assets/images/codecademy.png', element: 'codeAcademy'},
-    /*5*/ {id: 5, title:'Restaurant Reservation App', image: '../../../assets/images/restaurant.png', element: 'restaurant'}
+    /*5*/ {id: 5, title:'Restaurant Reservation App', image: '../../../assets/images/restaurant.png', element: 'restaurant'},
+    /*6*/ {id: 6, title:'CodePen Challenges', image: '../../../assets/images/codePen.png', element: 'codePen'}
 ]
 
 export function goToProjPage(page: number) {
@@ -75,9 +76,9 @@ export function goToProjPage(page: number) {
     tempShifted = page - 1;
     tempTotalShift = 100 * tempShifted;
     if (cardCarousel) {
-      cardCarousel.setAttribute('style', `transform: translateX(-${tempTotalShift}vw); width: ${window.innerWidth * 6}px;`);
+      cardCarousel.setAttribute('style', `transform: translateX(-${tempTotalShift}vw); width: ${window.innerWidth * projects.length}px;`);
 
-      if (tempShifted < 5) {
+      if (tempShifted < projects.length - 1) {
         document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: block;');
       } else if (tempShifted === 5) {
         document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: none;');
@@ -94,6 +95,3 @@ export function resetVar() {
     tempShifted = 0;
     tempTotalShift = 0;
 }
-
-export var key = 'd4e1022cfcfb1b016bd9c155c7349bfe';
-export var skey = '28e236a9d541dac79f979134bdc05976';

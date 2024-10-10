@@ -19,15 +19,15 @@ let details: {heading: string, title: string, desc: string, additional: string, 
     size: '90%',
     color: 'white'
   },
-  {
-    heading: 'Located in Omaha, NE',
-    title: 'In-person, Hybrid, or Remote',
-    desc: 'I am based in Omaha, NE but am comfortable working in a remote and hybrid setting.',
-    additional: '',
-    picture: '../../../assets/images/location.png',
-    size: '90%',
-    color: 'white'
-  },
+  // {
+  //   heading: 'Located in Omaha, NE',
+  //   title: 'In-person, Hybrid, or Remote',
+  //   desc: 'I am based in Omaha, NE but am comfortable working in a remote and hybrid setting.',
+  //   additional: '',
+  //   picture: '../../../assets/images/location.png',
+  //   size: '90%',
+  //   color: 'white'
+  // },
 ];
 
 let cardNum: number = 4;

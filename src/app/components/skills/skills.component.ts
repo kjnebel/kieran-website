@@ -51,6 +51,7 @@ let skills: Skill[] = [
       projects[3],
       projects[4],
       projects[5],
+      projects[6]
     ]
   },
   { 
@@ -70,6 +71,7 @@ let skills: Skill[] = [
       projects[3],
       projects[4],
       projects[5],
+      projects[6]
     ]
   },
   { 
@@ -88,6 +90,7 @@ let skills: Skill[] = [
       projects[1],
       projects[2],
       projects[4],
+      projects[6]
     ]
   },
   { 
@@ -103,7 +106,7 @@ let skills: Skill[] = [
     projects: [
       projects[0],
       projects[1],
-      projects[2],
+      projects[2]
     ]
   },
   { 
@@ -275,7 +278,8 @@ let skills: Skill[] = [
       projects[0],
       projects[1],
       projects[4],
-      projects[5]
+      projects[5],
+      projects[6]
     ]
   },
   { 
