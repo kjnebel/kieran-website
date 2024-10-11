@@ -72,3 +72,64 @@ span {
     font-weight: 400;
     padding: 0px;
 }
+
+
+/* Resizing Styling */
+@media only screen and (max-width: 500px) {
+
+    .number {
+        display: none;
+    }
+
+    .cardCarouselCont {
+        margin-left: 10vw;
+        height: calc((140vw / 4) * 0.90);
+    }
+
+    .cardCont {
+        position: relative;
+        width: calc(80vw / 4);
+        height: calc((140vw / 4) * 0.90);
+    }
+    
+    .card {
+        width: 95%;
+        margin: auto;
+        z-index: 20;
+        border: 2px solid white;
+    }
+
+    .card:hover {
+        all: unset;
+    }
+
+    .focusedCard {
+        transform: none;
+        border-color: red;
+    }
+
+    .showMore {
+        display: none;
+    }
+
+    .dates {
+        display: none;
+    }
+}
+        
+@media only screen and (min-width: 600px) {
+    
+}
+
+@media only screen and (min-width: 900px) {
+    
+}
+
+    
+@media only screen and (min-width: 1280px) {
+    
+}
+
+@media only screen and (min-width: 1920px) {
+    
+}

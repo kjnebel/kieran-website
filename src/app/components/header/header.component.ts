@@ -24,20 +24,40 @@ export class HeaderComponent {
     
     try { 
       window.addEventListener('load', function () {
-        window.addEventListener('mousemove', function (event: any) {
-          let windowWidth = window.innerWidth / 2;
-          let windowHeight = window.innerHeight / 2;
-          let moveRates = [5, 15, 25];
-      
-          layer1?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[0]}px, ${(windowHeight - event.pageY) / moveRates[0]}px)`);
-          layer2?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[1]}px, ${(windowHeight - event.pageY) / moveRates[1]}px)`);
-          layer3?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[2]}px, ${(windowHeight - event.pageY) / moveRates[2]}px)`);
-        });
-        window.addEventListener('mouseout', function (event: any) {
-          layer1?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
-          layer2?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
-          layer3?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
-        });
+        if (this.window.innerWidth > 500) {
+          window.addEventListener('mousemove', function (event: any) {
+            let windowWidth = window.innerWidth / 2;
+            let windowHeight = window.innerHeight / 2;
+            let moveRates = [5, 15, 25];
+        
+            layer1?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[0]}px, ${(windowHeight - event.pageY) / moveRates[0]}px)`);
+            layer2?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[1]}px, ${(windowHeight - event.pageY) / moveRates[1]}px)`);
+            layer3?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[2]}px, ${(windowHeight - event.pageY) / moveRates[2]}px)`);
+          });
+          window.addEventListener('mouseout', function (event: any) {
+            layer1?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
+            layer2?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
+            layer3?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
+          });
+        }
+      });
+      window.addEventListener('resize', function(event: any) {
+        if (this.window.innerWidth > 500) {
+          window.addEventListener('mousemove', function (event: any) {
+            let windowWidth = window.innerWidth / 2;
+            let windowHeight = window.innerHeight / 2;
+            let moveRates = [5, 15, 25];
+        
+            layer1?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[0]}px, ${(windowHeight - event.pageY) / moveRates[0]}px)`);
+            layer2?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[1]}px, ${(windowHeight - event.pageY) / moveRates[1]}px)`);
+            layer3?.setAttribute('style', `transform: translate(${(windowWidth - event.pageX) / moveRates[2]}px, ${(windowHeight - event.pageY) / moveRates[2]}px)`);
+          });
+          window.addEventListener('mouseout', function (event: any) {
+            layer1?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
+            layer2?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
+            layer3?.setAttribute('style', `top: 0; left: 0; transform: translate(0px, 0px);`);
+          });
+        }
       });
     } catch (err) {}
   }

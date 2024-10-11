@@ -7,9 +7,9 @@
             </svg>
         </button>
         <div class="cardCarouselCont" id="projectsCardCarousel">
-            @for (project of projectList; track project;) {
-                <div class="cardCont">
-                    <div class="card" id="{{project.id}}" style="--color: {{project.color}}">
+            @for (project of projectList; track project; let index = $index) {
+                <div class="cardCont" id="{{project.id}}" (click)="showMore(index)">
+                    <div class="card" style="--color: {{project.color}}">
                         <div class="iconbg" style="--url: url('{{project.picture}}')">
                             <h4 class="projectTitle" style="--fontColor: {{project.fontColor}}">{{project.title}}</h4>
                         </div>
@@ -39,3 +39,29 @@
         </button>
     </div>
 </div>
+@if (showModal) {
+    <div class="modal" id="modal" role="dialog">
+        <div class="modalCard">
+            <div class="modalIconbg" style="--color: {{projectColor}}">
+                <div class="icon" style="--url: url('{{projectPicture}}'); --color: {{projectColor}}">
+                    <button class="closeModal" (click)="closeModal()">X</button>
+                </div>
+            </div>
+            <div class="cardDetail">
+                <div class="titleCont">
+                    <h4>{{projectTitle}}</h4>
+                    <p>{{projectDesc}}</p>
+                </div>
+                <div class="titleCont">
+                    <h5>Skills Utilized</h5>
+                    <div class="skillsCont">
+                        @for (skill of projectSkillList; track skill;) {
+                            <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#webDev">{{skill.name}}</a>
+                        }
+                    </div>
+                </div>
+                <a class="showMore" href="{{projectUrl}}" target="_blank"><div class="btnIconCont"><img src="../../../assets/images/openNew.png"/></div></a>
+            </div>
+        </div>
+    </div>
+}

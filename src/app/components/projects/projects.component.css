@@ -116,12 +116,91 @@ h4 {
 }
 
 /* Resizing Styling */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
+    .card {
+        width: 100vw;
+        height: 60vh;
+        border: none;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        border-radius: 0;
+        transition: all 0s;
+    }
 
+    .projectTitle, .cardDetail {
+        transition: all 0s;
+        transition-delay: 0s;
+    }
+
+    #projectsRightArrow, #projectsLeftArrow {
+        background: none;
+        height: fit-content;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #projectsRightArrow {
+        width: 60px;
+    }
+
+    .cardCarouselCont {
+        height: 60vh;
+    }
+    
+    .cardCont {
+        height: 60vh;
+        transition: all 0s;
+    }
+
+    .card:hover {
+        all: unset;
+        transition: all 0s;
+    
+        .projectTitle {
+            all:unset;
+            transition: all 0s;
+        }
+    
+        .iconbg {
+            all: unset;
+            transition: all 0s;
+        }
+    
+        .cardDetail {
+            all: unset;
+            transition: all 0s;
+
+            .titleCont {
+                transition: all 0s;
+            }
+        }
+    }
+
+    .showMore {
+        position: absolute;
+        display: block;
+        z-index: 99;
+    }
 }
         
 @media only screen and (min-width: 600px) {
-    
+    .card {
+        width: 100vw;
+        border: none;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        border-radius: 0;
+    }
+
+    #projectsRightArrow, #projectsLeftArrow {
+        background: none;
+    }
+
+    #projectsRightArrow {
+        width: 90px;
+    }
 }
 
 @media only screen and (min-width: 900px) {
@@ -130,7 +209,15 @@ h4 {
 
     
 @media only screen and (min-width: 1280px) {
-    
+    .card {
+        width: 90%;
+        margin: auto;
+        z-index: 20;
+        border: 2px solid white;
+        border-radius: 25px;
+        box-shadow: var(--box-shadow);
+        background-color: var(--color);
+    }
 }
 
 @media only screen and (min-width: 1920px) {

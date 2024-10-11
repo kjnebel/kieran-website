@@ -148,7 +148,9 @@ let shiftRate: number = 100;
 let totalShift: number = 0;
 let shifted: number = 0;
 let skill: HTMLElement | null;
+let projectElem: HTMLElement | null;
 let active: boolean = false;
+let showClose: boolean = false;
 
 @Component({
   selector: 'app-projects',
@@ -168,6 +170,9 @@ export class ProjectsComponent {
   projectDesc = '';
   projectPicture = '';
   projectUrl = '';
+  projectColor = '';
+  projectSkillList: Skill[] = [];
+  showClose = showClose;
   
   constructor(public element: ElementRef, private skillsComp: SkillsComponent) {}
   
@@ -179,12 +184,18 @@ export class ProjectsComponent {
       window.addEventListener('load', function () {
         if (window.innerWidth > 900 ) {
           arrowSize = 60;
+          showClose = false;
           totalShift = shiftRate * shifted;
         } else if (window.innerWidth > 600) {
           arrowSize = 40;
+          showClose = false;
           totalShift = shiftRate * shifted;
+        } else if (window.innerWidth <= 500) {
+          arrowSize = 35;
+          showClose = true;
         } else {
           arrowSize = 30;
+          showClose = false;
           totalShift = shiftRate * shifted;
         }
         pages = projects.length;
@@ -194,19 +205,24 @@ export class ProjectsComponent {
       window.addEventListener('resize', function () {
         if (window.innerWidth > 900 ) {
           arrowSize = 60;
-          totalShift = shiftRate * shifted;
+          showClose = false;
         } else if (window.innerWidth > 600) {
           arrowSize = 40;
-          totalShift = shiftRate * shifted;
+          showClose = false;
+        } else if (window.innerWidth <= 500) {
+          arrowSize = 35;
+          showClose = true;
         } else {
           arrowSize = 30;
-          totalShift = shiftRate * shifted;
+          showClose = false;
         }
+        totalShift = shiftRate * shifted;
         pages = projects.length;
         cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(-${totalShift}vw);`);
         carouselCont?.setAttribute('style', `display: block;`);
       });
       this.arrowSize = arrowSize;
+      this.showClose = showClose;
     } catch(err) {}
   }
 
@@ -269,12 +285,17 @@ export class ProjectsComponent {
   }
 
   showMore(index: number) {
-    let project = this.projectList[index];
-    this.projectTitle = project.title;
-    this.projectDesc = project.desc;
-    this.projectPicture = project.picture;
-    this.projectUrl = project.url;
-    this.showModal = true;
+    if (window.innerWidth <= 500) {
+      let project = this.projectList[index];
+      this.projectTitle = project.title;
+      this.projectDesc = project.desc;
+      this.projectPicture = project.picture;
+      this.projectUrl = project.url;
+      this.projectColor = project.color;
+      this.projectSkillList = project.skills;
+      this.showModal = true;
+      this.showModal = true;
+    }
   }
 
   closeModal() {

@@ -32,11 +32,16 @@ html {
     overflow-x: hidden;
 }
 
+.hide {
+    overflow-y: hidden;
+}
+
 body {
     position: relative;
     margin: 0;
     margin-top: -22px;
     padding: 0;
+    overflow-x: hidden;
 }
 
 
@@ -477,15 +482,88 @@ footer {
 }
 
 /* Resizing Styling */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
+    .arrowButton:hover {
+        .arrow {
+            transform: scale(1);
+            transition: all 0.2s;
+        }
+    }
+    
     html {
         font-size: 0.65rem;
+    }
+
+    h3 {
+        margin-left: 10vw;
+    }
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }    
+
+    .titleCont {
+        > h4 {
+            font-size: 2rem;
+        }
+        > p {
+            font-size: 1.5rem;
+        }
+        .years {
+            font-size: 1.5rem;
+        }
+        > h5 {
+            font-size: 1.75rem;
+        }
+
+        .projectsCont, .jobsCont, .skillsCont {
+            font-size: 1.5rem;
+        }
+    }
+
+    .closeModal {
+        right: 25px;
+        font-size: 1.5rem;
+    }
+
+    .card:hover {
+        all: unset;
+    
+        .iconbg {
+            all: unset;
+        }
+    
+        .cardDetail {
+            all: unset;
+            .showMore {
+                all: unset;
+            }
+
+            .titleCont {
+                display: none;
+            }
+        }
+    }
+
+    .focusedCard {
+        transform: none;
+        border-color: red;
+    }
+
+    .arrow {
+        width: 35px;
+        height: 35px;
     }
 }
         
 @media only screen and (min-width: 600px) {
     html {
         font-size: 0.75rem;
+    }
+
+    .modal {
+        width: 80vw;
     }
 }
 
@@ -499,6 +577,10 @@ footer {
 @media only screen and (min-width: 1280px) {
     html {
         font-size: 1.15rem;
+    }
+
+    .modal {
+        width: 50vw;
     }
 }
 

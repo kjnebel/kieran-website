@@ -9,7 +9,7 @@
         <div class="cardCarouselCont">
             @for (exp of expList; track exp; let index = $index) {
                 @if ((index + 1) % cardNum == 0 ) {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="number">{{index + 1}}</div>
                         <div class="card" style="--color: {{exp.color}}; transform-origin: right;" id="{{exp.comp}}">
                             <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 } @else {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="number">{{index + 1}}</div>
                         <div class="card" style="--color: {{exp.color}}" id="{{exp.comp}}">
                             <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>

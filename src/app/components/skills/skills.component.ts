@@ -504,10 +504,13 @@ export class SkillsComponent {
     this.skillJobList = skill.jobs;
     this.skillProjectList = skill.projects;
     this.showModal = true;
+
+    document.getElementsByTagName('html')[0].classList.add('hide');
   }
 
   closeModal() {
     this.showModal = false;
+    document.getElementsByTagName('html')[0].classList.remove('hide');
   }
 
   goToJob(jobId: number) {

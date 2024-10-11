@@ -48,7 +48,7 @@ let exp: Experience[] = [
     ]
   },
   {
-    comp: 'Certified Transmissions',
+    comp: 'Certified Transmission',
     dates: 'May 2020 - Aug 2020',
     resp: 'Worked 45 hours a week at the transmission factory managing parts. Washed and distributed parts to builders. Painted cases of the transmissions. Worked with large machinery.',
     position: 'Parts Handler',

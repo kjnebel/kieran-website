@@ -9,7 +9,7 @@
         <div class="cardCarouselCont" id="skillsCardCarousel">
             @for (skill of skillList; track skill; let index = $index) {
                 @if (index == 0 || (index + 1) % cardNum == 1) {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="card" style="--color: {{skill.color}}; transform-origin: left;" id="{{skill.title}}">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
@@ -17,7 +17,7 @@
                                     <span>{{skill.title}}</span>
                                     <span>
                                         @if (skill.years) {
-                                            <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
+                                            <div class="years" style="--color: {{skill.color}}" id="years">{{skill.years}} years</div>
                                         }
                                     </span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 } @else if ((index + 1) % cardNum == 0 ) {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="card" style="--color: {{skill.color}}; transform-origin: right;" id="{{skill.title}}">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
@@ -36,7 +36,7 @@
                                     <span>{{skill.title}}</span>
                                     <span>
                                         @if (skill.years) {
-                                            <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
+                                            <div class="years" style="--color: {{skill.color}}" id="years">{{skill.years}} years</div>
                                         }
                                     </span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 } @else {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="card" style="--color: {{skill.color}}" id="{{skill.title}}">
                             <div class="iconbg" style="--url: url('{{skill.url}}'); --size: {{skill.size}}; "></div>
                             <div class="cardDetail">
@@ -55,7 +55,7 @@
                                     <span>{{skill.title}}</span>
                                     <span>
                                         @if (skill.years) {
-                                            <div class="years" style="--color: {{skill.color}}">{{skill.years}} years</div>
+                                            <div class="years" style="--color: {{skill.color}}" id="years">{{skill.years}} years</div>
                                         }
                                     </span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">

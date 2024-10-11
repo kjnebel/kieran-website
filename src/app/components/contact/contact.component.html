@@ -12,15 +12,15 @@
                 <label for="email">Email:</label>
                 <span class="error">* Required</span>
             </div>
-            <input formControlName="email" id="email" type="email" required email (change)="emailChange()">
+            <input formControlName="email" id="email" type="email" required email (change)="emailChange()" aria-label="your email">
             @if (show) {
-                <span class="error red">Invalid Email</span>
+                <span class="error red" role="alert">Invalid Email</span>
             }
             <div class="label">
                 <label for="message">Message:</label>
                 <span class="error">* Required</span>
             </div>
-            <textarea formControlName="message" id="message" rows="5" required (change)="messageChange()"></textarea>
+            <textarea formControlName="message" id="message" rows="5" required (change)="messageChange()" aria-label="body of the email"></textarea>
             <div class="buttonCont">
                 <button type="submit" class="submit">Send</button>
             </div>
