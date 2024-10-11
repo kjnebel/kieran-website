@@ -471,6 +471,28 @@ footer {
     }
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--background-light-grey);
+    border-radius: 0 4px 4px 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--background-lighter-grey);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--background-lightest-grey);
+}
+
 @keyframes fade-in {
     0% {height: 0%; width: 0%;}
     100% {height: 95%; width: 95%;}
@@ -527,25 +549,6 @@ footer {
         font-size: 1.5rem;
     }
 
-    .card:hover {
-        all: unset;
-    
-        .iconbg {
-            all: unset;
-        }
-    
-        .cardDetail {
-            all: unset;
-            .showMore {
-                all: unset;
-            }
-
-            .titleCont {
-                display: none;
-            }
-        }
-    }
-
     .focusedCard {
         transform: none;
         border-color: red;
@@ -554,6 +557,43 @@ footer {
     .arrow {
         width: 35px;
         height: 35px;
+    }
+
+    .modalCard .modalIconbg .icon {
+        width: 65%;
+    }
+
+    footer {
+        height: 200px;
+    }
+
+    .iconLinks {
+        width: 70%;
+    }
+
+    .iconLinkCont {
+        height: 40px;
+        width: 40px;
+
+        .iconLink {
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    #linkedInLink > .iconLink, #gitHubLink, #gitHubLink > .iconLink {
+        height: 40px;
+        width: 40px;
+    }
+
+    .text {
+        > p {
+            font-size: 1.5rem;
+        }
+
+        > span {
+            font-size: 1.5rem;
+        }
     }
 }
         

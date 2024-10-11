@@ -124,6 +124,7 @@ h4 {
         border-top: 2px solid white;
         border-bottom: 2px solid white;
         border-right: 2px solid white;
+        border-left: 1px solid white;
         border-radius: 0;
         transition: all 0s;
     }
@@ -155,21 +156,17 @@ h4 {
     }
 
     .card:hover {
-        all: unset;
         transition: all 0s;
     
         .projectTitle {
-            all:unset;
             transition: all 0s;
         }
-    
+
         .iconbg {
-            all: unset;
             transition: all 0s;
         }
     
         .cardDetail {
-            all: unset;
             transition: all 0s;
 
             .titleCont {
@@ -178,10 +175,18 @@ h4 {
         }
     }
 
-    .showMore {
+    .modalCard .showMore {
         position: absolute;
         display: block;
         z-index: 99;
+        opacity: 1;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .modalCard .modalIconbg .icon {
+        width: 100%;
+        background-size: contain;
     }
 }
         

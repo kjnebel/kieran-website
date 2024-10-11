@@ -100,7 +100,8 @@ span {
     }
 
     .card:hover {
-        all: unset;
+        z-index: 21;
+        width: 100%;
     }
 
     .focusedCard {

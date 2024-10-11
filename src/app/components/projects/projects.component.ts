@@ -295,11 +295,13 @@ export class ProjectsComponent {
       this.projectSkillList = project.skills;
       this.showModal = true;
       this.showModal = true;
+      document.getElementsByTagName('html')[0].classList.add('hide');
     }
   }
 
   closeModal() {
     this.showModal = false;
+    document.getElementsByTagName('html')[0].classList.remove('hide');
   }
 
   

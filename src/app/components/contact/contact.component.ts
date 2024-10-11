@@ -37,7 +37,7 @@ export class ContactComponent {
       this.sent = true;
       setTimeout(() => {
         this.sent = false;
-      }, 10000);
+      }, 5000);
     } else {
       if (this.emailForm.controls.email.invalid) {
         this.show = true;

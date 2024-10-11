@@ -194,7 +194,7 @@ export class ExperienceComponent {
       toggleExpModalOpen();
       this.showModal = toggleExpModalOpen();
     }
-
+    document.getElementsByTagName('html')[0].classList.add('hide');
   }
 
   goToPage(page: number) {
@@ -221,6 +221,7 @@ export class ExperienceComponent {
 
   closeModal() {
     this.showModal = toggleExpModalOpen();
+    document.getElementsByTagName('html')[0].classList.remove('hide');
   }
 
   goToSkill(skillId: number) {

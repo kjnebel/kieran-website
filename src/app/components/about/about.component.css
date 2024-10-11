@@ -25,8 +25,25 @@ ul {
 }
 
 /* Resizing Styling */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
+    .cardCarouselCont {
+        margin-left: 10vw;
+        height: 150px;
+    }
 
+    .cardCont {
+        height: 150px;
+        width: 150px;
+    }
+
+    .titleCont > p, .titleCont > .showMore {
+        display: none
+    }
+
+
+    ul > li {
+        font-size: 1.5rem;
+    }
 }
         
 @media only screen and (min-width: 600px) {

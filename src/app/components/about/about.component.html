@@ -4,7 +4,7 @@
         <div class="cardCarouselCont" id="aboutCardCarousel">
             @for (about of aboutList; track about; let index = $index) {
                 @if (index == 0 || (index + 1) % cardNum == 1) {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="card" style="--color: {{about.color}}; transform-origin: left;" id="{{about.title}}">
                             <div class="iconbg" style="--url: url('{{about.picture}}'); --size: {{about.size}}; "></div>
                             <div class="cardDetail">
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 } @else if ((index + 1) % cardNum == 0 ) {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="card" style="--color: {{about.color}}; transform-origin: right;" id="{{about.title}}">
                             <div class="iconbg" style="--url: url('{{about.picture}}'); --size: {{about.size}}; "></div>
                             <div class="cardDetail">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 } @else {
-                    <div class="cardCont">
+                    <div class="cardCont" (click)="showMore(index)">
                         <div class="card" style="--color: {{about.color}}" id="{{about.title}}">
                             <div class="iconbg" style="--url: url('{{about.picture}}'); --size: {{about.size}}; "></div>
                             <div class="cardDetail">
