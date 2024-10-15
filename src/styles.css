@@ -511,6 +511,10 @@ footer {
 
 /* Resizing Styling */
 @media only screen and (max-width: 500px) {
+    * {
+        touch-action: manipulation;
+    }
+
     .arrowButton:hover {
         .arrow {
             transform: scale(1);
@@ -527,9 +531,15 @@ footer {
     }
 
     .modal {
-        width: 100vw;
-        height: 85vh;
-    }    
+        width: 100%;
+        height: 100%;
+    }
+    
+    .modalCard {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 50px;
+    }
 
     .titleCont {
         > h4 {

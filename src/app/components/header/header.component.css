@@ -213,140 +213,21 @@ h2 {
 @media only screen and (max-width: 500px) {
     .title {
         justify-content: center;
+        height: 60vh;
+        min-height: 50vh;
     }
     h1, h2 {
         padding-left: 0px;
         margin: 0;
     }
 
-    .layer1 {
-        z-index: 3;
-        .circle:nth-child(1) {
-            --radius: 9rem;
-            bottom: 15vh;
-            left: 7vw;
-            background-image: url('../../../assets/images/KieranPrague.JPG');
-            background-size: 150%;
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 5vh;
-            left: 5vw;
-            background-image: url('../../../assets/images/parrot.jpg');
-        }
-        .circle:nth-child(3) {
-            --radius: 7rem;
-            bottom: 25vh;
-            left: 55vw;
-            background-image: url('../../../assets/images/kieranMountain1.jpg');
-        }
-        .circle:nth-child(4) {
-            --radius: 9rem;
-            top: 5vh;
-            right: 5vw;
-            background-image: url('../../../assets/images/kjtruck3.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 6rem;
-            top: 27vh;
-            right: 37vw;
-            background-image: url('../../../assets/images/Prague.jpg');
-        }
-        .circle:nth-child(6) {
-            --radius: 8rem;
-            bottom: 15vh;
-            right: 5vw;
-            background-image: url('../../../assets/images/KieranMountain2.JPG');
-        }
+    .layer {
+        display: none;
     }
-    
-    .layer2 {
-        z-index: 2;
-        .circle:nth-child(1) {
-            --radius: 7rem;
-            bottom: 15vh;
-            right: 40vw;
-            background-image: url('../../../assets/images/Prague1.jpg');
-        }
-        .circle:nth-child(2) {
-            --radius: 5rem;
-            bottom: 25vh;
-            left: 30vw;
-            background-image: url('../../../assets/images/github\ logo.png');
-            background-position: 0% -1px;
-            border: 2px solid white;
-        }
-        .circle:nth-child(3) {
-            --radius: 6rem;
-            top: 47vh;
-            left: 6vw;
-            background-image: url('../../../assets/images/js\ logo.png');
-            background-size: 100%;
-        }
-        .circle:nth-child(4) {
-            --radius: 8rem;
-            bottom: 32vh;
-            left: 7vw;
-            background-image: url('../../../assets/images/Prague2.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 7rem;
-            top: 7vh;
-            right: 45vw;
-            background-image: url('../../../assets/images/ts\ logo.png');
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            top: 20vh;
-            left: 25vw;
-            background-image: url('../../../assets/images/c\ logo.png');
-            background-size: 90%;
-        }
-    }
-    
-    .layer3 {
-        z-index: 1;
-        .circle:nth-child(1) {
-            --radius: 14rem;
-            bottom: 35vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/kjsenior.jpg')
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 20vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/angular\ logo.png');
-        }
-        .circle:nth-child(3) {
-            --radius: 5rem;
-            bottom: 35vh;
-            left: 45vw;
-            background-color: white;
-            background-image: url('../../../assets/images/css\ logo.png');
-            background-size: 130%;
-        }
-        .circle:nth-child(4) {
-            --radius: 7rem;
-            top: 15vh;
-            right: 32vw;
-            background-image: url('../../../assets/images/html\ logo.png');
-            background-size: 85%;
-        }
-        .circle:nth-child(5) {
-            --radius: 6rem;
-            top: 25vh;
-            left: 5vw;
-            background-image: url('../../../assets/images/react\ logo.png');
-            background-size: 90%;
-        }
-        .circle:nth-child(6) {
-            --radius: 5rem;
-            bottom: 42vh;
-            left: 30vw;
-            background-image: url('../../../assets/images/asp.net.logo.png');
-            background-size: 90%;
-        }
+
+    #showcase {
+        height: 60vh;
+        min-height: 50vh;
     }
 }
         
