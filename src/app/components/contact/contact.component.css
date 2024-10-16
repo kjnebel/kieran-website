@@ -198,8 +198,19 @@ input:hover, textarea:hover {
 }
 
 /* Resizing Styling */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
+    input, textarea {
+        font-size: 20px;
+        width: 100%;
+    }
 
+    .label {
+        width: 100%;
+    }
+
+    .emailLink > .copyCont {
+        font-size: 20px;
+    }
 }
         
 @media only screen and (min-width: 600px) {
