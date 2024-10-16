@@ -47,9 +47,12 @@
                     <button class="closeModal" (click)="closeModal()">X</button>
                 </div>
             </div>
+            <div class="titleLink">
+                <h4>{{projectTitle}}</h4>
+                <a class="showMore" href="{{projectUrl}}" target="_blank"><div class="btnIconCont"><img src="../../../assets/images/openNew.png"/></div></a>
+            </div>
             <div class="cardDetail">
                 <div class="titleCont">
-                    <h4>{{projectTitle}}</h4>
                     <p>{{projectDesc}}</p>
                 </div>
                 <div class="titleCont">
@@ -60,7 +63,6 @@
                         }
                     </div>
                 </div>
-                <a class="showMore" href="{{projectUrl}}" target="_blank"><div class="btnIconCont"><img src="../../../assets/images/openNew.png"/></div></a>
             </div>
         </div>
     </div>
