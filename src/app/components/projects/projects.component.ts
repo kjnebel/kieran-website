@@ -245,9 +245,7 @@ export class ProjectsComponent {
       shifted++;
       totalShift = shiftRate * shifted;
       cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-      setTimeout(() => {
-        this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: none;');
-      }, 1000);
+      this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: none;');
     }
 
     if (shifted > 0) {
@@ -274,9 +272,7 @@ export class ProjectsComponent {
       shifted--;
       totalShift = shiftRate * shifted;
       cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-      setTimeout(() => {
-        this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: none;');
-      }, 1000);
+      this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: none;');
     }
 
     if (shifted < pages - 1) {

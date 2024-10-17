@@ -143,9 +143,7 @@ let skills: Skill[] = [
     size: '160%',
     color: 'linear-gradient(127deg, rgba(255,230,231,1) 0%, rgba(255,219,176,1) 100%)',
     jobs: [
-      jobs[0],
-      jobs[2],
-      jobs[3]
+      jobs[0]
     ],
     projects: [
       projects[1],
@@ -199,7 +197,7 @@ let skills: Skill[] = [
     ]
   },
   { 
-    title: 'Accessible Website Design',
+    title: 'Accessibility',
     years: '2+',
     description: 'I learned proper website accessibility standards while at my internship at Union Pacific. I was in charge of implementing accessibility features to a few applications during my time there.',
     url: '../../../assets/images/web\ access\ icon.png',
@@ -254,9 +252,7 @@ let skills: Skill[] = [
     color: 'white',
     jobs: [
       jobs[0],
-      jobs[1],
-      jobs[2],
-      jobs[3]
+      jobs[1]
     ],
     projects: [
       projects[1],

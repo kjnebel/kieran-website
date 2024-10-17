@@ -57,8 +57,8 @@ export var skills: Skill[] = [
 export var jobs: Experience[] = [
     /*0*/ {id: 0, comp:'Union Pacific Railroad', color: '#ef3c40'},
     /*1*/ {id: 1, comp:'Code Ninjas', color: '#3090c0'},
-    /*2*/ {id: 2, comp:'Certified Transmission', color: '#fef104'},
-    /*3*/ {id: 3, comp:'Amazon', color: '#ff9b05'}
+    // /*2*/ {id: 2, comp:'Certified Transmission', color: '#fef104'},
+    // /*3*/ {id: 3, comp:'Amazon', color: '#ff9b05'}
 ]
 
 export var projects: Project[] = [

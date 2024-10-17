@@ -515,6 +515,14 @@ footer {
         touch-action: manipulation;
     }
 
+    html, body {
+        width: 100vw;
+    }
+
+    .card:hover {
+        transform: unset;
+    }
+
     .arrowButton:hover {
         .arrow {
             transform: scale(1);
@@ -537,12 +545,15 @@ footer {
         top: 0;
         left: 0;
         transform: translate(0, 0);
+        transition: all 0s;
     }
     
     .modalCard {
         width: 100%;
         height: 100%;
         padding-bottom: 50px;
+        transition: all 0s;
+        animation: none;
     }
 
     .titleCont {

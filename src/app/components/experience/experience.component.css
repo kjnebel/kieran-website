@@ -88,7 +88,7 @@ span {
 
     .cardCont {
         position: relative;
-        width: calc(80vw / 4);
+        width: calc(70vw / 2);
         height: calc((140vw / 4) * 0.90);
     }
     
@@ -101,7 +101,7 @@ span {
 
     .card:hover {
         z-index: 21;
-        width: 100%;
+        width: 95%;
     }
 
     .focusedCard {

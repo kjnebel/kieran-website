@@ -47,32 +47,32 @@ let exp: Experience[] = [
       skills[16]
     ]
   },
-  {
-    comp: 'Certified Transmission',
-    dates: 'May 2020 - Aug 2020',
-    resp: 'Worked 45 hours a week at the transmission factory managing parts. Washed and distributed parts to builders. Painted cases of the transmissions. Worked with large machinery.',
-    position: 'Parts Handler',
-    url: '../../../assets/images/certified\ transmissions\ logo.jpg',
-    size: '100%',
-    color: 'black',
-    skills: [
-      skills[8],
-      skills[15]
-    ]
-  },
-  {
-    comp: 'Amazon',
-    dates: 'Oct 2023 - Dec 2023',
-    resp: 'Sorted and handle packages for delivery. Trained new employees. Worked overnight shift 25 hours per week. Used a Zebra device with finger scanner.',
-    position: 'Warehouse Seasonal Temp',
-    url: '../../../assets/images/amazon\ logo.png',
-    size: '90%',
-    color: 'white',
-    skills: [
-      skills[8],
-      skills[15]
-    ]
-  }
+  // {
+  //   comp: 'Certified Transmission',
+  //   dates: 'May 2020 - Aug 2020',
+  //   resp: 'Worked 45 hours a week at the transmission factory managing parts. Washed and distributed parts to builders. Painted cases of the transmissions. Worked with large machinery.',
+  //   position: 'Parts Handler',
+  //   url: '../../../assets/images/certified\ transmissions\ logo.jpg',
+  //   size: '100%',
+  //   color: 'black',
+  //   skills: [
+  //     skills[8],
+  //     skills[15]
+  //   ]
+  // },
+  // {
+  //   comp: 'Amazon',
+  //   dates: 'Oct 2023 - Dec 2023',
+  //   resp: 'Sorted and handle packages for delivery. Trained new employees. Worked overnight shift 25 hours per week. Used a Zebra device with finger scanner.',
+  //   position: 'Warehouse Seasonal Temp',
+  //   url: '../../../assets/images/amazon\ logo.png',
+  //   size: '90%',
+  //   color: 'white',
+  //   skills: [
+  //     skills[8],
+  //     skills[15]
+  //   ]
+  // }
 ];
 let pages = 1;
 let cardNum: number = 4;

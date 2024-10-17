@@ -154,7 +154,8 @@ h4 {
 
     #projectsRightArrow, #projectsLeftArrow {
         background: none;
-        height: fit-content;
+        height: 50%;
+        width: fit-content;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -177,14 +178,18 @@ h4 {
         transition: all 0s;
     
         .projectTitle {
+            opacity: 1;
             transition: all 0s;
         }
 
         .iconbg {
+            height: 100%;
+            width: 100%;
             transition: all 0s;
         }
     
         .cardDetail {
+            display: none;
             transition: all 0s;
 
             .titleCont {

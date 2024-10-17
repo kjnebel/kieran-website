@@ -32,6 +32,18 @@
         --scale: calc(80vw / 3);
     }
 
+    .iconbg {
+        height: 65%;
+        width: 65%;
+    }
+
+    .card > .cardDetail {
+        display: block;
+        height: 35%;
+        width: 100%;
+        background-color: var(--background-light-grey);
+    }
+
     .cardCarouselCont {
         margin-left: 10vw;
     }
@@ -50,6 +62,14 @@
 
     #years {
         display: none;
+    }
+
+    #skillsRightArrow, #skillsLeftArrow {
+        width: 10vw;
+    }
+
+    .leftArrow {
+        margin-left: 1px;
     }
 }
         
