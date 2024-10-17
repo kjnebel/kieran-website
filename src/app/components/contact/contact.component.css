@@ -215,6 +215,10 @@ input:hover, textarea:hover {
     .emailLink > .copyCont {
         font-size: 20px;
     }
+
+    .red {
+        width: 100%;
+    }
 }
         
 @media only screen and (min-width: 600px) {
