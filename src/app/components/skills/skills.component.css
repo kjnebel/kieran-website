@@ -67,10 +67,6 @@
     #skillsRightArrow, #skillsLeftArrow {
         width: 10vw;
     }
-
-    .leftArrow {
-        margin-left: 1px;
-    }
 }
         
 @media only screen and (min-width: 600px) {
