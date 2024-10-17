@@ -56,9 +56,34 @@ ul {
 
     
 @media only screen and (min-width: 1280px) {
-    
+    .card:hover {
+        transform: scale(1.6);
+
+        .iconbg {
+            height: 55%
+        }
+
+        .cardDetail {
+            height: 45%;
+        }
+    }
 }
 
 @media only screen and (min-width: 1920px) {
-    
+    .card:hover {
+        transform: scale(1.5);
+
+        .iconbg {
+            height: 65%
+        }
+
+        .cardDetail {
+            height: 35%;
+        }
+    }
+
+    span {
+        font-size: 1rem;
+        font-weight: 600;
+    }
 }

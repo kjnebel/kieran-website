@@ -128,9 +128,29 @@ span {
 
     
 @media only screen and (min-width: 1280px) {
-    
+    .card:hover {
+        transform: scale(1.6);
+
+        .iconbg {
+            height: 60%;
+        }
+
+        .cardDetail {
+            height: 40%;
+        }
+    }
 }
 
 @media only screen and (min-width: 1920px) {
-    
+    .card:hover {
+        transform: scale(1.5);
+
+        .iconbg {
+            height: 65%;
+        }
+
+        .cardDetail {
+            height: 35%;
+        }
+    }
 }

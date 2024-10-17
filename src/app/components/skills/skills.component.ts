@@ -408,7 +408,7 @@ export class SkillsComponent {
           arrowSize = 60;
           shiftRate = 90;
           totalShift = shiftRate * shifted;
-        } else if (window.innerWidth > 600) {
+        } else if (window.innerWidth > 500) {
           cardNum = 4;
           arrowSize = 40;
           shiftRate = 90;
