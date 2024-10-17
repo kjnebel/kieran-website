@@ -8,8 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'kieran-website';
 
+  constructor() {}
+
   ngOnInit() {
     try {
+      document.getElementsByTagName('html')[0].classList.add('hide');
       window.addEventListener('scroll', function() {
         let nav = document.getElementById("nav");
         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -20,8 +23,9 @@ export class AppComponent {
           nav!.style.boxShadow = "none";
         }
       });
-    } catch (err) {
-      console.log(err);
-    }
+      window.addEventListener('load', function () {
+        document.getElementsByTagName('html')[0].classList.remove('hide');
+      });
+    } catch (err) {}
   }
 }
