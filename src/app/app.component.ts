@@ -12,7 +12,7 @@ export class AppComponent {
 
   ngOnInit() {
     try {
-      document.getElementsByTagName('html')[0].classList.add('hide');
+      // document.getElementsByTagName('html')[0].classList.add('hide');
       window.addEventListener('scroll', function() {
         let nav = document.getElementById("nav");
         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -23,9 +23,9 @@ export class AppComponent {
           nav!.style.boxShadow = "none";
         }
       });
-      window.addEventListener('load', function () {
-        document.getElementsByTagName('html')[0].classList.remove('hide');
-      });
+      // window.addEventListener('load', function () {
+      //   document.getElementsByTagName('html')[0].classList.remove('hide');
+      // });
     } catch (err) {}
   }
 }
