@@ -204,6 +204,10 @@ input:hover, textarea:hover {
         width: 100%;
     }
 
+    .buttonCont {
+        width: 100%;
+    }
+
     .label {
         width: 100%;
     }

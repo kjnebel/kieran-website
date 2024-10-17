@@ -107,9 +107,11 @@ export class AboutComponent {
     this.aboutPic = exp.picture;
     this.aboutSize = exp.size;
     this.showModal = true;
+    document.getElementsByTagName('html')[0].classList.add('hide');
   }
 
   closeModal() {
     this.showModal = false;
+    document.getElementsByTagName('html')[0].classList.remove('hide');
   }
 }
