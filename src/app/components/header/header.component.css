@@ -437,9 +437,9 @@ h2 {
             background-image: url('../../../assets/images/ts\ logo.png');
         }
         .circle:nth-child(6) {
-            --radius: 6rem;
-            top: 11vh;
-            left: 35vw;
+            --radius: 5rem;
+            top: 13vh;
+            left: 38vw;
             background-image: url('../../../assets/images/c\ logo.png');
             background-size: 90%;
         }
@@ -470,8 +470,8 @@ h2 {
         }
         .circle:nth-child(4) {
             --radius: 6rem;
-            top: 37vh;
-            right: 30vw;
+            top: 44vh;
+            right: 34vw;
             background-image: url('../../../assets/images/html\ logo.png');
             background-size: 85%;
         }
