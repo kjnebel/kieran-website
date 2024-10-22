@@ -154,6 +154,7 @@ h4 {
 
     #projectsRightArrow, #projectsLeftArrow {
         background: none;
+        padding-top: 9vh;
         height: 50%;
         width: fit-content;
         position: absolute;
@@ -290,7 +291,7 @@ h4 {
 }
 
 @media only screen and (min-width: 1500px) {
-    .card:hover {
+    /* .card:hover {
         transform: unset;
     
         .projectTitle {
@@ -335,5 +336,5 @@ h4 {
         padding: 8px;
         transition: all 0.3s;
         transition-delay: 0.3s;
-    }
+    } */
 }
