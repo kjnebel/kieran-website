@@ -516,12 +516,12 @@ export class SkillsComponent {
     this.skillProjectList = skill.projects;
     this.showModal = true;
 
-    document.getElementsByTagName('html')[0].classList.add('hide');
+    document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
   }
 
   closeModal() {
     this.showModal = false;
-    document.getElementsByTagName('html')[0].classList.remove('hide');
+    document.getElementsByTagName('html')[0].style.overflowY = 'auto';
   }
 
   goToJob(jobId: number) {

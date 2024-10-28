@@ -196,7 +196,7 @@ export class ExperienceComponent {
       toggleExpModalOpen();
       this.showModal = toggleExpModalOpen();
     }
-    document.getElementsByTagName('html')[0].classList.add('hide');
+    document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
   }
 
   goToPage(page: number) {
@@ -223,7 +223,7 @@ export class ExperienceComponent {
 
   closeModal() {
     this.showModal = toggleExpModalOpen();
-    document.getElementsByTagName('html')[0].classList.remove('hide');
+    document.getElementsByTagName('html')[0].style.overflowY = 'auto';
   }
 
   goToSkill(skillId: number) {
