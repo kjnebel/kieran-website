@@ -29,7 +29,8 @@ let exp: Experience[] = [
       skills[12],
       skills[14],
       skills[15],
-      skills[16]
+      skills[16],
+      skills[22]
     ]
   },
   {
@@ -44,7 +45,8 @@ let exp: Experience[] = [
       skills[2],
       skills[4],
       skills[15],
-      skills[16]
+      skills[16],
+      skills[22]
     ]
   },
   // {

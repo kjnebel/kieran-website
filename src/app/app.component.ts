@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+let isLoading = true;
 
 @Component({
   selector: 'app-root',
@@ -8,11 +11,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'kieran-website';
 
-  constructor() {}
+  get isLoading() {
+    return isLoading;
+  }
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     try {
-      // document.getElementsByTagName('html')[0].classList.add('hide');
+      this.router.navigateByUrl('/', { replaceUrl: true });
       window.addEventListener('scroll', function() {
         let nav = document.getElementById("nav");
         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -23,9 +30,10 @@ export class AppComponent {
           nav!.style.boxShadow = "none";
         }
       });
-      // window.addEventListener('load', function () {
-      //   document.getElementsByTagName('html')[0].classList.remove('hide');
-      // });
+      window.addEventListener('load', function () {
+        document.getElementsByTagName('html')[0].style.overflowY = 'auto';
+        isLoading = false;
+      });
     } catch (err) {}
   }
 }

@@ -136,12 +136,12 @@ let skills: Skill[] = [
     projects: []
   },
   { 
-    title: 'Microsoft Office',
-    years: '11+',
-    description: 'I have been using Microsoft Office products consistently since middle school so I am very familiar with all of their products.',
-    url: '../../../assets/images/microsoft\ office\ logo.png',
-    size: '160%',
-    color: 'linear-gradient(127deg, rgba(255,230,231,1) 0%, rgba(255,219,176,1) 100%)',
+    title: 'Spring',
+    years: '2+',
+    description: 'I used Spring while working on the backend of some projects at Union Pacific Railroad.',
+    url: '../../../assets/images/spring.png',
+    size: '80%',
+    color: 'white',
     jobs: [
       jobs[0]
     ],
@@ -333,6 +333,21 @@ let skills: Skill[] = [
     projects: [
       projects[2],
     ]
+  },
+  { 
+    title: 'Microsoft Office',
+    years: '11+',
+    description: 'I have been using Microsoft Office products consistently since middle school so I am very familiar with all of their products.',
+    url: '../../../assets/images/microsoft\ office\ logo.png',
+    size: '160%',
+    color: 'linear-gradient(127deg, rgba(255,230,231,1) 0%, rgba(255,219,176,1) 100%)',
+    jobs: [
+      jobs[0],
+      jobs[1]
+    ],
+    projects: [
+      projects[1],
+    ]
   }
   
 ];
@@ -379,6 +394,8 @@ export class SkillsComponent {
   ngOnInit() {
     let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
     let carouselCont = this.element.nativeElement.querySelector('.carouselCont');
+    let rightArrow = this.element.nativeElement.querySelector('.rightArrowButton');
+    let leftArrow = this.element.nativeElement.querySelector('.leftArrowButton');
     
     try {
       window.addEventListener('load', function () {
@@ -420,8 +437,10 @@ export class SkillsComponent {
           totalShift = shiftRate * shifted;
         }
         pages = Math.ceil(skills.length / cardNum);
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(-${totalShift}vw);`);
+        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(0vw);`);
         carouselCont?.setAttribute('style', `display: block;`);
+        rightArrow.setAttribute('style', 'display: block;');
+        leftArrow.setAttribute('style', 'opacity: 0;');
       });
       this.arrowSize = arrowSize;
     } catch(err) {}

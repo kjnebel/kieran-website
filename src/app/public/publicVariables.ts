@@ -38,7 +38,7 @@ export var skills: Skill[] = [
   /*5*/  {id: 5, name: 'TypeScript', color: '#2d79c7'}, 
   /*6*/  {id: 6, name: 'Java', color: '#cb2d2e'}, 
   /*7*/  {id: 7, name: 'C#', color: '#a27add'}, 
-  /*8*/  {id: 8, name: 'Microsoft Office', color: '#d83c03'}, 
+  /*8*/  {id: 8, name: 'Spring', color: '#ffffff'}, 
   /*9*/  {id: 9, name: 'JIRA', color: '#1772ed'}, 
   /*10*/  {id: 10, name: 'SQL', color: '#db7533'}, 
   /*11*/  {id: 11, name: 'NodeJs', color: '#68a063'}, 
@@ -52,6 +52,7 @@ export var skills: Skill[] = [
   /*19*/  {id: 19, name: 'Django', color: 'white'},
   /*20*/  {id: 20, name: 'Docker', color: '#0092e6'},
   /*21*/  {id: 21, name: 'Python', color: '#ffe15c'},
+  /*22*/  {id: 22, name: 'Microsoft Office', color: '#d83c03'},
 ];
 
 export var jobs: Experience[] = [

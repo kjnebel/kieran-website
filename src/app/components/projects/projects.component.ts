@@ -44,7 +44,8 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
       skills[12],
       skills[14],
       skills[15],
-      skills[16]
+      skills[16],
+      skills[22]
     ],
     color: 'white',
     fontColor: 'black'
