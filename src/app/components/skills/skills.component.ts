@@ -446,7 +446,7 @@ export class SkillsComponent {
         carouselCont?.setAttribute('style', `display: block;`);
         if (this.window.innerWidth > 500) {
           rightArrow.setAttribute('style', 'display: block;');
-          leftArrow.setAttribute('style', 'display: block; opacity: 0;');
+          leftArrow.setAttribute('style', 'opacity: 0;');
         } else {
           rightArrow.setAttribute('style', 'display: none;');
           leftArrow.setAttribute('style', 'display: none;');
