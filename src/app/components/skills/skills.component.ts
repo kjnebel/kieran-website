@@ -410,12 +410,12 @@ export class SkillsComponent {
           shiftRate = 90;
           totalShift = shiftRate * shifted;
         } else {
-          cardNum = 3;
-          arrowSize = 30;
-          shiftRate = 80;
-          totalShift = shiftRate * shifted;
+          cardNum = 3.8;
         }
         pages = Math.ceil(skills.length / cardNum);
+        if (this.window.innerWidth <= 500) {
+          pages = 6.5;
+        }
         cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(-${totalShift}vw);`);
         carouselCont?.setAttribute('style', `display: block;`);
       });
@@ -437,10 +437,18 @@ export class SkillsComponent {
           totalShift = shiftRate * shifted;
         }
         pages = Math.ceil(skills.length / cardNum);
+        if (this.window.innerWidth <= 500) {
+          pages = 6.5;
+        }
         cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(0vw);`);
         carouselCont?.setAttribute('style', `display: block;`);
-        rightArrow.setAttribute('style', 'display: block;');
-        leftArrow.setAttribute('style', 'opacity: 0;');
+        if (this.window.innerWidth > 500) {
+          rightArrow.setAttribute('style', 'display: block;');
+          leftArrow.setAttribute('style', 'display: block; opacity: 0;');
+        } else {
+          rightArrow.setAttribute('style', 'display: none;');
+          leftArrow.setAttribute('style', 'display: none;');
+        }
       });
       this.arrowSize = arrowSize;
     } catch(err) {}
@@ -558,11 +566,11 @@ const removeJobClass = function() {
   jobActive = false;
 }
 
-const removeProjectClass = function() {
-  if (project?.classList.contains('focusedCard')) {
-    project?.classList.toggle('focusedCard', false);
-  }
-  project?.removeEventListener('mouseover', removeProjectClass);
-  window.removeEventListener('click', removeProjectClass);
-  projectActive = false;
-}
+// const removeProjectClass = function() {
+//   if (project?.classList.contains('focusedCard')) {
+//     project?.classList.toggle('focusedCard', false);
+//   }
+//   project?.removeEventListener('mouseover', removeProjectClass);
+//   window.removeEventListener('click', removeProjectClass);
+//   projectActive = false;
+// }

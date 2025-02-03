@@ -246,11 +246,11 @@ export class ProjectsComponent {
       shifted++;
       totalShift = shiftRate * shifted;
       cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-      this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: none;');
+      this.element.nativeElement.querySelector('#projectsRightArrow').setAttribute('style', 'display: none;');
     }
 
     if (shifted > 0) {
-      this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: block;');
+      this.element.nativeElement.querySelector('#projectsLeftArrow').setAttribute('style', 'display: block;');
     }
   }
 
@@ -273,11 +273,11 @@ export class ProjectsComponent {
       shifted--;
       totalShift = shiftRate * shifted;
       cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-      this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: none;');
+      this.element.nativeElement.querySelector('#projectsLeftArrow').setAttribute('style', 'display: none;');
     }
 
     if (shifted < pages - 1) {
-      this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: block;');
+      this.element.nativeElement.querySelector('#projectsRightArrow').setAttribute('style', 'display: block;');
     }
   }
 

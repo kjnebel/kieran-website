@@ -81,7 +81,7 @@ export function goToProjPage(page: number) {
 
       if (tempShifted < projects.length - 1) {
         document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: block;');
-      } else if (tempShifted === 5) {
+      } else if (tempShifted === 6) {
         document.querySelector('#projectsRightArrow')?.setAttribute('style', 'display: none;');
       }
       if (tempShifted === 0) {
