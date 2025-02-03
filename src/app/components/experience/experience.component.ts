@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { toggleExpModalOpen } from '../../public/publicVariables';
 import { SkillsComponent } from '../skills/skills.component';
 import { skills, Skill } from '../../public/publicVariables';
@@ -49,32 +49,6 @@ let exp: Experience[] = [
       skills[22]
     ]
   },
-  // {
-  //   comp: 'Certified Transmission',
-  //   dates: 'May 2020 - Aug 2020',
-  //   resp: 'Worked 45 hours a week at the transmission factory managing parts. Washed and distributed parts to builders. Painted cases of the transmissions. Worked with large machinery.',
-  //   position: 'Parts Handler',
-  //   url: '../../../assets/images/certified\ transmissions\ logo.jpg',
-  //   size: '100%',
-  //   color: 'black',
-  //   skills: [
-  //     skills[8],
-  //     skills[15]
-  //   ]
-  // },
-  // {
-  //   comp: 'Amazon',
-  //   dates: 'Oct 2023 - Dec 2023',
-  //   resp: 'Sorted and handle packages for delivery. Trained new employees. Worked overnight shift 25 hours per week. Used a Zebra device with finger scanner.',
-  //   position: 'Warehouse Seasonal Temp',
-  //   url: '../../../assets/images/amazon\ logo.png',
-  //   size: '90%',
-  //   color: 'white',
-  //   skills: [
-  //     skills[8],
-  //     skills[15]
-  //   ]
-  // }
 ];
 let pages = 1;
 let cardNum: number = 4;
@@ -108,6 +82,7 @@ export class ExperienceComponent {
   expUrl = '';
   expSize = '';
   expSkillList: Skill[] = [];
+  innerWidth = 0;
 
   get cardNumber() {
     return cardNum;
@@ -120,6 +95,7 @@ export class ExperienceComponent {
     let carouselCont = this.element.nativeElement.querySelector('.carouselCont');
     
     try {
+      this.innerWidth = window.innerWidth;
       window.addEventListener('load', function () {
         cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
         carouselCont?.setAttribute('style', `display: block;`);
@@ -140,6 +116,11 @@ export class ExperienceComponent {
         carouselCont?.setAttribute('style', `display: block;`);
       });
     } catch(err) {}
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerWidth = window.innerWidth;
   }
 
   shiftRight() {
@@ -240,7 +221,12 @@ export class ExperienceComponent {
       skill?.addEventListener('mouseover', removeClass);
       window.addEventListener('click', removeClass);
     }, 10);
-    let page = Math.ceil((skillId + 1) / this.skillsComp.cardNumber);
+    let page;
+    if (innerWidth > 500) {
+      page = Math.ceil((skillId + 1) / this.skillsComp.cardNumber);
+    } else {
+      page = Math.ceil((skillId + 1) / 3);
+    }
     this.skillsComp.goToPage(page);
   }
 }

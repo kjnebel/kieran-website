@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { jobs, projects, Experience, Project, goToProjPage } from '../../public/publicVariables';
 interface Skill {title: string, years?: string, description: string, url: string, size: string, color: string, jobs: Experience[], projects: Project[]};
 
@@ -411,6 +411,8 @@ export class SkillsComponent {
           totalShift = shiftRate * shifted;
         } else {
           cardNum = 3.8;
+          shiftRate = 0.8;
+          totalShift = shiftRate * shifted;
         }
         pages = Math.ceil(skills.length / cardNum);
         if (this.window.innerWidth <= 500) {
@@ -431,9 +433,9 @@ export class SkillsComponent {
           shiftRate = 90;
           totalShift = shiftRate * shifted;
         } else {
-          cardNum = 3;
+          cardNum = 3.8;
           arrowSize = 30;
-          shiftRate = 80;
+          shiftRate = 0.8;
           totalShift = shiftRate * shifted;
         }
         pages = Math.ceil(skills.length / cardNum);
@@ -494,20 +496,27 @@ export class SkillsComponent {
 
   goToPage(page: number) {
     let cardCarousel = document.querySelector('#skillsCardCarousel');
+    let cardCont = document.querySelector('#skillsCarouselCont');
     shifted = page - 1;
     totalShift = shiftRate * shifted;
-    if (cardCarousel) {
-      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
+    if (innerWidth > 500){
+      if (cardCarousel) {
+        cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
 
-      if (shifted < pages - 1 && window.innerWidth > 500) {
-        document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: block;');
-      } else if (window.innerWidth > 500) {
-        document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: none;');
+        if (shifted < pages - 1 && window.innerWidth > 500) {
+          document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: block;');
+        } else if (window.innerWidth > 500) {
+          document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: none;');
+        }
+        if (shifted === 0 && window.innerWidth > 500) {
+          document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 0;');
+        } else if (window.innerWidth > 500) {
+          document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 1;');
+        }
       }
-      if (shifted === 0 && window.innerWidth > 500) {
-        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 0;');
-      } else if (window.innerWidth > 500) {
-        document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 1;');
+    } else {
+      if (cardCont) {
+        cardCont.scrollLeft = totalShift * window.innerWidth;
       }
     }
   }

@@ -316,7 +316,12 @@ export class ProjectsComponent {
       skill?.addEventListener('mouseover', removeClass);
       window.addEventListener('click', removeClass);
     }, 10);
-    let page = Math.ceil((skillId + 1) / this.skillsComp.cardNumber);
+    let page;
+    if (innerWidth > 500) {
+      page = Math.ceil((skillId + 1) / this.skillsComp.cardNumber);
+    } else {
+      page = Math.ceil((skillId + 1) / 3);
+    }
     this.skillsComp.goToPage(page);
   }
 }

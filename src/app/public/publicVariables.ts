@@ -42,7 +42,7 @@ export var skills: Skill[] = [
   /*9*/  {id: 9, name: 'JIRA', color: '#1772ed'}, 
   /*10*/  {id: 10, name: 'SQL', color: '#db7533'}, 
   /*11*/  {id: 11, name: 'NodeJs', color: '#68a063'}, 
-  /*12*/  {id: 12, name: 'Accessible Website Design', color: '#0383b4'},
+  /*12*/  {id: 12, name: 'Accessibility', color: '#0383b4'},
   /*13*/  {id: 13, name: 'AWS', color: 'white'}, 
   /*14*/  {id: 14, name: 'GitHub', color: '#ffffff'}, 
   /*15*/  {id: 15, name: 'Communication', color: '#ffffff'}, 
