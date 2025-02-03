@@ -499,14 +499,14 @@ export class SkillsComponent {
     if (cardCarousel) {
       cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
 
-      if (shifted < pages - 1) {
+      if (shifted < pages - 1 && window.innerWidth > 500) {
         document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: block;');
-      } else {
+      } else if (window.innerWidth > 500) {
         document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: none;');
       }
-      if (shifted === 0) {
+      if (shifted === 0 && window.innerWidth > 500) {
         document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 0;');
-      } else {
+      } else if (window.innerWidth > 500) {
         document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 1;');
       }
     }
