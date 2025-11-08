@@ -37,10 +37,13 @@
             <div class="titleCont">
               <h4>{{ project.title }}</h4>
               <p>{{ project.desc }}</p>
+
+              @if (project.url) {
               <a class="showMore" href="{{ project.url }}" target="_blank"
                 ><div class="btnIconCont">
                   <img src="../../../assets/images/openNew.png" /></div
               ></a>
+              }
             </div>
             <div class="titleCont">
               <h5>Skills Utilized</h5>
