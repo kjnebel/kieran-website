@@ -126,9 +126,11 @@
           </span>
         </div>
         <h4 style="font-size: 1.25rem; font-weight: normal">{{ expPos }}</h4>
-        @for (resp of expResp; track resp;) {
-        <p>• {{ resp }}</p>
-        }
+        <ul>
+          @for (resp of expResp; track resp;) {
+          <li style="padding-bottom: 8px">{{ resp }}</li>
+          }
+        </ul>
       </div>
       <div class="titleCont">
         <h5>Skills Utilized</h5>
