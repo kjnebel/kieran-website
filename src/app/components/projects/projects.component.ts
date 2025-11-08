@@ -58,11 +58,12 @@ const projectsArray: ProjectDetail[] = [
     color: '#ddf7e3',
     fontColor: '#253e24',
   },
+  //https://c02.my.uprr.com/ui/rmc_ext/#/
   {
     id: 'upProjects',
     title: 'UP Projects',
     desc: "I completed many projects while working at Union Pacific. One I'm particularly proud of was an Incident Reporting application I helped develop at a time when derailments were all over the news. A different application I am able to show is a public-facing rail-crossing reporting application. I worked on the frontend of both applications with one other developer and they were developed using Angular. I was also in charge of making sure that the app was accessible to all users.",
-    url: 'https://c02.my.uprr.com/ui/rmc_ext/#/',
+    url: '',
     picture: '../../../assets/images/upProjects.png',
     skills: [
       skills['Angular'],

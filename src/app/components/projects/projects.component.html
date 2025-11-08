@@ -90,6 +90,7 @@
         <button class="closeModal" (click)="closeModal()">X</button>
       </div>
     </div>
+    @if (projectUrl) {
     <div class="titleLink">
       <h4>{{ projectTitle }}</h4>
       <a class="showMore" href="{{ projectUrl }}" target="_blank"
@@ -97,6 +98,7 @@
           <img src="../../../assets/images/openNew.png" /></div
       ></a>
     </div>
+    }
     <div class="cardDetail">
       <div class="titleCont">
         <p>{{ projectDesc }}</p>
