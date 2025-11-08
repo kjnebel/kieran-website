@@ -1,297 +1,299 @@
 /* Skills Container */
 .projectCont {
-    position: relative;
-    padding-top: 9vh;
-    height: fit-content;
-    width: 100vw;
-    mix-blend-mode: normal;
-    z-index: 6;
-    box-sizing: border-box;
+  position: relative;
+  padding-top: 9vh;
+  height: fit-content;
+  width: 100vw;
+  mix-blend-mode: normal;
+  z-index: 6;
+  box-sizing: border-box;
 }
 
 .cardCarouselCont {
-    margin-left: 0;
-    height: 80vh;
+  margin-left: 0;
+  height: 80vh;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .cardCont {
-    position: relative;
-    width: 100vw;
-    height: 80vh;
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  flex: 0 0 100vw;
+  flex-shrink: 0;
 }
 
 h4 {
-    color: var(--fontColor);
+  color: var(--fontColor);
 }
 
-#restaurant, #codeAcademy{
-    > div > h4 {
-        text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    }
+#restaurant,
+#codeAcademy {
+  > div > h4 {
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  }
 }
 
 #codePen {
-    > div > h4 {
-        text-shadow: 0px 0px 3px rgba(37, 62, 36, 0.4);
-    }
+  > div > h4 {
+    text-shadow: 0px 0px 3px rgba(37, 62, 36, 0.4);
+  }
 }
 
 .card {
-    width: 90%;
-    margin: auto;
-    z-index: 20;
-    border: 2px solid white;
-    box-shadow: var(--box-shadow);
-    background-color: var(--color);
-    box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.5);
+  width: 90%;
+  margin: auto;
+  z-index: 20;
+  border: 2px solid white;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color);
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.5);
 }
 
 .iconbg {
-    background-size: contain;
+  background-size: contain;
 }
 
 .card:hover {
-    transform: unset;
+  transform: unset;
 
-    .projectTitle {
-        opacity: 0;
-    }
+  .projectTitle {
+    opacity: 0;
+  }
 
-    .iconbg {
-        height: 55%;
-    }
+  .iconbg {
+    height: 55%;
+  }
 
-    .cardDetail {
-        height: 45%;
-    }
+  .cardDetail {
+    height: 45%;
+  }
 }
 
 .projectTitle {
-    position: absolute;
-    font-size: 2.5rem;
-    bottom: 16px;
-    left: 16px;
-    opacity: 100%;
-    transition: all 0.3s;
-    transition-delay: 0.3s;
+  position: absolute;
+  font-size: 2.5rem;
+  bottom: 16px;
+  left: 16px;
+  opacity: 100%;
+  transition: all 0.3s;
+  transition-delay: 0.3s;
 }
 
 .cardDetail {
-    display: block;
-    color: white;
-    width: calc(100% - 8px);
-    height: 35%;
-    padding: 8px;
-    transition: all 0.3s;
-    transition-delay: 0.3s;
+  display: block;
+  color: white;
+  width: calc(100% - 8px);
+  height: 35%;
+  padding: 8px;
+  transition: all 0.3s;
+  transition-delay: 0.3s;
 }
 
 .titleLink {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    padding: 24px;
-    padding-left: 16px;
-    width: 100%;
-    margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 24px;
+  padding-left: 16px;
+  width: 100%;
+  margin-top: 8px;
 
-    > h4 {
-        font-size: 2rem;
-    }
+  > h4 {
+    font-size: 2rem;
+  }
 }
 
 /* Shared arrow button CSS */
 .arrowButton {
-    height: 80vh;
+  height: 80vh;
 }
 
 .showMore {
-    right: 16px;
-    bottom: 16px;
-    height: 2.5rem;
-    width: 2.5rem;
-    align-content: center;
-    opacity: 0%;
-    border-radius: 50%;
-    transition: opacity 0.2s 0.2s !important;
+  right: 16px;
+  bottom: 16px;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-content: center;
+  opacity: 0%;
+  border-radius: 50%;
+  transition: opacity 0.2s 0.2s !important;
 }
 
 .btnIconCont > img {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .btnIconCont {
-    height: auto;
-    width: 65%;
-    margin: auto;
-    display: grid;
-    align-content: center;
-    justify-items: center;
+  height: auto;
+  width: 65%;
+  margin: auto;
+  display: grid;
+  align-content: center;
+  justify-items: center;
 }
 
 /* Resizing Styling */
 @media only screen and (max-width: 500px) {
-    .card {
-        width: 100vw;
-        height: 60vh;
-        border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        border-radius: 0;
-        transition: all 0s;
+  .card {
+    width: 100vw;
+    height: 60vh;
+    border: none;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+    transition: all 0s;
+  }
+
+  .projectTitle,
+  .cardDetail {
+    transition: all 0s;
+    transition-delay: 0s;
+  }
+
+  .cardDetail {
+    height: fit-content;
+  }
+
+  #projectsRightArrow,
+  #projectsLeftArrow {
+    background: none;
+    height: 100%;
+    width: 60px;
+  }
+
+  .cardCarouselCont {
+    height: 60vh;
+  }
+
+  .cardCont {
+    height: 60vh;
+    transition: all 0s;
+  }
+
+  .card:hover {
+    transition: all 0s;
+
+    .projectTitle {
+      opacity: 1;
+      transition: all 0s;
     }
 
-    .projectTitle, .cardDetail {
-        transition: all 0s;
-        transition-delay: 0s;
+    .iconbg {
+      height: 100%;
+      width: 100%;
+      transition: all 0s;
     }
 
     .cardDetail {
-        height: fit-content;
-    }
+      display: none;
+      transition: all 0s;
 
-    #projectsRightArrow, #projectsLeftArrow {
-        background: none;
-        padding-top: 9vh;
-        height: 50%;
-        width: fit-content;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    #projectsRightArrow {
-        width: 60px;
-    }
-
-    .cardCarouselCont {
-        height: 60vh;
-    }
-    
-    .cardCont {
-        height: 60vh;
+      .titleCont {
         transition: all 0s;
+      }
     }
+  }
 
-    .card:hover {
-        transition: all 0s;
-    
-        .projectTitle {
-            opacity: 1;
-            transition: all 0s;
-        }
+  .showMore {
+    right: 0;
+    bottom: 0;
+  }
 
-        .iconbg {
-            height: 100%;
-            width: 100%;
-            transition: all 0s;
-        }
-    
-        .cardDetail {
-            display: none;
-            transition: all 0s;
+  .modalCard .showMore {
+    position: relative;
+    float: right;
+    display: block;
+    z-index: 99;
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+  }
 
-            .titleCont {
-                transition: all 0s;
-            }
-        }
-    }
+  .modalCard .modalIconbg .icon {
+    width: 100%;
+    background-size: contain;
+  }
 
-    .showMore {
-        right: 0;
-        bottom: 0;
-    }
+  .titleCont > p {
+    margin-top: 0;
+  }
 
-    .modalCard .showMore {
-        position: relative;
-        float: right;
-        display: block;
-        z-index: 99;
-        opacity: 1;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .modalCard .modalIconbg .icon {
-        width: 100%;
-        background-size: contain;
-    }
-
-    .titleCont > p {
-        margin-top: 0;
-    }
-
-    .skillsCont {
-        margin-bottom: 24px;
-    }
+  .skillsCont {
+    margin-bottom: 24px;
+  }
 }
-        
+
 @media only screen and (min-width: 500px) {
-    .card {
-        width: 100vw;
-        border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        border-radius: 0;
-    }
+  .card {
+    width: 100vw;
+    border: none;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+  }
 
-    #projectsRightArrow, #projectsLeftArrow {
-        background: none;
-    }
+  #projectsRightArrow,
+  #projectsLeftArrow {
+    background: none;
+  }
 
-    #projectsRightArrow {
-        width: 90px;
-    }
+  #projectsRightArrow {
+    width: 90px;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-    
 }
 
-    
 @media only screen and (min-width: 1280px) {
-    .card {
-        display: flex;
-        width: 85%;
-        margin: auto;
-        z-index: 20;
-        border: 2px solid white;
-        border-radius: 25px;
-        box-shadow: var(--box-shadow);
-        background-color: var(--color);
+  .card {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    z-index: 20;
+    border: 2px solid white;
+    border-radius: 25px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color);
 
-        .iconbg {
-            width: 100%;
-        }
-
-        .cardDetail {
-            height: 100%;
-            opacity: 0;
-            padding: 0;
-            width: 0;
-        }
+    .iconbg {
+      width: 100%;
     }
 
-    .card:hover {
-        .iconbg {
-            height: 100%;
-            width: 50%;
-        }
-
-        .cardDetail {
-            padding: 8px;
-            height: 100%;
-            width: 50%;
-            display: block;
-            opacity: 1;
-        }
+    .cardDetail {
+      height: 100%;
+      opacity: 0;
+      padding: 0;
+      width: 0;
     }
+  }
+
+  .card:hover {
+    .iconbg {
+      height: 100%;
+      width: 50%;
+    }
+
+    .cardDetail {
+      padding: 8px;
+      height: 100%;
+      width: 50%;
+      display: block;
+      opacity: 1;
+    }
+  }
 }
 
 @media only screen and (min-width: 1500px) {
-    /* .card:hover {
+  /* .card:hover {
         transform: unset;
     
         .projectTitle {

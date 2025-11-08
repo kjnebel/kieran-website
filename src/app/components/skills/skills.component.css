@@ -1,108 +1,150 @@
 /* Skills Container */
 .skillCont {
-    position: absolute;
-    bottom: 0;
-    height: fit-content;
-    width: 100vw;
-    background: linear-gradient(to top, var(--background-grey) 40%, var(--background-grey-50) 60%, var(--background-grey-30) 70%, #14141400);
-    mix-blend-mode: normal;
-    z-index: 8;
+  position: absolute;
+  bottom: 0;
+  height: fit-content;
+  width: 100vw;
+  background: linear-gradient(
+    to top,
+    var(--background-grey) 40%,
+    var(--background-grey-50) 60%,
+    var(--background-grey-30) 70%,
+    #14141400
+  );
+  mix-blend-mode: normal;
+  z-index: 8;
 }
 
 .downArrow {
-    margin: auto;
-    display: flex;
-    align-content: center;
+  margin: auto;
+  display: flex;
+  align-content: center;
 }
 
 .modalCard {
-    .years {
-        padding: 4px 8px 4px 8px;
-    }
+  .years {
+    padding: 4px 8px 4px 8px;
+  }
 }
 
 .leftArrowButton {
-    display: block;
-    opacity: 0;
+  display: block;
+  opacity: 0;
 }
-    
+
 /* Resizing Styling */
 @media only screen and (max-width: 500px) {
+  .cardCarouselCont,
+  .cardCont,
+  .arrowButton {
+    --scale: calc(80vw / 3);
+  }
 
-    .cardCarouselCont, .cardCont, .arrowButton {
-        --scale: calc(80vw / 3);
-    }
+  div::-webkit-scrollbar {
+    display: none;
+  }
 
-    div::-webkit-scrollbar {
-        display: none;
-    }
+  .carouselCont {
+    overflow-x: auto;
+  }
 
-    .carouselCont {
-        overflow-x: auto;
-    }
+  .iconbg {
+    height: 65%;
+    width: 65%;
+  }
 
-    .iconbg {
-        height: 65%;
-        width: 65%;
-    }
+  .card > .cardDetail {
+    display: block;
+    height: 35%;
+    width: 100%;
+    background-color: var(--background-light-grey);
+  }
 
-    .card > .cardDetail {
-        display: block;
-        height: 35%;
-        width: 100%;
-        background-color: var(--background-light-grey);
-    }
+  .titleCont {
+    width: 100%;
+  }
 
-    .titleCont {
-        width: 100%;
-    }
+  .cardCarouselCont {
+    margin-left: 10vw;
+  }
 
-    .cardCarouselCont {
-        margin-left: 10vw;
-    }
+  .arrowButton {
+    width: 11vw;
+    min-width: 40px;
+    max-width: 60px;
+    padding: 0 4px;
+  }
 
-    .arrowButton {
-        width: 11vw;
-    }
+  .leftArrow {
+    margin-left: 0;
+  }
 
-    .leftArrow {
-        margin-left: -8px;
-    }
+  .showMore {
+    display: none;
+  }
 
-    .showMore {
-        display: none;
-    }
+  #years {
+    display: none;
+  }
 
-    #years {
-        display: none;
-    }
-
-    #skillsRightArrow, #skillsLeftArrow {
-        display: none;
-    }
-}
-        
-@media only screen and (min-width: 500px) {
-    .cardCarouselCont, .cardCont, .arrowButton {
-        --scale: calc(90vw / 4);
-    }
-}
-
-@media only screen and (min-width: 900px) {
-    .cardCarouselCont, .cardCont, .arrowButton {
-        --scale: calc(90vw / 5);
-    }
+  #skillsRightArrow,
+  #skillsLeftArrow {
+    display: none;
+  }
 }
 
-    
-@media only screen and (min-width: 1280px) {
-    .cardCarouselCont, .cardCont, .arrowButton {
-        --scale: calc(90vw / 5);
-    }
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  .cardCarouselCont,
+  .cardCont,
+  .arrowButton {
+    --scale: calc(90vw / 4);
+  }
+
+  .arrowButton {
+    min-width: 45px;
+    max-width: 70px;
+    padding: 0 6px;
+  }
 }
 
-@media only screen and (min-width: 1920px) {
-    .cardCarouselCont, .cardCont, .arrowButton {
-        --scale: calc(90vw / 5);
-    }
+@media only screen and (min-width: 900px) and (max-width: 1280px) {
+  .cardCarouselCont,
+  .cardCont,
+  .arrowButton {
+    --scale: calc(90vw / 5);
+  }
+
+  .arrowButton {
+    min-width: 50px;
+    max-width: 80px;
+    padding: 0 8px;
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1700px) {
+  .cardCarouselCont,
+  .cardCont,
+  .arrowButton {
+    --scale: calc(90vw / 5);
+  }
+
+  .arrowButton {
+    min-width: 55px;
+    max-width: 85px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .cardCarouselCont,
+  .cardCont,
+  .arrowButton {
+    --scale: calc(90vw / 5);
+  }
+
+  .arrowButton {
+    min-width: 60px;
+    max-width: 90px;
+    padding: 0 16px;
+  }
 }

@@ -1,55 +1,136 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { toggleExpModalOpen } from '../../public/publicVariables';
 import { SkillsComponent } from '../skills/skills.component';
-import { skills, Skill } from '../../public/publicVariables';
+import {
+  skills,
+  Skill,
+  skillsArrayExport,
+  showExperienceModal,
+  openModal,
+  globalCloseModal,
+} from '../../public/publicVariables';
 
-interface Experience {comp: string, dates: string, resp: string, position: string, reasonForLeaving?: string, url: string, size: string, color: string, skills: Skill[]}
+interface Experience {
+  comp: string;
+  dates: string;
+  resp: string[];
+  position: string;
+  url: string;
+  size: string;
+  color: string;
+  skills: Skill[];
+}
 
-let exp: Experience[] = [
+const expArray: Experience[] = [
+  {
+    comp: 'Guardify',
+    dates: 'May 2025 - Present',
+    resp: [
+      'Used React, React Native, Redux Toolkit (RTK), Fastify, Prisma ORM and PostgreSQL to build and maintain full-stack and mobile applications for Child Advocacy Centers.',
+      'Reduced code complexity through RTK modularization.',
+      'Developed and optimized significant key features for the new app release.',
+      'Completed 100+ tickets for bugs and features in the existing web and mobile app.',
+      'Communicated project timelines and technical details to non-technical stakeholders.',
+    ],
+    position: 'Software Engineer',
+    url: '../../../assets/images/Guardify_Icon.webp',
+    size: '100%',
+    color: 'white',
+    skills: [
+      skills['React'],
+      skills['React Native'],
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['Redux Toolkit'],
+      skills['Cursor'],
+      skills['Fastify'],
+      skills['Prisma ORM'],
+      skills['Linear'],
+      skills['PostgreSQL'],
+      skills['Node.js'],
+      skills['AWS'],
+      skills['GitHub'],
+      skills['UI/UX Design'],
+    ],
+  },
+  {
+    comp: 'W. N. Morehouse Truck Line Co.',
+    dates: 'Jan 2025 - Apr 2025',
+    resp: [
+      "Hired to automate route finding to find the cheapest fuel along the truck's route.",
+      'Developed using React Native, TypeScript, Firebase, Node.js, and AWS.',
+    ],
+    position: 'Freelance Mobile App Developer',
+    url: '../../../assets/images/Morehouse.png',
+    size: '190%',
+    color: 'white',
+    skills: [
+      skills['React Native'],
+      skills['TypeScript'],
+      skills['Cursor'],
+      skills['Firebase'],
+      skills['Node.js'],
+      skills['AWS'],
+      skills['GitHub'],
+      skills['UI/UX Design'],
+    ],
+  },
   {
     comp: 'Union Pacific Railroad',
     dates: 'Mar 2021 - Mar 2024',
-    resp: 'I worked closely with my team to develop business-wide safety applications using Angular versions 11 – 16. Worked on many business-critical applications. Used project management software like Jira to manage projects. Proficient use of communication tools like Microsoft Teams to meet with team members and business partners. Increased my knowledge of Angular, HTML, CSS, Typescript, Java, and SQL',
+    resp: [
+      'Developed the frontend for business-wide safety web and mobile applications using Angular (v11–16), AngularJs, and Node.js.',
+      'Contributed to backend development of enterprise web apps using Java (Spring) and Selenium for automated testing.',
+      'Worked in an Agile environment using Jira for project management.',
+    ],
     position: 'IT Intern',
-    url: '../../../assets/images/union\ pacific\ logo.png',
+    url: '../../../assets/images/union pacific logo.png',
     size: '90%',
     color: 'white',
     skills: [
-      skills[0],
-      skills[1],
-      skills[2],
-      skills[3],
-      skills[4],
-      skills[5],
-      skills[6],
-      skills[8],
-      skills[9],
-      skills[10],
-      skills[11],
-      skills[12],
-      skills[14],
-      skills[15],
-      skills[16],
-      skills[22]
-    ]
+      skills['Angular'],
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['JavaScript'],
+      skills['Java'],
+      skills['Jira'],
+      skills['SQL'],
+      skills['AWS'],
+      skills['GitHub'],
+      skills['UI/UX Design'],
+      skills['Spring'],
+    ],
   },
   {
     comp: 'Code Ninjas',
     dates: 'Mar 2019 - Aug 2020',
-    resp: 'Taught kids how to code games using JavaScript. Developed curriculum for summer camps which involved different types of coding and robotics. Was the lead instructor at many summer camps.',
+    resp: [
+      'Taught kids how to code games using JavaScript and HTML.',
+      'Developed and led summer camp curricula in robotics, programming, and game development.',
+      "Assessed students' knowledge through various assessments.",
+    ],
     position: 'Code Instructor',
-    url: '../../../assets/images/code\ ninjas\ logo.png',
+    url: '../../../assets/images/code ninjas logo.png',
     size: '90%',
     color: 'white',
     skills: [
-      skills[2],
-      skills[4],
-      skills[15],
-      skills[16],
-      skills[22]
-    ]
+      skills['JavaScript'],
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['GitHub'],
+      skills['UI/UX Design'],
+    ],
   },
 ];
+
+// Create hashmap keyed by company name
+const exp: { [key: string]: Experience } = {};
+expArray.forEach((experience) => {
+  exp[experience.comp] = experience;
+});
+
+// Export array for iteration purposes
+const expArrayExport = expArray;
 let pages = 1;
 let cardNum: number = 4;
 let arrowSize: number = 50;
@@ -63,59 +144,65 @@ let shifted: number = 0;
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrl: './experience.component.css'
+  styleUrl: './experience.component.css',
 })
 export class ExperienceComponent {
-  
-  expList = exp;
+  expList = expArrayExport;
   arrowSize = 60;
   shifted = 0;
   pages = pages;
   downArrowSize = downArrowSize;
   cardNum = 4;
-  showModal = false;
   expComp = '';
   expPos = '';
   expDates = '';
-  expResp = '';
+  expResp = [''];
   expColor = '';
   expUrl = '';
   expSize = '';
   expSkillList: Skill[] = [];
   innerWidth = 0;
+  skillsArray: Skill[] = skillsArrayExport;
 
   get cardNumber() {
     return cardNum;
   }
 
-  constructor(public element: ElementRef, private skillsComp: SkillsComponent) {}
+  get showExperienceModal() {
+    return showExperienceModal;
+  }
+
+  constructor(
+    public element: ElementRef,
+    private skillsComp: SkillsComponent
+  ) {}
 
   ngOnInit() {
-    let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
-    let carouselCont = this.element.nativeElement.querySelector('.carouselCont');
-    
+    let cardCarousel =
+      this.element.nativeElement.querySelector('.cardCarouselCont');
+    let carouselCont =
+      this.element.nativeElement.querySelector('.carouselCont');
+
     try {
       this.innerWidth = window.innerWidth;
       window.addEventListener('load', function () {
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
         carouselCont?.setAttribute('style', `display: block;`);
       });
       window.addEventListener('resize', function () {
-        if (window.innerWidth > 900 ) {
+        if (window.innerWidth > 900) {
           cardNum = 4;
           arrowSize = 60;
         } else if (window.innerWidth > 600) {
-          cardNum = 4;
+          cardNum = 3;
           arrowSize = 40;
         } else {
-          cardNum = 3;
+          cardNum = 2;
           arrowSize = 30;
         }
-        pages = Math.ceil(exp.length / cardNum);
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
+        pages = Math.ceil(expArrayExport.length / cardNum);
         carouselCont?.setAttribute('style', `display: block;`);
       });
-    } catch(err) {}
+    } catch (err) {}
   }
 
   @HostListener('window:resize', ['$event'])
@@ -124,40 +211,70 @@ export class ExperienceComponent {
   }
 
   shiftRight() {
-    let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
-    
+    let cardCarousel =
+      this.element.nativeElement.querySelector('.cardCarouselCont');
+
     if (this.shifted < pages - 2) {
       this.shifted++;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute(
+        'style',
+        `transform: translateX(-${90 * this.shifted}vw); width: ${
+          window.innerWidth * pages
+        }px;`
+      );
     } else if (this.shifted == pages - 2) {
       this.shifted++;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute(
+        'style',
+        `transform: translateX(-${90 * this.shifted}vw); width: ${
+          window.innerWidth * pages
+        }px;`
+      );
       setTimeout(() => {
-        this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: none;');
+        this.element.nativeElement
+          .querySelector('.rightArrowButton')
+          .setAttribute('style', 'display: none;');
       }, 1000);
     }
 
     if (this.shifted > 0) {
-      this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: block;');
+      this.element.nativeElement
+        .querySelector('.leftArrowButton')
+        .setAttribute('style', 'display: block;');
     }
   }
 
   shiftLeft() {
-    let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
-    
+    let cardCarousel =
+      this.element.nativeElement.querySelector('.cardCarouselCont');
+
     if (this.shifted > 1) {
       this.shifted--;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute(
+        'style',
+        `transform: translateX(-${90 * this.shifted}vw); width: ${
+          window.innerWidth * pages
+        }px;`
+      );
     } else if (this.shifted == 1) {
       this.shifted--;
-      cardCarousel.setAttribute('style', `transform: translateX(-${90 * this.shifted}vw); width: ${window.innerWidth * pages}px;`);
+      cardCarousel.setAttribute(
+        'style',
+        `transform: translateX(-${90 * this.shifted}vw); width: ${
+          window.innerWidth * pages
+        }px;`
+      );
       setTimeout(() => {
-        this.element.nativeElement.querySelector('.leftArrowButton').setAttribute('style', 'display: none;');
+        this.element.nativeElement
+          .querySelector('.leftArrowButton')
+          .setAttribute('style', 'display: none;');
       }, 1000);
     }
 
     if (this.shifted < pages - 1) {
-      this.element.nativeElement.querySelector('.rightArrowButton').setAttribute('style', 'display: block;');
+      this.element.nativeElement
+        .querySelector('.rightArrowButton')
+        .setAttribute('style', 'display: block;');
     }
   }
 
@@ -171,48 +288,31 @@ export class ExperienceComponent {
     this.expUrl = exp.url;
     this.expSize = exp.size;
     this.expSkillList = exp.skills;
-    if(!this.showModal) {
-      this.showModal = toggleExpModalOpen();
-    } else {
-      toggleExpModalOpen();
-      this.showModal = toggleExpModalOpen();
-    }
+    openModal('experience');
     document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
   }
 
   goToPage(page: number) {
-    let cardCarousel = document.querySelector('#skillsCardCarousel');
     shifted = page - 1;
     totalShift = shiftRate * shifted;
-    // if (cardCarousel) {
-    //   cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-
-    //   if (shifted < pages - 1) {
-    //     document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: block;');
-    //   }
-    //   if (shifted === 0) {
-    //     document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 0;');
-    //   }
-    //   if (shifted === pages - 1) {
-    //     document.querySelector('#skillsRightArrow')?.setAttribute('style', 'display: none;');
-    //   }
-    //   if (shifted > 0) {
-    //     document.querySelector('#skillsLeftArrow')?.setAttribute('style', 'opacity: 1;');
-    //   }
-    // }
   }
 
   closeModal() {
-    this.showModal = toggleExpModalOpen();
+    globalCloseModal();
     document.getElementsByTagName('html')[0].style.overflowY = 'auto';
   }
 
-  goToSkill(skillId: number) {
+  goToSkill(skillId: number, skillName: string) {
     this.closeModal();
+    if (skillName == 'Linear' || skillName == 'Jira') {
+      skillName = 'Linear & Jira';
+    } else if (skillName == 'React' || skillName == 'React Native') {
+      skillName = 'React / React Native';
+    }
     if (active) {
       removeClass();
     }
-    skill = document.getElementById(skills[skillId].name);
+    skill = document.getElementById(skillName);
     if (!skill?.classList.contains('focusedCard')) {
       skill?.classList.toggle('focusedCard', true);
       active = true;
@@ -231,11 +331,11 @@ export class ExperienceComponent {
   }
 }
 
-const removeClass = function() {
+const removeClass = function () {
   if (skill?.classList.contains('focusedCard')) {
     skill?.classList.toggle('focusedCard', false);
   }
   skill?.removeEventListener('mouseover', removeClass);
   window.removeEventListener('click', removeClass);
   active = false;
-}
+};

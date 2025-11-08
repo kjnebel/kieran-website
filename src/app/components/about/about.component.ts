@@ -1,6 +1,21 @@
 import { Component, ElementRef } from '@angular/core';
+import {
+  showEducationModal,
+  openModal,
+  globalCloseModal,
+} from '../../public/publicVariables';
 
-let details: {heading: string, title: string, desc: string, additional: string, picture: string, size: string, color: string}[] = [
+interface EducationDetail {
+  heading: string;
+  title: string;
+  desc: string;
+  additional: string;
+  picture: string;
+  size: string;
+  color: string;
+}
+
+const detailsArray: EducationDetail[] = [
   {
     heading: 'B.S. in Computer Science',
     title: 'Cum Laude',
@@ -8,46 +23,45 @@ let details: {heading: string, title: string, desc: string, additional: string, 
     additional: 'GPA: 3.567',
     picture: '../../../assets/images/unoLogo.png',
     size: '90%',
-    color: 'black'
+    color: 'black',
   },
   {
     heading: 'Semester Abroad',
     title: 'Seoul, South Korea',
     desc: 'Studied abroad in Seoul, South Korea for the Spring 2024 semester at EWHA University. While abroad I was lucky enough to have many valuable experiences and learn a lot about another culture.',
-    additional: 'At EWHA I participated in the PEACE Buddy club for international students. I also was a member of the Pickelball club and got the chance to play at Seoul\'s Olympic Park.',
+    additional:
+      "At EWHA I participated in the PEACE Buddy club for international students. I also was a member of the Pickelball club and got the chance to play at Seoul's Olympic Park.",
     picture: '../../../assets/images/ewhaLogo.png',
     size: '90%',
-    color: 'white'
+    color: 'white',
   },
-  // {
-  //   heading: 'Located in Omaha, NE',
-  //   title: 'In-person, Hybrid, or Remote',
-  //   desc: 'I am based in Omaha, NE but am comfortable working in a remote and hybrid setting.',
-  //   additional: '',
-  //   picture: '../../../assets/images/location.png',
-  //   size: '90%',
-  //   color: 'white'
-  // },
 ];
 
+// Create hashmap keyed by title
+const details: { [key: string]: EducationDetail } = {};
+detailsArray.forEach((detail) => {
+  details[detail.title] = detail;
+});
+
+// Export array for iteration purposes
+const detailsArrayExport = detailsArray;
+
 let cardNum: number = 4;
-let pages = Math.ceil(details.length / cardNum);
+let pages = Math.ceil(detailsArrayExport.length / cardNum);
 let arrowSize: number = 50;
 let downArrowSize: number = 20;
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrl: './about.component.css',
 })
 export class AboutComponent {
-
-  aboutList = details;
+  aboutList = detailsArrayExport;
   arrowSize = 60;
   pages = pages;
   downArrowSize = downArrowSize;
   cardNum = 4;
-  showModal = false;
   aboutTitle = '';
   aboutHeading = '';
   aboutDesc = '';
@@ -56,15 +70,21 @@ export class AboutComponent {
   aboutSize = '';
   aboutColor = '';
 
+  get showEducationModal() {
+    return showEducationModal;
+  }
+
   constructor(public element: ElementRef) {}
 
   ngOnInit() {
-    let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
-    let carouselCont = this.element.nativeElement.querySelector('.carouselCont');
-    
+    let cardCarousel =
+      this.element.nativeElement.querySelector('.cardCarouselCont');
+    let carouselCont =
+      this.element.nativeElement.querySelector('.carouselCont');
+
     try {
       window.addEventListener('load', function () {
-        if (window.innerWidth > 900 ) {
+        if (window.innerWidth > 900) {
           cardNum = 5;
           arrowSize = 60;
         } else if (window.innerWidth > 600) {
@@ -74,12 +94,15 @@ export class AboutComponent {
           cardNum = 3;
           arrowSize = 30;
         }
-        pages = Math.ceil(details.length / cardNum);
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
+        pages = Math.ceil(detailsArrayExport.length / cardNum);
+        cardCarousel?.setAttribute(
+          'style',
+          `width: ${window.innerWidth * pages}px;`
+        );
         carouselCont?.setAttribute('style', `display: block;`);
       });
       window.addEventListener('resize', function () {
-        if (window.innerWidth > 900 ) {
+        if (window.innerWidth > 900) {
           cardNum = 5;
           arrowSize = 60;
         } else if (window.innerWidth > 600) {
@@ -89,12 +112,15 @@ export class AboutComponent {
           cardNum = 3;
           arrowSize = 30;
         }
-        pages = Math.ceil(details.length / cardNum);
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px;`);
+        pages = Math.ceil(detailsArrayExport.length / cardNum);
+        cardCarousel?.setAttribute(
+          'style',
+          `width: ${window.innerWidth * pages}px;`
+        );
         carouselCont?.setAttribute('style', `display: block;`);
       });
       this.arrowSize = arrowSize;
-    } catch(err) {}
+    } catch (err) {}
   }
 
   showMore(index: number) {
@@ -106,12 +132,12 @@ export class AboutComponent {
     this.aboutColor = exp.color;
     this.aboutPic = exp.picture;
     this.aboutSize = exp.size;
-    this.showModal = true;
+    openModal('education');
     document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
   }
 
   closeModal() {
-    this.showModal = false;
+    globalCloseModal();
     document.getElementsByTagName('html')[0].style.overflowY = 'auto';
   }
 }

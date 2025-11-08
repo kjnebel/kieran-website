@@ -1,82 +1,150 @@
 <div class="expCont" id="experience">
-    <h3>Experience</h3>
-    <div class="carouselCont">
-        <button class="leftArrowButton arrowButton" (click)="shiftLeft()">
-            <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="0 -960 960 960" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="leftArrow arrow">
-                <path d="M561-216 296-481l265-265 67 67-198 198 198 198-67 67Z"/>
-            </svg>
-        </button>
-        <div class="cardCarouselCont">
-            @for (exp of expList; track exp; let index = $index) {
-                @if ((index + 1) % cardNum == 0 ) {
-                    <div class="cardCont" (click)="showMore(index)">
-                        <div class="number">{{index + 1}}</div>
-                        <div class="card" style="--color: {{exp.color}}; transform-origin: right;" id="{{exp.comp}}">
-                            <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
-                            <div class="cardDetail">
-                                <span>{{exp.position}}</span>
-                                @if (exp.dates) {
-                                    <div class="dates" style="--color: {{exp.color}}">{{exp.dates}}</div>
-                                }
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
-                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                } @else {
-                    <div class="cardCont" (click)="showMore(index)">
-                        <div class="number">{{index + 1}}</div>
-                        <div class="card" style="--color: {{exp.color}}" id="{{exp.comp}}">
-                            <div class="iconbg" style="--url: url('{{exp.url}}'); --size: {{exp.size}}; "></div>
-                            <div class="cardDetail">
-                                <span>{{exp.position}}</span>
-                                @if (exp.dates) {
-                                    <div class="dates" style="--color: {{exp.color}}">{{exp.dates}}</div>
-                                }
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -980 960 960" width="24px" fill="#bbbbbb" class="showMore" (click)="showMore(index)">
-                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                }
+  <h3>Experience</h3>
+  <div class="carouselCont">
+    <button class="leftArrowButton arrowButton" (click)="shiftLeft()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        [attr.height]="arrowSize + 'px'"
+        viewBox="0 -960 960 960"
+        [attr.width]="arrowSize + 'px'"
+        fill="#bbbbbb"
+        class="leftArrow arrow"
+      >
+        <path d="M561-216 296-481l265-265 67 67-198 198 198 198-67 67Z" />
+      </svg>
+    </button>
+    <div class="cardCarouselCont">
+      @for (exp of expList; track exp; let index = $index) { @if ((index + 1) %
+      cardNum == 0 ) {
+      <div class="cardCont" (click)="showMore(index); $event.stopPropagation()">
+        <div class="number">{{ index + 1 }}</div>
+        <div
+          class="card"
+          style="--color: {{ exp.color }}; transform-origin: right;"
+          id="{{ exp.comp }}"
+        >
+          <div
+            class="iconbg"
+            style="--url: url('{{ exp.url }}'); --size: {{ exp.size }}; "
+          ></div>
+          <div class="cardDetail">
+            <span>{{ exp.position }}</span>
+            @if (exp.dates) {
+            <div class="dates" style="--color: {{ exp.color }}">
+              {{ exp.dates }}
+            </div>
             }
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -980 960 960"
+              width="24px"
+              fill="#bbbbbb"
+              class="showMore"
+              (click)="showMore(index); $event.stopPropagation()"
+            >
+              <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+            </svg>
+          </div>
         </div>
-        @if (pages > 1) {
-            <button class="rightArrowButton arrowButton" (click)="shiftRight()">
-                <svg xmlns="http://www.w3.org/2000/svg" [attr.height]="arrowSize + 'px'" viewBox="0 -960 960 960" [attr.width]="arrowSize + 'px'" fill="#bbbbbb" class="rightArrow arrow">
-                    <path d="M506-481 308-679l67-67 265 265-265 265-67-67 198-198Z"/>
-                </svg>
-            </button>
-        }
+      </div>
+      } @else {
+      <div class="cardCont" (click)="showMore(index); $event.stopPropagation()">
+        <div class="number">{{ index + 1 }}</div>
+        <div class="card" style="--color: {{ exp.color }}" id="{{ exp.comp }}">
+          <div
+            class="iconbg"
+            style="--url: url('{{ exp.url }}'); --size: {{ exp.size }}; "
+          ></div>
+          <div class="cardDetail">
+            <span>{{ exp.position }}</span>
+            @if (exp.dates) {
+            <div class="dates" style="--color: {{ exp.color }}">
+              {{ exp.dates }}
+            </div>
+            }
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -980 960 960"
+              width="24px"
+              fill="#bbbbbb"
+              class="showMore"
+            >
+              <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      } }
     </div>
+    @if (pages > 1) {
+    <button class="rightArrowButton arrowButton" (click)="shiftRight()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        [attr.height]="arrowSize + 'px'"
+        viewBox="0 -960 960 960"
+        [attr.width]="arrowSize + 'px'"
+        fill="#bbbbbb"
+        class="rightArrow arrow"
+      >
+        <path d="M506-481 308-679l67-67 265 265-265 265-67-67 198-198Z" />
+      </svg>
+    </button>
+    }
+  </div>
 </div>
-@if (showModal) {
-    <div class="modal" id="modal" role="dialog">
-        <div class="modalCard">
-            <div class="modalIconbg" style="--color: {{expColor}}">
-                <div class="icon" style="--url: url('{{expUrl}}'); --size: {{expSize}}; --color: {{expColor}}">
-                    <button class="closeModal" (click)="closeModal()">X</button>
-                </div>
-            </div>
-            <div class="cardDetail">
-                <div class="titleCont">
-                    <h4>{{expPos}}</h4>
-                    <span>
-                        <div class="years" style="--color: {{expColor}}">{{expDates}}</div>
-                    </span>
-                    <p>{{expResp}}</p>
-                </div>
-                <div class="titleCont">
-                    <h5>Skills Utilized</h5>
-                    <div class="skillsCont">
-                        @for (skill of expSkillList; track skill;) {
-                            <a class="skillCapsule" style="--color: {{skill.color}}" (click)="goToSkill(skill.id)" href="#webDev">{{skill.name}}</a>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
+@if (showExperienceModal) {
+<div class="modal" id="modal" role="dialog">
+  <div class="modalCard">
+    <div class="modalIconbg" style="--color: {{ expColor }}">
+      <div
+        class="icon"
+        style="--url: url('{{ expUrl }}'); --size: {{ expSize }}; --color: {{
+          expColor
+        }}"
+      >
+        <button class="closeModal" (click)="closeModal()">X</button>
+      </div>
     </div>
+    <div class="cardDetail">
+      <div class="titleCont">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 0 8px 0;
+          "
+        >
+          <h3 style="margin-left: 0; padding: 0">{{ expComp }}</h3>
+          <span>
+            <h4 style="--color: {{ expColor }}">
+              {{ expDates }}
+            </h4>
+          </span>
+        </div>
+        <h4 style="font-size: 1.25rem; font-weight: normal">{{ expPos }}</h4>
+        @for (resp of expResp; track resp;) {
+        <p>• {{ resp }}</p>
+        }
+      </div>
+      <div class="titleCont">
+        <h5>Skills Utilized</h5>
+        <div class="skillsCont">
+          @for (skill of expSkillList; track skill;) {
+          <a
+            class="skillCapsule"
+            style="--color: {{ skill.color }}"
+            (click)="goToSkill(skill.id, skill.name)"
+            href="#skills"
+            >{{ skill.name }}</a
+          >
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 }

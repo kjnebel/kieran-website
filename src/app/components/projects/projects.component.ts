@@ -1,129 +1,47 @@
 import { Component, ElementRef } from '@angular/core';
 import { SkillsComponent } from '../skills/skills.component';
-import { skills, Skill, tempShifted, tempTotalShift, resetVar } from '../../public/publicVariables';
+import {
+  skills,
+  Skill,
+  tempShifted,
+  tempTotalShift,
+  resetVar,
+  skillsArrayExport,
+  showProjectModal,
+  openModal,
+  globalCloseModal,
+} from '../../public/publicVariables';
 
-let projects: {id: string, title: string, desc: string, url: string, picture: string, skills: Skill[], color: string, fontColor: string}[] = [
+interface ProjectDetail {
+  id: string;
+  title: string;
+  desc: string;
+  url: string;
+  picture: string;
+  skills: Skill[];
+  color: string;
+  fontColor: string;
+}
+
+const projectsArray: ProjectDetail[] = [
   {
     id: 'aiChatbot',
     title: 'AI Chatbot App',
-    desc: 'I built an AI chatbot that utilizes OpenAI\'s Api to generate a text response to a users prompt. The AI is trained to speak as if it were me and it has been trained using my resume to know certain details about me. The application runs using Angular 16.',
+    desc: "I built an AI chatbot that utilizes OpenAI's Api to generate a text response to a users prompt. The AI is trained to speak as if it were me and it has been trained using my resume to know certain details about me. The application runs using Angular 16.",
     url: 'https://github.com/kjnebel/AI-ChatBot-App',
-    picture: '../../../assets/images/AI\ Chatbot.png',
+    picture: '../../../assets/images/AI Chatbot.png',
     skills: [
-      skills[0],
-      skills[2],
-      skills[3],
-      skills[4],
-      skills[5],
-      skills[11],
-      skills[12],
-      skills[14],
-      skills[16]
+      skills['Angular'],
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['Redux Toolkit'],
+      skills['Jira'],
+      skills['SQL'],
+      skills['AWS'],
+      skills['UI/UX Design'],
     ],
     color: '#0e0f0a',
-    fontColor: 'white'
-  },
-  {
-    id: 'upProjects',
-    title: 'UP Projects',
-    desc: 'I completed many projects while working at Union Pacific. One I\'m particularly proud of was an Incident Reporting application I helped develop at a time when derailments were all over the news. A different application I am able to show is a public-facing rail-crossing reporting application. I worked on the frontend of both applications with one other developer and they were developed using Angular. I was also in charge of making sure that the app was accessible to all users.',
-    url: 'https://c02.my.uprr.com/ui/rmc_ext/#/',
-    picture: '../../../assets/images/upProjects.png',
-    skills: [
-      skills[0],
-      skills[1],
-      skills[2],
-      skills[3],
-      skills[4],
-      skills[5],
-      skills[6],
-      skills[8],
-      skills[9],
-      skills[10],
-      skills[11],
-      skills[12],
-      skills[14],
-      skills[15],
-      skills[16],
-      skills[22]
-    ],
-    color: 'white',
-    fontColor: 'black'
-  },
-  {
-    id: 'chartApp',
-    title: 'Fullstack Chart App',
-    desc: 'This application is a basic fullstack project designed to take data from the back end and display it as charts in the front end. It was developed using a Django back end, Next.js Frontend, Docker to package the back end, and ApexCharts.js for the charts in the frontend. For the Next.js I used React with Typescript. The Django back end was implemented using Python.',
-    url: 'https://github.com/kjnebel/ChartApp',
-    picture: '../../../assets/images/chartapp.png',
-    skills: [
-      skills[1],
-      skills[2],
-      skills[3],
-      skills[4],
-      skills[5],
-      skills[11],
-      skills[14],
-      skills[19],
-      skills[20],
-      skills[21]
-    ],
-    color: '#2a3133',
-    fontColor: 'white'
-  },
-  {
-    id: 'toyStore',
-    title: 'Toy Store Website',
-    desc: 'I developed this application by myself as part of an assignment for my Software Engineering Class. It was developed with java, html, SQL with some css styling thrown in there too. I also connected this application to an AWS E2E server and had it running successfully on it, but do not currently have it up and running.',
-    url: 'https://github.com/kjnebel/TechExerciseNebel',
-    picture: '../../../assets/images/ToyStore.png',
-    skills: [
-      skills[2],
-      skills[3],
-      skills[6],
-      skills[10],
-      skills[13],
-      skills[14]
-    ],
-    color: 'white',
-    fontColor: 'black'
-  },
-  {
-    id: 'codeAcademy',
-    title: 'CodeAcademy Projects',
-    desc: 'I completed these projects while working through CodeAcademy\'s Full-stack Engineer Career path.',
-    url: 'https://github.com/kjnebel/CodeAcademyProjects',
-    picture: '../../../assets/images/codecademy.png',
-    skills: [
-      skills[2],
-      skills[3],
-      skills[4],
-      skills[9],
-      skills[12],
-      skills[14],
-      skills[16]
-    ],
-    color: '#000000',
-    fontColor: 'white'
-  },
-  {
-    id: 'restaurant',
-    title: 'Restaurant Reservation App',
-    desc: 'This application is a restaraunt reservation application that allows users to login and reserve tables or reserve a table as a guest, and allows the managers to cancel reservations. I completed this project with two other team members for a Software Engineering class.',
-    url: 'https://github.com/Zeerror/CSCI4830-Fall23-WebProj',
-    picture: '../../../assets/images/restaurantSite.png',
-    skills: [
-      skills[2],
-      skills[3],
-      skills[6],
-      skills[10],
-      skills[13],
-      skills[14],
-      skills[15],
-      skills[16]
-    ],
-    color: 'black',
-    fontColor: 'white'
+    fontColor: 'white',
   },
   {
     id: 'codePen',
@@ -132,17 +50,113 @@ let projects: {id: string, title: string, desc: string, url: string, picture: st
     url: 'https://codepen.io/Kieran-Nebel',
     picture: '../../../assets/images/codePen.png',
     skills: [
-      skills[2],
-      skills[3],
-      skills[4],
-      skills[16]
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['UI/UX Design'],
+      skills['JavaScript'],
     ],
     color: '#ddf7e3',
-    fontColor: '#253e24'
+    fontColor: '#253e24',
+  },
+  {
+    id: 'upProjects',
+    title: 'UP Projects',
+    desc: "I completed many projects while working at Union Pacific. One I'm particularly proud of was an Incident Reporting application I helped develop at a time when derailments were all over the news. A different application I am able to show is a public-facing rail-crossing reporting application. I worked on the frontend of both applications with one other developer and they were developed using Angular. I was also in charge of making sure that the app was accessible to all users.",
+    url: 'https://c02.my.uprr.com/ui/rmc_ext/#/',
+    picture: '../../../assets/images/upProjects.png',
+    skills: [
+      skills['Angular'],
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['Redux Toolkit'],
+      skills['JavaScript'],
+      skills['Fastify'],
+      skills['Java'],
+      skills['C#'],
+      skills['Jira'],
+      skills['SQL'],
+      skills['AWS'],
+      skills['GitHub'],
+      skills['UI/UX Design'],
+    ],
+    color: 'white',
+    fontColor: 'black',
+  },
+  {
+    id: 'chartApp',
+    title: 'Fullstack Chart App',
+    desc: 'This application is a basic fullstack project designed to take data from the back end and display it as charts in the front end. It was developed using a Django back end, Next.js Frontend, Docker to package the back end, and ApexCharts.js for the charts in the frontend. For the Next.js I used React with Typescript. The Django back end was implemented using Python.',
+    url: 'https://github.com/kjnebel/ChartApp',
+    picture: '../../../assets/images/chartapp.png',
+    skills: [
+      skills['React'],
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['Redux Toolkit'],
+      skills['Jira'],
+      skills['AWS'],
+      skills['Docker'],
+      skills['Prisma ORM'],
+      skills['TypeScript'],
+    ],
+    color: '#2a3133',
+    fontColor: 'white',
+  },
+  {
+    id: 'toyStore',
+    title: 'Toy Store Website',
+    desc: 'I developed this application by myself as part of an assignment for my Software Engineering Class. It was developed with java, html, SQL with some css styling thrown in there too. I also connected this application to an AWS E2E server and had it running successfully on it, but do not currently have it up and running.',
+    url: 'https://github.com/kjnebel/TechExerciseNebel',
+    picture: '../../../assets/images/ToyStore.png',
+    skills: [skills['Java'], skills['HTML'], skills['SQL'], skills['CSS/SCSS']],
+    color: 'white',
+    fontColor: 'black',
+  },
+  {
+    id: 'codeAcademy',
+    title: 'CodeAcademy Projects',
+    desc: "I completed these projects while working through CodeAcademy's Full-stack Engineer Career path.",
+    url: 'https://github.com/kjnebel/CodeAcademyProjects',
+    picture: '../../../assets/images/codecademy.png',
+    skills: [
+      skills['HTML'],
+      skills['CSS/SCSS'],
+      skills['JavaScript'],
+      skills['SQL'],
+      skills['UI/UX Design'],
+    ],
+    color: '#000000',
+    fontColor: 'white',
+  },
+  {
+    id: 'restaurant',
+    title: 'Restaurant Reservation App',
+    desc: 'This application is a restaraunt reservation application that allows users to login and reserve tables or reserve a table as a guest, and allows the managers to cancel reservations. I completed this project with two other team members for a Software Engineering class.',
+    url: 'https://github.com/Zeerror/CSCI4830-Fall23-WebProj',
+    picture: '../../../assets/images/restaurantSite.png',
+    skills: [
+      skills['HTML'],
+      skills['JavaScript'],
+      skills['Java'],
+      skills['GitHub'],
+      skills['UI/UX Design'],
+    ],
+    color: 'black',
+    fontColor: 'white',
   },
 ];
+
+// Create hashmap keyed by id
+const projects: { [key: string]: ProjectDetail } = {};
+projectsArray.forEach((project) => {
+  projects[project.id] = project;
+});
+
+// Export array for iteration purposes
+const projectsArrayExport = projectsArray;
+
 let cardNum: number = 1;
-let pages: any = projects.length;
+let pages: any = projectsArrayExport.length;
 let arrowSize: number = 50;
 let downArrowSize: number = 20;
 let shiftRate: number = 100;
@@ -156,17 +170,15 @@ let showClose: boolean = false;
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css'
+  styleUrl: './projects.component.css',
 })
 export class ProjectsComponent {
-  
-  skillList = skills;
-  projectList = projects;
+  skillList = skillsArrayExport;
+  projectList = projectsArrayExport;
   arrowSize = arrowSize;
   downArrowSize = downArrowSize;
   cardNum = cardNum;
   pages = pages;
-  showModal = false;
   projectTitle = '';
   projectDesc = '';
   projectPicture = '';
@@ -174,16 +186,28 @@ export class ProjectsComponent {
   projectColor = '';
   projectSkillList: Skill[] = [];
   showClose = showClose;
-  
-  constructor(public element: ElementRef, private skillsComp: SkillsComponent) {}
-  
+  skillsArray: Skill[] = skillsArrayExport;
+
+  get showProjectModal() {
+    return showProjectModal;
+  }
+
+  constructor(
+    public element: ElementRef,
+    private skillsComp: SkillsComponent
+  ) {}
+
   ngOnInit() {
-    let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
-    let carouselCont = this.element.nativeElement.querySelector('.carouselCont');
-    
+    let cardCarousel = this.element.nativeElement.querySelector(
+      '.cardCarouselCont'
+    ) as HTMLElement;
+    let carouselCont = this.element.nativeElement.querySelector(
+      '.carouselCont'
+    ) as HTMLElement;
+
     try {
       window.addEventListener('load', function () {
-        if (window.innerWidth > 900 ) {
+        if (window.innerWidth > 900) {
           arrowSize = 60;
           showClose = false;
           totalShift = shiftRate * shifted;
@@ -199,12 +223,17 @@ export class ProjectsComponent {
           showClose = false;
           totalShift = shiftRate * shifted;
         }
-        pages = projects.length;
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(-${totalShift}vw);`);
-        carouselCont?.setAttribute('style', `display: block;`);
+        pages = projectsArrayExport.length;
+        if (cardCarousel) {
+          cardCarousel.style.width = `${window.innerWidth * pages}px`;
+          cardCarousel.style.transform = `translateX(-${totalShift}vw)`;
+        }
+        if (carouselCont) {
+          carouselCont.style.display = 'block';
+        }
       });
       window.addEventListener('resize', function () {
-        if (window.innerWidth > 900 ) {
+        if (window.innerWidth > 900) {
           arrowSize = 60;
           showClose = false;
         } else if (window.innerWidth > 600) {
@@ -217,18 +246,27 @@ export class ProjectsComponent {
           arrowSize = 30;
           showClose = false;
         }
-        totalShift = shiftRate * shifted;
-        pages = projects.length;
-        cardCarousel?.setAttribute('style', `width: ${window.innerWidth * pages}px; transform: translateX(-${totalShift}vw);`);
-        carouselCont?.setAttribute('style', `display: block;`);
+        // Reset to first page on resize
+        shifted = 0;
+        totalShift = 0;
+        pages = projectsArrayExport.length;
+        if (cardCarousel) {
+          cardCarousel.style.width = `${window.innerWidth * pages}px`;
+          cardCarousel.style.transform = 'translateX(0vw)';
+        }
+        if (carouselCont) {
+          carouselCont.style.display = 'block';
+        }
       });
       this.arrowSize = arrowSize;
       this.showClose = showClose;
-    } catch(err) {}
+    } catch (err) {}
   }
 
   shiftRight() {
-    let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
+    let cardCarousel = this.element.nativeElement.querySelector(
+      '.cardCarouselCont'
+    ) as HTMLElement;
 
     if (tempShifted != 0) {
       shifted = tempShifted;
@@ -237,25 +275,37 @@ export class ProjectsComponent {
       }
       resetVar();
     }
-    
+
     if (shifted < pages - 2) {
       shifted++;
       totalShift = shiftRate * shifted;
-      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
+      if (cardCarousel) {
+        cardCarousel.style.width = `${window.innerWidth * pages}px`;
+        cardCarousel.style.transform = `translateX(-${totalShift}vw)`;
+      }
     } else if (shifted == pages - 2) {
       shifted++;
       totalShift = shiftRate * shifted;
-      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-      this.element.nativeElement.querySelector('#projectsRightArrow').setAttribute('style', 'display: none;');
+      if (cardCarousel) {
+        cardCarousel.style.width = `${window.innerWidth * pages}px`;
+        cardCarousel.style.transform = `translateX(-${totalShift}vw)`;
+      }
+      this.element.nativeElement
+        .querySelector('#projectsRightArrow')
+        ?.setAttribute('style', 'display: none;');
     }
 
     if (shifted > 0) {
-      this.element.nativeElement.querySelector('#projectsLeftArrow').setAttribute('style', 'display: block;');
+      this.element.nativeElement
+        .querySelector('#projectsLeftArrow')
+        ?.setAttribute('style', 'display: block;');
     }
   }
 
   shiftLeft() {
-    let cardCarousel = this.element.nativeElement.querySelector('.cardCarouselCont');
+    let cardCarousel = this.element.nativeElement.querySelector(
+      '.cardCarouselCont'
+    ) as HTMLElement;
 
     if (tempShifted != 0) {
       shifted = tempShifted;
@@ -264,20 +314,30 @@ export class ProjectsComponent {
       }
       resetVar();
     }
-    
+
     if (shifted > 1) {
       shifted--;
       totalShift = shiftRate * shifted;
-      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
+      if (cardCarousel) {
+        cardCarousel.style.width = `${window.innerWidth * pages}px`;
+        cardCarousel.style.transform = `translateX(-${totalShift}vw)`;
+      }
     } else if (shifted == 1) {
       shifted--;
       totalShift = shiftRate * shifted;
-      cardCarousel.setAttribute('style', `transform: translateX(-${totalShift}vw); width: ${window.innerWidth * pages}px;`);
-      this.element.nativeElement.querySelector('#projectsLeftArrow').setAttribute('style', 'display: none;');
+      if (cardCarousel) {
+        cardCarousel.style.width = `${window.innerWidth * pages}px`;
+        cardCarousel.style.transform = `translateX(-${totalShift}vw)`;
+      }
+      this.element.nativeElement
+        .querySelector('#projectsLeftArrow')
+        ?.setAttribute('style', 'display: none;');
     }
 
     if (shifted < pages - 1) {
-      this.element.nativeElement.querySelector('#projectsRightArrow').setAttribute('style', 'display: block;');
+      this.element.nativeElement
+        .querySelector('#projectsRightArrow')
+        ?.setAttribute('style', 'display: block;');
     }
   }
 
@@ -290,24 +350,27 @@ export class ProjectsComponent {
       this.projectUrl = project.url;
       this.projectColor = project.color;
       this.projectSkillList = project.skills;
-      this.showModal = true;
-      this.showModal = true;
+      openModal('project');
       document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
     }
   }
 
   closeModal() {
-    this.showModal = false;
+    globalCloseModal();
     document.getElementsByTagName('html')[0].style.overflowY = 'auto';
   }
 
-  
-  goToSkill(skillId: number) {
+  goToSkill(skillId: number, skillName: string) {
+    if (skillName == 'Linear' || skillName == 'Jira') {
+      skillName = 'Linear & Jira';
+    } else if (skillName == 'React' || skillName == 'React Native') {
+      skillName = 'React / React Native';
+    }
     this.closeModal();
     if (active) {
       removeClass();
     }
-    skill = document.getElementById(skills[skillId].name);
+    skill = document.getElementById(skillName);
     if (!skill?.classList.contains('focusedCard')) {
       skill?.classList.toggle('focusedCard', true);
       active = true;
@@ -326,11 +389,11 @@ export class ProjectsComponent {
   }
 }
 
-const removeClass = function() {
+const removeClass = function () {
   if (skill?.classList.contains('focusedCard')) {
     skill?.classList.toggle('focusedCard', false);
   }
   skill?.removeEventListener('mouseover', removeClass);
   window.removeEventListener('click', removeClass);
   active = false;
-}
+};

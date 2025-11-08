@@ -1,761 +1,768 @@
 header {
-    position: relative;
-    right: 0;
-    top: 0;
-    height: fit-content;
-    width: 100vw;
-    background-image: radial-gradient(ellipse at center, #4b0c0c, #160404);
+  position: relative;
+  right: 0;
+  top: 0;
+  height: fit-content;
+  width: 100vw;
+  background-image: radial-gradient(ellipse at center, #4b0c0c, #160404);
 }
 
 /*CSS for the Title */
 .title {
-    position: inherit;
-    display: grid;
-    grid-template-rows: 2fr 1fr 3fr;
-    height: 70vw;
-    min-height: 100vh;
-    max-height: 140vh;
-    width: 100vw;
-    justify-items: left;
-    align-items: center;
-    background: var(--side-gradient);
-    z-index: 8;
-    box-sizing: unset;
+  position: inherit;
+  display: grid;
+  grid-template-rows: 2fr 1fr 3fr;
+  height: 70vw;
+  min-height: 100vh;
+  max-height: 140vh;
+  width: 100vw;
+  justify-items: left;
+  align-items: center;
+  background: var(--side-gradient);
+  z-index: 8;
+  box-sizing: unset;
 }
 
 h1 {
-    width: 100%;
-    font-size: 5rem;
-    text-align: center;
-    padding-left: 20%;
-    margin: 0;
-    color: white;
-    font-family: var(--julius);
-    text-shadow: var(--shadow) 0px 0px 15px;
-    box-sizing: unset;
+  width: 100%;
+  font-size: 5rem;
+  text-align: center;
+  padding-left: 20%;
+  margin: 0;
+  color: white;
+  font-family: var(--julius);
+  text-shadow: var(--shadow) 0px 0px 15px;
+  box-sizing: unset;
 }
 
 h2 {
-    text-align: center;
-    padding-left: 20%;
-    color: #ccc;
-    font-size: 2rem;
-    font-family: var(--roboto);
-    width: 100%;
-    margin: 0;
+  text-align: center;
+  padding-left: 20%;
+  color: #ccc;
+  font-size: 2rem;
+  font-family: var(--roboto);
+  width: 100%;
+  margin: 0;
 }
 
 /* CSS for the background parallax */
 #showcase {
-    position: absolute;
-    top: 0;
-    left: 0;
-    justify-items: center;
-    height: 70vw;
-    min-height: 100vh;
-    max-height: 120vh;
-    width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-items: center;
+  height: 70vw;
+  min-height: 100vh;
+  max-height: 120vh;
+  width: 100vw;
 }
 
 .layer {
-    position: absolute;
-    width: 100vw;
-    height: 100%;
-    transition: all 0.2s;
-    pointer-events: none;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  transition: all 0.2s;
+  pointer-events: none;
 }
 
 .layer1 {
-    z-index: 3;
-    .circle:nth-child(1) {
-        --radius: 9rem;
-        bottom: 15vh;
-        left: 55vw;
-        background-image: url('../../../assets/images/KieranPrague.JPG');
-        background-size: 150%;
-    }
-    .circle:nth-child(2) {
-        --radius: 11rem;
-        top: 5vh;
-        left: 2vw;
-        background-image: url('../../../assets/images/parrot.jpg');
-    }
-    .circle:nth-child(3) {
-        --radius: 7rem;
-        bottom: 25vh;
-        left: 5vw;
-        background-image: url('../../../assets/images/kieranMountain1.jpg');
-    }
-    .circle:nth-child(4) {
-        --radius: 9rem;
-        top: 5vh;
-        right: 2vw;
-        background-image: url('../../../assets/images/kjtruck3.jpg');
-    }
-    .circle:nth-child(5) {
-        --radius: 6rem;
-        top: 5vh;
-        right: 50vw;
-        background-image: url('../../../assets/images/Prague.jpg');
-    }
-    .circle:nth-child(6) {
-        --radius: 8rem;
-        bottom: 10vh;
-        right: 2vw;
-        background-image: url('../../../assets/images/KieranMountain2.JPG');
-    }
+  z-index: 3;
+  .circle:nth-child(1) {
+    --radius: 9rem;
+    bottom: 15vh;
+    left: 55vw;
+    background-image: url("../../../assets/images/KieranPrague.JPG");
+    background-size: 150%;
+  }
+  .circle:nth-child(2) {
+    --radius: 11rem;
+    top: 5vh;
+    left: 2vw;
+    background-image: url("../../../assets/images/parrot.jpg");
+  }
+  .circle:nth-child(3) {
+    --radius: 7rem;
+    bottom: 25vh;
+    left: 5vw;
+    background-image: url("../../../assets/images/kieranMountain1.jpg");
+  }
+  .circle:nth-child(4) {
+    --radius: 9rem;
+    top: 5vh;
+    right: 2vw;
+    background-image: url("../../../assets/images/kjtruck3.jpg");
+  }
+  .circle:nth-child(5) {
+    --radius: 6rem;
+    top: 5vh;
+    right: 50vw;
+    background-image: url("../../../assets/images/Prague.jpg");
+  }
+  .circle:nth-child(6) {
+    --radius: 8rem;
+    bottom: 10vh;
+    right: 2vw;
+    background-image: url("../../../assets/images/KieranMountain2.JPG");
+  }
 }
 
 .layer2 {
-    z-index: 2;
-    .circle:nth-child(1) {
-        --radius: 7rem;
-        bottom: 50vh;
-        right: 5vw;
-        background-image: url('../../../assets/images/Prague1.jpg');
-    }
-    .circle:nth-child(2) {
-        --radius: 5rem;
-        bottom: 18vh;
-        left: 44vw;
-        background-image: url('../../../assets/images/github\ logo.png');
-        background-position: 0% -1px;
-        border: 2px solid white;
-    }
-    .circle:nth-child(3) {
-        --radius: 6rem;
-        top: 15vh;
-        left: 20vw;
-        background-image: url('../../../assets/images/js\ logo.png');
-        background-size: 100%;
-    }
-    .circle:nth-child(4) {
-        --radius: 8rem;
-        bottom: 25vh;
-        left: 20vw;
-        background-image: url('../../../assets/images/Prague2.jpg');
-    }
-    .circle:nth-child(5) {
-        --radius: 7rem;
-        top: 15vh;
-        right: 20vw;
-        background-image: url('../../../assets/images/ts\ logo.png');
-    }
-    .circle:nth-child(6) {
-        --radius: 6rem;
-        top: 15vh;
-        left: 33vw;
-        background-image: url('../../../assets/images/c\ logo.png');
-        background-size: 90%;
-    }
+  z-index: 2;
+  .circle:nth-child(1) {
+    --radius: 7rem;
+    bottom: 50vh;
+    right: 5vw;
+    background-image: url("../../../assets/images/Prague1.jpg");
+  }
+  .circle:nth-child(2) {
+    --radius: 5rem;
+    bottom: 18vh;
+    left: 44vw;
+    background-image: url("../../../assets/images/github\ logo.png");
+    background-position: 0% -1px;
+    border: 2px solid white;
+  }
+  .circle:nth-child(3) {
+    --radius: 6rem;
+    top: 15vh;
+    left: 20vw;
+    background-image: url("../../../assets/images/js\ logo.png");
+    background-size: 100%;
+  }
+  .circle:nth-child(4) {
+    --radius: 8rem;
+    bottom: 25vh;
+    left: 20vw;
+    background-image: url("../../../assets/images/Prague2.jpg");
+  }
+  .circle:nth-child(5) {
+    --radius: 7rem;
+    top: 15vh;
+    right: 20vw;
+    background-image: url("../../../assets/images/ts\ logo.png");
+  }
+  .circle:nth-child(6) {
+    --radius: 6rem;
+    top: 15vh;
+    left: 33vw;
+    background-image: url("../../../assets/images/c\ logo.png");
+    background-size: 90%;
+  }
 }
 
 .layer3 {
-    z-index: 1;
-    .circle:nth-child(1) {
-        --radius: 14rem;
-        bottom: 20vh;
-        right: 15vw;
-        background-image: url('../../../assets/images/kjsenior.jpg')
-    }
-    .circle:nth-child(2) {
-        --radius: 11rem;
-        top: 25vh;
-        right: 32vw;
-        background-image: url('../../../assets/images/angular\ logo.png');
-    }
-    .circle:nth-child(3) {
-        --radius: 5rem;
-        bottom: 48vh;
-        left: 32vw;
-        background-color: white;
-        background-image: url('../../../assets/images/css\ logo.png');
-        background-size: 130%;
-    }
-    .circle:nth-child(4) {
-        --radius: 7rem;
-        top: 55vh;
-        right: 48vw;
-        background-image: url('../../../assets/images/html\ logo.png');
-        background-size: 85%;
-    }
-    .circle:nth-child(5) {
-        --radius: 6rem;
-        top: 30vh;
-        left: 45vw;
-        background-image: url('../../../assets/images/react\ logo.png');
-        background-size: 90%;
-    }
-    .circle:nth-child(6) {
-        --radius: 5rem;
-        bottom: 27vh;
-        left: 35vw;
-        background-image: url('../../../assets/images/asp.net.logo.png');
-        background-size: 90%;
-    }
+  z-index: 1;
+  .circle:nth-child(1) {
+    --radius: 14rem;
+    bottom: 20vh;
+    right: 15vw;
+    background-image: url("../../../assets/images/kjsenior.jpg");
+  }
+  .circle:nth-child(2) {
+    --radius: 11rem;
+    top: 25vh;
+    right: 32vw;
+    background-image: url("../../../assets/images/react\ logo.png");
+    background-size: 90%;
+  }
+  .circle:nth-child(3) {
+    --radius: 5rem;
+    bottom: 48vh;
+    left: 32vw;
+    background-color: white;
+    background-image: url("../../../assets/images/css\ logo.png");
+    background-size: 130%;
+  }
+  .circle:nth-child(4) {
+    --radius: 7rem;
+    top: 55vh;
+    right: 48vw;
+    background-image: url("../../../assets/images/html\ logo.png");
+    background-size: 85%;
+  }
+  .circle:nth-child(5) {
+    --radius: 6rem;
+    top: 30vh;
+    left: 45vw;
+    background-image: url("../../../assets/images/angular\ logo.png");
+  }
+  .circle:nth-child(6) {
+    --radius: 5rem;
+    bottom: 27vh;
+    left: 35vw;
+    background-image: url("../../../assets/images/asp.net.logo.png");
+    background-size: 90%;
+  }
 }
 
 .circle {
-    will-change: transform;
-    --radius: 5rem;
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    height: var(--radius);
-    width: var(--radius);
-    background-position: center;
-    background-size: cover;
-    box-shadow: 0px 0px 15px 2px var(--shadow);
-    background-repeat: no-repeat;
+  will-change: transform;
+  --radius: 5rem;
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  height: var(--radius);
+  width: var(--radius);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 0px 15px 2px var(--shadow);
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 500px) {
+  .title {
+    height: 50vh !important;
+  }
 }
 
 /* Resizing Styling */
 @media only screen and (max-width: 1000px) {
-    .title {
-        justify-content: center;
-        height: 60vh;
-        min-height: 50vh;
-    }
-    h1, h2 {
-        padding-left: 0px;
-        margin: 0;
-    }
+  .title {
+    justify-content: center;
+    height: 70vh;
+    min-height: 50vh;
+  }
+  h1,
+  h2 {
+    padding-left: 0px;
+    margin: 0;
+  }
 
-    .layer {
-        display: none;
-    }
+  .layer {
+    display: none;
+  }
 
-    #showcase {
-        height: 60vh;
-        min-height: 50vh;
-    }
+  #showcase {
+    height: 60vh;
+    min-height: 50vh;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
-    .layer1 {
-        z-index: 3;
-        .circle:nth-child(1) {
-            --radius: 8rem;
-            bottom: 30vh;
-            left: 55vw;
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 5vh;
-            left: 2vw;
-            background-image: url('../../../assets/images/parrot.jpg');
-        }
-        .circle:nth-child(3) {
-            --radius: 8rem;
-            bottom: 30vh;
-            left: 5vw;
-            background-image: url('../../../assets/images/kieranMountain1.jpg');
-        }
-        .circle:nth-child(4) {
-            --radius: 9rem;
-            top: 5vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/kjtruck3.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 6rem;
-            top: 5vh;
-            right: 45vw;
-            background-image: url('../../../assets/images/Prague.jpg');
-        }
-        .circle:nth-child(6) {
-            --radius: 7rem;
-            bottom: 27vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/KieranMountain2.JPG');
-        }
+  .layer1 {
+    z-index: 3;
+    .circle:nth-child(1) {
+      --radius: 8rem;
+      bottom: 30vh;
+      left: 55vw;
     }
-    
-    .layer2 {
-        z-index: 2;
-        .circle:nth-child(1) {
-            --radius: 8rem;
-            bottom: 48vh;
-            right: 3vw;
-            background-image: url('../../../assets/images/Prague1.jpg');
-        }
-        .circle:nth-child(2) {
-            --radius: 6rem;
-            bottom: 26vh;
-            left: 45vw;
-            background-image: url('../../../assets/images/github\ logo.png');
-            background-position: 0% -1px;
-            border: 2px solid white;
-        }
-        .circle:nth-child(3) {
-            --radius: 8rem;
-            top: 15vh;
-            left: 20vw;
-            background-image: url('../../../assets/images/js\ logo.png');
-            background-size: 100%;
-        }
-        .circle:nth-child(4) {
-            --radius: 9rem;
-            bottom: 27vh;
-            left: 20vw;
-            background-image: url('../../../assets/images/Prague2.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 8rem;
-            top: 27vh;
-            right: 12vw;
-            background-image: url('../../../assets/images/ts\ logo.png');
-        }
-        .circle:nth-child(6) {
-            --radius: 8rem;
-            top: 11vh;
-            left: 35vw;
-            background-image: url('../../../assets/images/c\ logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(2) {
+      --radius: 11rem;
+      top: 5vh;
+      left: 2vw;
+      background-image: url("../../../assets/images/parrot.jpg");
     }
-    
-    .layer3 {
-        z-index: 1;
-        .circle:nth-child(1) {
-            --radius: 13rem;
-            bottom: 27vh;
-            right: 13vw;
-            background-image: url('../../../assets/images/kjsenior.jpg')
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 10vh;
-            right: 24vw;
-            background-image: url('../../../assets/images/angular\ logo.png');
-        }
-        .circle:nth-child(3) {
-            --radius: 7rem;
-            bottom: 45vh;
-            left: 48vw;
-            background-color: white;
-            background-image: url('../../../assets/images/css\ logo.png');
-            background-size: 130%;
-        }
-        .circle:nth-child(4) {
-            --radius: 9rem;
-            top: 40vh;
-            right: 25vw;
-            background-image: url('../../../assets/images/html\ logo.png');
-            background-size: 85%;
-        }
-        .circle:nth-child(5) {
-            --radius: 8rem;
-            top: 23vh;
-            left: 48vw;
-            background-image: url('../../../assets/images/react\ logo.png');
-            background-size: 90%;
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            bottom: 33vh;
-            left: 35vw;
-            background-image: url('../../../assets/images/asp.net.logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(3) {
+      --radius: 8rem;
+      bottom: 30vh;
+      left: 5vw;
+      background-image: url("../../../assets/images/kieranMountain1.jpg");
     }
+    .circle:nth-child(4) {
+      --radius: 9rem;
+      top: 5vh;
+      right: 2vw;
+      background-image: url("../../../assets/images/kjtruck3.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 6rem;
+      top: 5vh;
+      right: 45vw;
+      background-image: url("../../../assets/images/Prague.jpg");
+    }
+    .circle:nth-child(6) {
+      --radius: 7rem;
+      bottom: 27vh;
+      right: 2vw;
+      background-image: url("../../../assets/images/KieranMountain2.JPG");
+    }
+  }
+
+  .layer2 {
+    z-index: 2;
+    .circle:nth-child(1) {
+      --radius: 8rem;
+      bottom: 48vh;
+      right: 3vw;
+      background-image: url("../../../assets/images/Prague1.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 6rem;
+      bottom: 26vh;
+      left: 45vw;
+      background-image: url("../../../assets/images/github\ logo.png");
+      background-position: 0% -1px;
+      border: 2px solid white;
+    }
+    .circle:nth-child(3) {
+      --radius: 8rem;
+      top: 15vh;
+      left: 20vw;
+      background-image: url("../../../assets/images/js\ logo.png");
+      background-size: 100%;
+    }
+    .circle:nth-child(4) {
+      --radius: 9rem;
+      bottom: 27vh;
+      left: 20vw;
+      background-image: url("../../../assets/images/Prague2.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 8rem;
+      top: 27vh;
+      right: 12vw;
+      background-image: url("../../../assets/images/ts\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 8rem;
+      top: 11vh;
+      left: 35vw;
+      background-image: url("../../../assets/images/c\ logo.png");
+      background-size: 90%;
+    }
+  }
+
+  .layer3 {
+    z-index: 1;
+    .circle:nth-child(1) {
+      --radius: 13rem;
+      bottom: 27vh;
+      right: 13vw;
+      background-image: url("../../../assets/images/kjsenior.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 11rem;
+      top: 10vh;
+      right: 24vw;
+      background-image: url("../../../assets/images/react\ logo.png");
+      background-size: 90%;
+    }
+    .circle:nth-child(3) {
+      --radius: 7rem;
+      bottom: 45vh;
+      left: 48vw;
+      background-color: white;
+      background-image: url("../../../assets/images/css\ logo.png");
+      background-size: 130%;
+    }
+    .circle:nth-child(4) {
+      --radius: 9rem;
+      top: 40vh;
+      right: 25vw;
+      background-image: url("../../../assets/images/html\ logo.png");
+      background-size: 85%;
+    }
+    .circle:nth-child(5) {
+      --radius: 8rem;
+      top: 23vh;
+      left: 48vw;
+      background-image: url("../../../assets/images/angular\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 6rem;
+      bottom: 33vh;
+      left: 35vw;
+      background-image: url("../../../assets/images/asp.net.logo.png");
+      background-size: 90%;
+    }
+  }
 }
-    
+
 @media only screen and (min-width: 1280px) {
-    .layer1 {
-        z-index: 3;
-        .circle:nth-child(1) {
-            --radius: 7rem;
-            bottom: 30vh;
-            left: 55vw;
-        }
-        .circle:nth-child(2) {
-            --radius: 10rem;
-            top: 5vh;
-            left: 2vw;
-            background-image: url('../../../assets/images/parrot.jpg');
-        }
-        .circle:nth-child(3) {
-            --radius: 7rem;
-            bottom: 30vh;
-            left: 5vw;
-            background-image: url('../../../assets/images/kieranMountain1.jpg');
-        }
-        .circle:nth-child(4) {
-            --radius: 8rem;
-            top: 5vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/kjtruck3.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 5rem;
-            top: 5vh;
-            right: 45vw;
-            background-image: url('../../../assets/images/Prague.jpg');
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            bottom: 27vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/KieranMountain2.JPG');
-        }
+  .layer1 {
+    z-index: 3;
+    .circle:nth-child(1) {
+      --radius: 7rem;
+      bottom: 30vh;
+      left: 55vw;
     }
-    
-    .layer2 {
-        z-index: 2;
-        .circle:nth-child(1) {
-            --radius: 7rem;
-            bottom: 48vh;
-            right: 3vw;
-            background-image: url('../../../assets/images/Prague1.jpg');
-        }
-        .circle:nth-child(2) {
-            --radius: 5rem;
-            bottom: 28vh;
-            left: 45vw;
-            background-image: url('../../../assets/images/github\ logo.png');
-            background-position: 0% -1px;
-            border: 2px solid white;
-        }
-        .circle:nth-child(3) {
-            --radius: 6rem;
-            top: 15vh;
-            left: 20vw;
-            background-image: url('../../../assets/images/js\ logo.png');
-            background-size: 100%;
-        }
-        .circle:nth-child(4) {
-            --radius: 8rem;
-            bottom: 25vh;
-            left: 20vw;
-            background-image: url('../../../assets/images/Prague2.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 7rem;
-            top: 27vh;
-            right: 12vw;
-            background-image: url('../../../assets/images/ts\ logo.png');
-        }
-        .circle:nth-child(6) {
-            --radius: 5rem;
-            top: 13vh;
-            left: 38vw;
-            background-image: url('../../../assets/images/c\ logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(2) {
+      --radius: 10rem;
+      top: 5vh;
+      left: 2vw;
+      background-image: url("../../../assets/images/parrot.jpg");
     }
-    
-    .layer3 {
-        z-index: 1;
-        .circle:nth-child(1) {
-            --radius: 13rem;
-            bottom: 27vh;
-            right: 13vw;
-            background-image: url('../../../assets/images/kjsenior.jpg')
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 10vh;
-            right: 24vw;
-            background-image: url('../../../assets/images/angular\ logo.png');
-        }
-        .circle:nth-child(3) {
-            --radius: 5rem;
-            bottom: unset;
-            top: 48vh;
-            left: 50vw;
-            background-color: white;
-            background-image: url('../../../assets/images/css\ logo.png');
-            background-size: 130%;
-        }
-        .circle:nth-child(4) {
-            --radius: 6rem;
-            top: 44vh;
-            right: 34vw;
-            background-image: url('../../../assets/images/html\ logo.png');
-            background-size: 85%;
-        }
-        .circle:nth-child(5) {
-            --radius: 6rem;
-            top: 23vh;
-            left: 48vw;
-            background-image: url('../../../assets/images/react\ logo.png');
-            background-size: 90%;
-        }
-        .circle:nth-child(6) {
-            --radius: 5rem;
-            bottom: 35vh;
-            left: 35vw;
-            background-image: url('../../../assets/images/asp.net.logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(3) {
+      --radius: 7rem;
+      bottom: 30vh;
+      left: 5vw;
+      background-image: url("../../../assets/images/kieranMountain1.jpg");
     }
+    .circle:nth-child(4) {
+      --radius: 8rem;
+      top: 5vh;
+      right: 2vw;
+      background-image: url("../../../assets/images/kjtruck3.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 5rem;
+      top: 5vh;
+      right: 45vw;
+      background-image: url("../../../assets/images/Prague.jpg");
+    }
+    .circle:nth-child(6) {
+      --radius: 6rem;
+      bottom: 27vh;
+      right: 2vw;
+      background-image: url("../../../assets/images/KieranMountain2.JPG");
+    }
+  }
+
+  .layer2 {
+    z-index: 2;
+    .circle:nth-child(1) {
+      --radius: 7rem;
+      bottom: 48vh;
+      right: 3vw;
+      background-image: url("../../../assets/images/Prague1.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 5rem;
+      bottom: 28vh;
+      left: 45vw;
+      background-image: url("../../../assets/images/github\ logo.png");
+      background-position: 0% -1px;
+      border: 2px solid white;
+    }
+    .circle:nth-child(3) {
+      --radius: 6rem;
+      top: 15vh;
+      left: 20vw;
+      background-image: url("../../../assets/images/js\ logo.png");
+      background-size: 100%;
+    }
+    .circle:nth-child(4) {
+      --radius: 8rem;
+      bottom: 25vh;
+      left: 20vw;
+      background-image: url("../../../assets/images/Prague2.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 7rem;
+      top: 27vh;
+      right: 12vw;
+      background-image: url("../../../assets/images/ts\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 5rem;
+      top: 13vh;
+      left: 38vw;
+      background-image: url("../../../assets/images/c\ logo.png");
+      background-size: 90%;
+    }
+  }
+
+  .layer3 {
+    z-index: 1;
+    .circle:nth-child(1) {
+      --radius: 13rem;
+      bottom: 27vh;
+      right: 13vw;
+      background-image: url("../../../assets/images/kjsenior.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 11rem;
+      top: 10vh;
+      right: 24vw;
+      background-image: url("../../../assets/images/react\ logo.png");
+      background-size: 90%;
+    }
+    .circle:nth-child(3) {
+      --radius: 5rem;
+      bottom: unset;
+      top: 48vh;
+      left: 50vw;
+      background-color: white;
+      background-image: url("../../../assets/images/css\ logo.png");
+      background-size: 130%;
+    }
+    .circle:nth-child(4) {
+      --radius: 6rem;
+      top: 44vh;
+      right: 34vw;
+      background-image: url("../../../assets/images/html\ logo.png");
+      background-size: 85%;
+    }
+    .circle:nth-child(5) {
+      --radius: 6rem;
+      top: 23vh;
+      left: 48vw;
+      background-image: url("../../../assets/images/angular\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 5rem;
+      bottom: 35vh;
+      left: 35vw;
+      background-image: url("../../../assets/images/asp.net.logo.png");
+      background-size: 90%;
+    }
+  }
 }
 
 @media only screen and (min-width: 1500px) {
-    .layer1 {
-        z-index: 3;
-        .circle:nth-child(1) {
-            --radius: 7rem;
-            bottom: 33vh;
-            left: 58vw;
-        }
-        .circle:nth-child(2) {
-            --radius: 10rem;
-            top: 5vh;
-            left: 2vw;
-            background-image: url('../../../assets/images/parrot.jpg');
-        }
-        .circle:nth-child(3) {
-            --radius: 7rem;
-            bottom: 37vh;
-            left: 5vw;
-            background-image: url('../../../assets/images/kieranMountain1.jpg');
-        }
-        .circle:nth-child(4) {
-            --radius: 8rem;
-            top: 5vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/kjtruck3.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 5rem;
-            top: 5vh;
-            right: 45vw;
-            background-image: url('../../../assets/images/Prague.jpg');
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            bottom: 27vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/KieranMountain2.JPG');
-        }
+  .layer1 {
+    z-index: 3;
+    .circle:nth-child(1) {
+      --radius: 7rem;
+      bottom: 33vh;
+      left: 58vw;
     }
-    
-    .layer2 {
-        z-index: 2;
-        .circle:nth-child(1) {
-            --radius: 7rem;
-            bottom: 48vh;
-            right: 3vw;
-            background-image: url('../../../assets/images/Prague1.jpg');
-        }
-        .circle:nth-child(2) {
-            --radius: 6rem;
-            bottom: 30vh;
-            left: 45vw;
-            background-image: url('../../../assets/images/github\ logo.png');
-            background-position: 0% -1px;
-            border: 2px solid white;
-        }
-        .circle:nth-child(3) {
-            --radius: 6rem;
-            top: 15vh;
-            left: 20vw;
-            background-image: url('../../../assets/images/js\ logo.png');
-            background-size: 100%;
-        }
-        .circle:nth-child(4) {
-            --radius: 8rem;
-            bottom: 35vh;
-            left: 20vw;
-            background-image: url('../../../assets/images/Prague2.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 7rem;
-            top: 27vh;
-            right: 12vw;
-            background-image: url('../../../assets/images/ts\ logo.png');
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            top: 11vh;
-            left: 35vw;
-            background-image: url('../../../assets/images/c\ logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(2) {
+      --radius: 10rem;
+      top: 5vh;
+      left: 2vw;
+      background-image: url("../../../assets/images/parrot.jpg");
     }
-    
-    .layer3 {
-        z-index: 1;
-        .circle:nth-child(1) {
-            --radius: 13rem;
-            bottom: 30vh;
-            right: 13vw;
-            background-image: url('../../../assets/images/kjsenior.jpg')
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 10vh;
-            right: 24vw;
-            background-image: url('../../../assets/images/angular\ logo.png');
-        }
-        .circle:nth-child(3) {
-            --radius: 6rem;
-            bottom: unset;
-            top: 58vh;
-            right: 50vw;
-            background-color: white;
-            background-image: url('../../../assets/images/css\ logo.png');
-            background-size: 130%;
-        }
-        .circle:nth-child(4) {
-            --radius: 7rem;
-            top: 45vh;
-            right: 30vw;
-            background-image: url('../../../assets/images/html\ logo.png');
-            background-size: 85%;
-        }
-        .circle:nth-child(5) {
-            --radius: 6rem;
-            top: 23vh;
-            left: 48vw;
-            background-image: url('../../../assets/images/react\ logo.png');
-            background-size: 90%;
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            bottom: 38vh;
-            left: 35vw;
-            background-image: url('../../../assets/images/asp.net.logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(3) {
+      --radius: 7rem;
+      bottom: 37vh;
+      left: 5vw;
+      background-image: url("../../../assets/images/kieranMountain1.jpg");
     }
+    .circle:nth-child(4) {
+      --radius: 8rem;
+      top: 5vh;
+      right: 2vw;
+      background-image: url("../../../assets/images/kjtruck3.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 5rem;
+      top: 5vh;
+      right: 45vw;
+      background-image: url("../../../assets/images/Prague.jpg");
+    }
+    .circle:nth-child(6) {
+      --radius: 6rem;
+      bottom: 27vh;
+      right: 2vw;
+      background-image: url("../../../assets/images/KieranMountain2.JPG");
+    }
+  }
+
+  .layer2 {
+    z-index: 2;
+    .circle:nth-child(1) {
+      --radius: 7rem;
+      bottom: 48vh;
+      right: 3vw;
+      background-image: url("../../../assets/images/Prague1.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 6rem;
+      bottom: 30vh;
+      left: 45vw;
+      background-image: url("../../../assets/images/github\ logo.png");
+      background-position: 0% -1px;
+      border: 2px solid white;
+    }
+    .circle:nth-child(3) {
+      --radius: 6rem;
+      top: 15vh;
+      left: 20vw;
+      background-image: url("../../../assets/images/js\ logo.png");
+      background-size: 100%;
+    }
+    .circle:nth-child(4) {
+      --radius: 8rem;
+      bottom: 35vh;
+      left: 20vw;
+      background-image: url("../../../assets/images/Prague2.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 7rem;
+      top: 27vh;
+      right: 12vw;
+      background-image: url("../../../assets/images/ts\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 6rem;
+      top: 11vh;
+      left: 35vw;
+      background-image: url("../../../assets/images/c\ logo.png");
+      background-size: 90%;
+    }
+  }
+
+  .layer3 {
+    z-index: 1;
+    .circle:nth-child(1) {
+      --radius: 13rem;
+      bottom: 30vh;
+      right: 13vw;
+      background-image: url("../../../assets/images/kjsenior.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 11rem;
+      top: 10vh;
+      right: 24vw;
+      background-image: url("../../../assets/images/react\ logo.png");
+      background-size: 90%;
+    }
+    .circle:nth-child(3) {
+      --radius: 6rem;
+      bottom: unset;
+      top: 58vh;
+      right: 50vw;
+      background-color: white;
+      background-image: url("../../../assets/images/css\ logo.png");
+      background-size: 130%;
+    }
+    .circle:nth-child(4) {
+      --radius: 7rem;
+      top: 45vh;
+      right: 30vw;
+      background-image: url("../../../assets/images/html\ logo.png");
+      background-size: 85%;
+    }
+    .circle:nth-child(5) {
+      --radius: 6rem;
+      top: 23vh;
+      left: 48vw;
+      background-image: url("../../../assets/images/angular\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 6rem;
+      bottom: 38vh;
+      left: 35vw;
+      background-image: url("../../../assets/images/asp.net.logo.png");
+      background-size: 90%;
+    }
+  }
 }
 
 @media only screen and (min-width: 1920px) {
-    .title {
-        font-size: 1.15rem;
-    }
+  .title {
+    font-size: 1.15rem;
+  }
 
-    .layer1 {
-        z-index: 3;
-        .circle:nth-child(1) {
-            --radius: 10rem;
-            bottom: 22vh;
-            left: 55vw;
-            background-image: url('../../../assets/images/KieranPrague.JPG');
-            background-size: 150%;
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 5vh;
-            left: 2vw;
-            background-image: url('../../../assets/images/parrot.jpg');
-        }
-        .circle:nth-child(3) {
-            --radius: 7rem;
-            bottom: 25vh;
-            left: 5vw;
-            background-image: url('../../../assets/images/kieranMountain1.jpg');
-        }
-        .circle:nth-child(4) {
-            --radius: 9rem;
-            top: 5vh;
-            right: 2vw;
-            background-image: url('../../../assets/images/kjtruck3.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 7rem;
-            top: 5vh;
-            right: 45vw;
-            background-image: url('../../../assets/images/Prague.jpg');
-        }
-        .circle:nth-child(6) {
-            --radius: 8rem;
-            bottom: 20vh;
-            right: 5vw;
-            background-image: url('../../../assets/images/KieranMountain2.JPG');
-        }
+  .layer1 {
+    z-index: 3;
+    .circle:nth-child(1) {
+      --radius: 10rem;
+      bottom: 22vh;
+      left: 55vw;
+      background-image: url("../../../assets/images/KieranPrague.JPG");
+      background-size: 150%;
     }
-    
-    .layer2 {
-        z-index: 2;
-        .circle:nth-child(1) {
-            --radius: 9rem;
-            bottom: 60vh;
-            right: 4vw;
-            background-image: url('../../../assets/images/Prague1.jpg');
-        }
-        .circle:nth-child(2) {
-            --radius: 6rem;
-            bottom: 22vh;
-            left: 44vw;
-            background-image: url('../../../assets/images/github\ logo.png');
-            background-position: 0% -1px;
-            border: 2px solid white;
-        }
-        .circle:nth-child(3) {
-            --radius: 9rem;
-            top: 15vh;
-            left: 18vw;
-            background-image: url('../../../assets/images/js\ logo.png');
-            background-size: 100%;
-        }
-        .circle:nth-child(4) {
-            --radius: 10rem;
-            bottom: 25vh;
-            left: 20vw;
-            background-image: url('../../../assets/images/Prague2.jpg');
-        }
-        .circle:nth-child(5) {
-            --radius: 10rem;
-            top: 14vh;
-            right: 18vw;
-            background-image: url('../../../assets/images/ts\ logo.png');
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            top: 10vh;
-            left: 33vw;
-            background-image: url('../../../assets/images/c\ logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(2) {
+      --radius: 11rem;
+      top: 5vh;
+      left: 2vw;
+      background-image: url("../../../assets/images/parrot.jpg");
     }
-    
-    .layer3 {
-        z-index: 1;
-        .circle:nth-child(1) {
-            --radius: 14rem;
-            bottom: 35vh;
-            right: 17vw;
-            background-image: url('../../../assets/images/kjsenior.jpg')
-        }
-        .circle:nth-child(2) {
-            --radius: 11rem;
-            top: 25vh;
-            right: 32vw;
-            background-image: url('../../../assets/images/angular\ logo.png');
-        }
-        .circle:nth-child(3) {
-            --radius: 7rem;
-            bottom: unset;
-            top: 34vh;
-            left: 32vw;
-            background-color: white;
-            background-image: url('../../../assets/images/css\ logo.png');
-            background-size: 130%;
-        }
-        .circle:nth-child(4) {
-            --radius: 8rem;
-            top: 55vh;
-            right: 43vw;
-            background-image: url('../../../assets/images/html\ logo.png');
-            background-size: 85%;
-        }
-        .circle:nth-child(5) {
-            --radius: 7rem;
-            top: 30vh;
-            left: 45vw;
-            background-image: url('../../../assets/images/react\ logo.png');
-            background-size: 90%;
-        }
-        .circle:nth-child(6) {
-            --radius: 6rem;
-            bottom: 33vh;
-            left: 35vw;
-            background-image: url('../../../assets/images/asp.net.logo.png');
-            background-size: 90%;
-        }
+    .circle:nth-child(3) {
+      --radius: 7rem;
+      bottom: 25vh;
+      left: 5vw;
+      background-image: url("../../../assets/images/kieranMountain1.jpg");
     }
+    .circle:nth-child(4) {
+      --radius: 9rem;
+      top: 5vh;
+      right: 2vw;
+      background-image: url("../../../assets/images/kjtruck3.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 7rem;
+      top: 5vh;
+      right: 45vw;
+      background-image: url("../../../assets/images/Prague.jpg");
+    }
+    .circle:nth-child(6) {
+      --radius: 8rem;
+      bottom: 20vh;
+      right: 5vw;
+      background-image: url("../../../assets/images/KieranMountain2.JPG");
+    }
+  }
+
+  .layer2 {
+    z-index: 2;
+    .circle:nth-child(1) {
+      --radius: 9rem;
+      bottom: 60vh;
+      right: 4vw;
+      background-image: url("../../../assets/images/Prague1.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 6rem;
+      bottom: 22vh;
+      left: 44vw;
+      background-image: url("../../../assets/images/github\ logo.png");
+      background-position: 0% -1px;
+      border: 2px solid white;
+    }
+    .circle:nth-child(3) {
+      --radius: 9rem;
+      top: 15vh;
+      left: 18vw;
+      background-image: url("../../../assets/images/js\ logo.png");
+      background-size: 100%;
+    }
+    .circle:nth-child(4) {
+      --radius: 10rem;
+      bottom: 25vh;
+      left: 20vw;
+      background-image: url("../../../assets/images/Prague2.jpg");
+    }
+    .circle:nth-child(5) {
+      --radius: 10rem;
+      top: 14vh;
+      right: 18vw;
+      background-image: url("../../../assets/images/ts\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 6rem;
+      top: 10vh;
+      left: 33vw;
+      background-image: url("../../../assets/images/c\ logo.png");
+      background-size: 90%;
+    }
+  }
+
+  .layer3 {
+    z-index: 1;
+    .circle:nth-child(1) {
+      --radius: 14rem;
+      bottom: 35vh;
+      right: 17vw;
+      background-image: url("../../../assets/images/kjsenior.jpg");
+    }
+    .circle:nth-child(2) {
+      --radius: 11rem;
+      top: 25vh;
+      right: 32vw;
+      background-image: url("../../../assets/images/react\ logo.png");
+      background-size: 90%;
+    }
+    .circle:nth-child(3) {
+      --radius: 7rem;
+      bottom: unset;
+      top: 34vh;
+      left: 32vw;
+      background-color: white;
+      background-image: url("../../../assets/images/css\ logo.png");
+      background-size: 130%;
+    }
+    .circle:nth-child(4) {
+      --radius: 8rem;
+      top: 55vh;
+      right: 43vw;
+      background-image: url("../../../assets/images/html\ logo.png");
+      background-size: 85%;
+    }
+    .circle:nth-child(5) {
+      --radius: 7rem;
+      top: 30vh;
+      left: 45vw;
+      background-image: url("../../../assets/images/angular\ logo.png");
+    }
+    .circle:nth-child(6) {
+      --radius: 6rem;
+      bottom: 33vh;
+      left: 35vw;
+      background-image: url("../../../assets/images/asp.net.logo.png");
+      background-size: 90%;
+    }
+  }
 }

@@ -1,784 +1,833 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Julius+Sans+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Heebo&family=Julius+Sans+One&display=swap");
 
 * {
-    --background-light-grey: #222222;
-    --background-lighter-grey: #444444;
-    --background-lightest-grey: #666666;
-    --button-background: #898989b7;
-    --button-hover: #b8b8b8b7;
-    --background-grey: #141414;
-    --background-grey-80: #141414CC;
-    --background-grey-50: #14141480;
-    --background-grey-30: #1414144D;
-    --red: #4b0c0c;
-    --shadow: rgba(0,0,0,0.4);
-    --box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.4);
-    --font-color: white;
-    --side-gradient: linear-gradient(to right, var(--background-grey-50), rgba(0,0,0,0) 30%);
-    --top-gradient: linear-gradient(to bottom, var(--background-grey), rgba(0,0,0,0));
-    --julius: 'Julius Sans One', sans-serif;
-    --heebo: 'Heebo', sans-serif;
-    --roboto: 'Roboto', sans-serif;
+  --background-light-grey: #222222;
+  --background-lighter-grey: #444444;
+  --background-lightest-grey: #666666;
+  --button-background: #898989b7;
+  --button-hover: #b8b8b8b7;
+  --background-grey: #141414;
+  --background-grey-80: #141414cc;
+  --background-grey-50: #14141480;
+  --background-grey-30: #1414144d;
+  --red: #4b0c0c;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.4);
+  --font-color: white;
+  --side-gradient: linear-gradient(
+    to right,
+    var(--background-grey-50),
+    rgba(0, 0, 0, 0) 30%
+  );
+  --top-gradient: linear-gradient(
+    to bottom,
+    var(--background-grey),
+    rgba(0, 0, 0, 0)
+  );
+  --julius: "Julius Sans One", sans-serif;
+  --heebo: "Heebo", sans-serif;
+  --roboto: "Roboto", sans-serif;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    position: absolute;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100vw;
-    background-color: var(--background-grey);
-    color: var(--font-color);
-    overflow-x: hidden;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
+  position: absolute;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw;
+  background-color: var(--background-grey);
+  color: var(--font-color);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 
 .hide {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 body {
-    position: relative;
-    margin: 0;
-    margin-top: -22px;
-    padding: 0;
-    overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  margin-top: -22px;
+  padding: 0;
+  overflow-x: hidden;
 }
-
 
 /* Loading indicator */
 
 .loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100vw;
-	height: 100vh;
-	margin: 0 auto;
-    z-index: 100000;
-    background-image: radial-gradient(ellipse at center, #4b0c0c, #160404);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  z-index: 100000;
+  background-image: radial-gradient(ellipse at center, #4b0c0c, #160404);
 }
 
 .dot {
-	width: 30px;
-	height: 30px;
-    margin: 15px;
-	border-radius: 50%;
-	animation: leap 1s infinite;
-    background-color: white;
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  border-radius: 50%;
+  animation: leap 1s infinite;
+  background-color: white;
 }
 
 .dot:nth-child(1) {
-	box-shadow: 0px 0px 5px 0.1px rgba(20,20,20,0.6);
+  box-shadow: 0px 0px 5px 0.1px rgba(20, 20, 20, 0.6);
 }
 
 .dot:nth-child(2) {
-	animation-delay: .15s;
-	box-shadow: 0px 0px 5px 0.1px rgba(20,20,20,0.6);
+  animation-delay: 0.15s;
+  box-shadow: 0px 0px 5px 0.1px rgba(20, 20, 20, 0.6);
 }
 
 .dot:nth-child(3) {
-	animation-delay: .3s;
-	box-shadow: 0px 0px 5px 0.1px rgba(20,20,20,0.6);
+  animation-delay: 0.3s;
+  box-shadow: 0px 0px 5px 0.1px rgba(20, 20, 20, 0.6);
 }
-
-
 
 /* Shared Component Classes */
 h3 {
-    position: relative;
-    font-size: 1.5rem;
-    font-family: var(--roboto);
-    padding: 4px;
-    margin-top: 0;
-    margin-bottom: 0px;
-    margin-left: 5vw;
-    z-index: 0;
+  position: relative;
+  font-size: 1.5rem;
+  font-family: var(--roboto);
+  padding: 4px;
+  margin-top: 0;
+  margin-bottom: 0px;
+  margin-left: 5vw;
+  z-index: 0;
 }
 
 h4 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
 }
 
 .carouselCont {
-    width: 100%;
-    display: none;
-    height: fit-content;
+  width: 100%;
+  display: none;
+  height: fit-content;
+  position: relative;
+  overflow: visible;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Card CSS */
 .cardCarouselCont {
-    --scale: calc(90vw / 5);
-    position: relative;
-    height: calc(var(--scale) * 0.95);
-    margin-left: 5vw;
-    margin-top: 12px;
-    transition: transform 1s ease-in-out;
+  --scale: calc(90vw / 5);
+  position: relative;
+  height: calc(var(--scale) * 0.95);
+  margin-left: 5vw;
+  margin-top: 12px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .cardCont {
-    --scale: calc(90vw / 5);
-    height: calc(var(--scale) * 0.95);
-    width: var(--scale);
-    float: left;
+  --scale: calc(90vw / 5);
+  height: calc(var(--scale) * 0.95);
+  width: var(--scale);
+  float: left;
 }
 
 .card {
-    position: relative;
-    font-family: var(--roboto);
-    height: 100%;
-    width: 95%;
-    margin: auto;
-    border-radius: 16px;
-    box-shadow: 0px 0px 12px 2px var(--shadow);
-    z-index: 4;
-    overflow: hidden;
-    transition: all 0.3s;
-    transition-delay: 0.2s;
-    background: var(--color);
-    border: 2px solid white;
+  position: relative;
+  font-family: var(--roboto);
+  height: 100%;
+  width: 95%;
+  margin: auto;
+  border-radius: 16px;
+  box-shadow: 0px 0px 12px 2px var(--shadow);
+  z-index: 4;
+  overflow: hidden;
+  transition: all 0.3s;
+  transition-delay: 0.2s;
+  background: var(--color);
+  border: 2px solid white;
 }
 
-.card:hover, .focusedCard {
-    transform: scale(1.5);
-    box-shadow: 0px 0px 15px 4px var(--shadow);
-    z-index: 10;
+.card:hover,
+.focusedCard {
+  transform: scale(1.5);
+  box-shadow: 0px 0px 15px 4px var(--shadow);
+  z-index: 10;
+  transition: all 0.3s;
+  transition-delay: 0.3s;
+
+  .iconbg {
+    height: 65%;
+    width: 65%;
+    margin: auto;
     transition: all 0.3s;
     transition-delay: 0.3s;
+  }
 
-    .iconbg {
-        height: 65%;
-        width: 65%;
-        margin: auto;
-        transition: all 0.3s;
-        transition-delay: 0.3s;
+  .cardDetail {
+    display: block;
+    height: 35%;
+    width: 100%;
+    background-color: var(--background-light-grey);
+    transition: all 0.3s;
+    transition-delay: 0.3s;
+    border-radius: 0;
+
+    .showMore {
+      opacity: 100%;
+      transition: opacity 0.4s 0.6s !important;
     }
-
-    .cardDetail {
-        display: block;
-        height: 35%;
-        width: 100%;
-        background-color: var(--background-light-grey);
-        transition: all 0.3s;
-        transition-delay: 0.3s;
-        border-radius: 0;
-
-        .showMore {
-            opacity: 100%;
-            transition: opacity 0.4s 0.6s !important;
-        }
-    }
+  }
 }
 
 .focusedCard {
-    border-color: red;
+  border-color: #64d8ff;
 }
 
 .modalIconbg {
-    height: 45%;
-    width: 100%;
-    background-color: var(--color);
+  height: 45%;
+  width: 100%;
+  background-color: var(--color);
 }
 
 .iconCont {
-    height: 100%;
-    width: fit-content;
-    margin: auto;
+  height: 100%;
+  width: fit-content;
+  margin: auto;
 }
 
-.iconbg, .icon {
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    border-radius: 16px;
-    background-position: center;
-    background-image: var(--url);
-    background-size: var(--size);
-    background-color: var(--color);
-    background-repeat: no-repeat;
-    transition: all 0.3s;
-    transition-delay: 0.2s;
+.iconbg,
+.icon {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  border-radius: 16px;
+  background-position: center;
+  background-image: var(--url);
+  background-size: var(--size);
+  background-color: var(--color);
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+  transition-delay: 0.2s;
 }
 
 .cardDetail {
-    text-indent: 0;
-    font-size: 1rem;
-    height: 0%;
-    width: 100%;
-    transition: all 0.3s;
-    transition-delay: 0.2s;
-    background-color: var(--background-light-grey);
-    
-    > p {
-        padding: 8px;
-        padding-top: 0px;
-        text-overflow: ellipsis;
-    }
+  text-indent: 0;
+  font-size: 1rem;
+  height: 0%;
+  width: 100%;
+  transition: all 0.3s;
+  transition-delay: 0.2s;
+  background-color: var(--background-light-grey);
+
+  > p {
+    padding: 8px;
+    padding-top: 0px;
+    text-overflow: ellipsis;
+  }
 }
 
 .titleCont {
-    height: fit-content;
-    width: 100%;
-    align-items: center;
-    padding: 8px;
-    color: white;
-    background-color: var(--background-light-grey);
+  height: fit-content;
+  width: 100%;
+  align-items: center;
+  padding: 8px;
+  color: white;
+  background-color: var(--background-light-grey);
 
-    > span {
-        width: 100%;
-        margin-top: 4px;
-        font-size: 1rem;
-        font-weight: 600;
-    }
+  > span {
+    width: 100%;
+    margin-top: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
 }
 
 .years {
-    background: white;
-    font-size: .75rem;
-    text-align: center;
-    font-weight: 600;
-    border-radius: 25px;
-    margin-top: 6px;
-    padding: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    width: fit-content;
-    color: black;
+  background: white;
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 25px;
+  margin-top: 6px;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: fit-content;
+  color: black;
 }
 
 /* Shared arrow button CSS */
 .arrowButton {
-    --scale: calc(90vw / 5);
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    width: 5vw;
-    border: none;
-    outline: none;
-    height: calc(var(--scale) * 0.97);
-    z-index: 5;
-    background-color: var(--background-grey-50);
+  --scale: calc(90vw / 5);
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  border: none;
+  outline: none;
+  height: calc(var(--scale) * 0.97);
+  z-index: 5;
+  background-color: var(--background-grey-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  max-width: 80px;
+  padding: 0 8px;
+  box-sizing: border-box;
 }
 
 .arrow {
-    transition: all 0.2s;
+  transition: all 0.2s;
+  flex-shrink: 0;
 }
 
 .arrowButton:hover {
-    .arrow {
-        transform: scale(1.5);
-        transition: all 0.2s;
-    }
+  .arrow {
+    transform: scale(1.5);
+    transition: all 0.2s;
+  }
 }
 
 /* Right Arrow Button CSS */
 .rightArrowButton {
-    right: 0;
-    border-radius: 16px 0px 0px 16px;
+  right: 0;
+  border-radius: 16px 0px 0px 16px;
+  padding-right: max(8px, env(safe-area-inset-right));
 }
 
 .rightArrow {
-    margin-right: auto;
+  margin: 0 auto;
 }
 
 /* Left Arrow Button CSS */
 .leftArrowButton {
-    display: none;
-    left: 0;
-    border-radius: 0px 16px 16px 0px;
+  display: none;
+  left: 0;
+  border-radius: 0px 16px 16px 0px;
+  padding-left: max(8px, env(safe-area-inset-left));
 }
 
 .leftArrow {
-    margin-left: auto;
+  margin: 0 auto;
 }
 
 /* Show More button styling */
 .showMore {
-    cursor: pointer;
-    position: absolute;
-    padding: 0;
-    right: 8px;
-    bottom: 8px;
-    height: 1.75rem;
-    width: 1.75rem;
-    align-content: center;
-    background-color: var(--background-lighter-grey);
-    border: none;
-    outline: none;
-    opacity: 0%;
-    border-radius: 50%;
-    transition: opacity 0.2s 0.2s !important;
-    touch-action: manipulation;
+  cursor: pointer;
+  position: absolute;
+  padding: 0;
+  right: 8px;
+  bottom: 8px;
+  height: 1.75rem;
+  width: 1.75rem;
+  align-content: center;
+  background-color: var(--background-lighter-grey);
+  border: none;
+  outline: none;
+  opacity: 0%;
+  border-radius: 50%;
+  transition: opacity 0.2s 0.2s !important;
+  touch-action: manipulation;
 }
 
 .showMore:hover {
-    background-color: var(--background-lightest-grey);
-    transition: background-color 0s 0s !important;
+  background-color: var(--background-lightest-grey);
+  transition: background-color 0s 0s !important;
 }
 
 /* Skill capsule stylings */
-.skillsCont, .jobsCont, .projectsCont {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-    min-height: 30px;
-    background-color: var(--background-light-grey);
-    margin-top: 8px;
-    margin-bottom: 8px;
+.skillsCont,
+.jobsCont,
+.projectsCont {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  min-height: 30px;
+  background-color: var(--background-light-grey);
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-.skillCapsule, .jobCapsule, .projectCapsule {
-    display: block;
-    background-color: var(--background-lighter-grey);
-    color: var(--color);
-    border-radius: 15px;
-    padding: 6px 8px 6px 8px;
-    margin-right: 6px;
-    margin-bottom: 8px;
-    float: left;
-    width: fit-content;
-    height: fit-content;
-    transition: all 0.2s;
-    text-decoration: none;
+.skillCapsule,
+.jobCapsule,
+.projectCapsule {
+  display: block;
+  background-color: var(--background-lighter-grey);
+  color: var(--color);
+  border-radius: 15px;
+  padding: 6px 8px 6px 8px;
+  margin-right: 6px;
+  margin-bottom: 8px;
+  float: left;
+  width: fit-content;
+  height: fit-content;
+  transition: all 0.2s;
+  text-decoration: none;
 }
 
-.skillCapsule:hover, .jobCapsule:hover, .projectCapsule:hover  {
-    cursor: pointer;
-    color: var(--color);
-    background-color: var(--background-lightest-grey);
-    transform: scale(1.1);
-    box-shadow: 0px 0px 6px 2px var(--color);
-    transition: all 0.2s;
+.skillCapsule:hover,
+.jobCapsule:hover,
+.projectCapsule:hover {
+  cursor: pointer;
+  color: var(--color);
+  background-color: var(--background-lightest-grey);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 6px 2px var(--color);
+  transition: all 0.2s;
 }
-
 
 .modal {
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    align-content: center;
-    width: 50vw;
-    height: 90vh;
-    z-index: 101;
-    transition: all 0s;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  align-content: center;
+  width: 50vw;
+  height: 90vh;
+  z-index: 101;
+  transition: all 0s;
 }
 
 button {
-    touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 .modalCard {
-    position: relative;
-    font-family: var(--roboto);
-    font-size: 1.25rem;
-    height: 95%;
-    width: 95%;
+  position: relative;
+  font-family: var(--roboto);
+  font-size: 1.25rem;
+  height: 95%;
+  width: 95%;
+  margin: auto;
+  border-radius: 16px;
+  box-shadow: 0px 0px 12px 2px var(--shadow);
+  z-index: 4;
+  transition: all 0s 0s;
+  background-color: var(--background-light-grey);
+  transform-origin: center;
+  overflow: auto;
+  animation: fade-in 0.3s 1;
+
+  .modalIconbg {
+    height: 45%;
+    width: 100%;
+    background: var(--color);
     margin: auto;
-    border-radius: 16px;
-    box-shadow: 0px 0px 12px 2px var(--shadow);
-    z-index: 4;
-    transition: all 0s 0s;
+    transition: all 0.3s;
+
+    .icon {
+      height: 100%;
+      width: 35%;
+    }
+  }
+
+  .cardDetail {
+    display: block;
+    height: fit-content;
+    padding: 8px;
     background-color: var(--background-light-grey);
-    transform-origin: center;
-    overflow: auto;
-    animation: fade-in 0.3s 1;
-
-    .modalIconbg {
-        height: 45%;
-        width: 100%;
-        background: var(--color);
-        margin: auto;
-        transition: all 0.3s;
-
-        .icon {
-            height: 100%;
-            width: 35%;
-        }
-    }
-
-    .cardDetail {
-        display: block;
-        height: fit-content;
-        padding: 8px;
-        background-color: var(--background-light-grey);
-        transition: all 0.3s;
-    }
+    transition: all 0.3s;
+  }
 }
 
 .titleCont {
-    > h4 {
-        font-size: 1.5rem;
-    }
+  > h4 {
+    font-size: 1.5rem;
+  }
 
-    > h5 {
-        font-size: 1.25rem;
-        margin: 0;
-    }
+  > h5 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
 
-    .years {
-        margin-top: 8px;
-        margin-bottom: 8px;
-        font-size: 1rem;
-    }
+  .years {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
 }
 
 .closeModal {
-    cursor: pointer;
-    position: absolute;
-    top: 25px;
-    right: 30px;
-    font-family: var(--roboto);
-    font-weight: 600;
-    font-size: 1.13rem;
-    color: white;
-    height: 40px;
-    width: 40px;
-    outline: none;
-    border: none;
-    border-radius: 50%;
-    background-color: var(--button-background);
-    opacity: 0%;
-    text-align: center;
-    animation: appear 0.1s 1 0.3s forwards;
-    touch-action: manipulation;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-family: var(--roboto);
+  font-weight: 600;
+  font-size: 1.13rem;
+  color: white;
+  height: 40px;
+  width: 40px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--button-background);
+  opacity: 0%;
+  text-align: center;
+  animation: appear 0.1s 1 0.3s forwards;
+  touch-action: manipulation;
 }
 
 .closeModal:hover {
-    background-color: var(--button-hover);
+  background-color: var(--button-hover);
 }
 
 footer {
-    padding: 24px;
-    height: 400px;
-    width: 100%;
-    background-color: black;
+  padding: 24px;
+  height: 400px;
+  width: 100%;
+  background-color: black;
 }
 
 .text {
-    width: 100%;
-    height: 50%;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
+  width: 100%;
+  height: 50%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 
-    > p {
-        font-size: 0.75rem;
-    }
+  > p {
+    font-size: 0.75rem;
+  }
 }
 
 .linkCont {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .iconLinks {
-    display: flex;
-    height: fit-content;
-    justify-content: space-around;
-    align-content: center;
-    width: 50%;
+  display: flex;
+  height: fit-content;
+  justify-content: space-around;
+  align-content: center;
+  width: 50%;
 }
 
-.iconLink, .iconLinkCont {
-    display: block;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+.iconLink,
+.iconLinkCont {
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
 #linkedInLink > .iconLink {
-    height: 51px;
-    width: 51px;
+  height: 51px;
+  width: 51px;
 }
 
 #codePenLink {
-    background-color: white;
+  background-color: white;
 
-    > .iconLink {
-        padding: 1px;
-    }
+  > .iconLink {
+    padding: 1px;
+  }
 }
 
 #gitHubLink {
-    height: 51px;
-    width: 51px;
-    background-color: white;
+  height: 51px;
+  width: 51px;
+  background-color: white;
 
-    > .iconLink {
-        width: 51px;
-    }
+  > .iconLink {
+    width: 51px;
+  }
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    height: fit-content;
-    width: 100%;
-    padding: 4px;
+  position: fixed;
+  top: 0;
+  height: fit-content;
+  width: 100%;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  background: var(--top-gradient);
+  transition: background 0.2s;
+
+  > ul {
     display: flex;
-    justify-content: center;
-    z-index: 100;
-    background: var(--top-gradient);
-    transition: background 0.2s;
+    width: 50%;
+    justify-content: space-around;
+    list-style: none;
 
-    > ul {
-        display: flex;
-        width: 50%;
-        justify-content: space-around;
-        list-style: none;
-
-        > a {
-            font-family: var(--roboto);
-            text-decoration: none;
-            font-weight: 400;
-            color: white;
-        }
+    > a {
+      font-family: var(--roboto);
+      text-decoration: none;
+      font-weight: 400;
+      color: white;
     }
+  }
 }
 
 a:hover {
-    color: #aaaaaa;
+  color: #aaaaaa;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-    margin-right: 2px;
+  width: 10px;
+  margin-right: 2px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: var(--background-light-grey);
-    border-radius: 0 4px 4px 0;
+  background: var(--background-light-grey);
+  border-radius: 0 4px 4px 0;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--background-lighter-grey);
-    border-radius: 10px;
+  background: var(--background-lighter-grey);
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--background-lightest-grey);
+  background: var(--background-lightest-grey);
 }
 
 @keyframes fade-in {
-    0% {height: 0%; width: 0%;}
-    100% {height: 95%; width: 95%;}
+  0% {
+    height: 0%;
+    width: 0%;
+  }
+  100% {
+    height: 95%;
+    width: 95%;
+  }
 }
 
 @keyframes appear {
-    0% {opacity: 0%;}
-    100% {opacity: 100%;}
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 @keyframes leap {
-	50% {transform: translateY(-15px)}
-	100% {transform: translateY(0px)}
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Resizing Styling */
 @media only screen and (max-width: 500px) {
-    * {
-        touch-action: manipulation;
-    }
+  * {
+    touch-action: manipulation;
+  }
 
-    html, body {
-        width: 100vw;
-    }
+  html,
+  body {
+    width: 100vw;
+  }
 
-    .card:hover {
-        transform: unset;
-    }
+  .card:hover {
+    transform: unset;
+  }
 
-    .arrowButton:hover {
-        .arrow {
-            transform: scale(1);
-            transition: all 0.2s;
-        }
-    }
-    
-    html {
-        font-size: 0.65rem;
-    }
-
-    h3 {
-        margin-left: 10vw;
-    }
-
-    .modal {
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translate(0, 0);
-        transition: all 0s;
-    }
-    
-    .modalCard {
-        width: 100%;
-        height: 100%;
-        padding-bottom: 50px;
-        transition: all 0s;
-        animation: none;
-    }
-
-    .titleCont {
-        > h4 {
-            font-size: 2rem;
-        }
-        > p {
-            font-size: 1.5rem;
-        }
-        .years {
-            font-size: 1.5rem;
-        }
-        > h5 {
-            font-size: 1.75rem;
-        }
-
-        .projectsCont, .jobsCont, .skillsCont {
-            font-size: 1.5rem;
-        }
-    }
-
-    .closeModal {
-        right: 25px;
-        font-size: 1.5rem;
-    }
-
-    .focusedCard {
-        transform: none;
-        border-color: red;
-    }
-
+  .arrowButton:hover {
     .arrow {
-        width: 35px;
-        height: 35px;
+      transform: scale(1);
+      transition: all 0.2s;
+    }
+  }
+
+  html {
+    font-size: 0.6rem;
+  }
+
+  h3 {
+    margin-left: 10vw;
+  }
+
+  .modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    transition: all 0s;
+  }
+
+  .modalCard {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+    transition: all 0s;
+    animation: none;
+  }
+
+  .titleCont {
+    > h4 {
+      font-size: 2rem;
+    }
+    > p {
+      font-size: 1.5rem;
+    }
+    .years {
+      font-size: 1.5rem;
+    }
+    > h5 {
+      font-size: 1.75rem;
     }
 
-    .modalCard .modalIconbg .icon {
-        width: 65%;
+    .projectsCont,
+    .jobsCont,
+    .skillsCont {
+      font-size: 1.5rem;
+    }
+  }
+
+  .closeModal {
+    right: 25px;
+    font-size: 1.5rem;
+  }
+
+  .focusedCard {
+    transform: none;
+    border-color: #64d8ff;
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .modalCard .modalIconbg .icon {
+    width: 65%;
+  }
+
+  footer {
+    height: 200px;
+  }
+
+  .iconLinks {
+    width: 70%;
+  }
+
+  .iconLinkCont {
+    height: 40px;
+    width: 40px;
+
+    .iconLink {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  #linkedInLink > .iconLink,
+  #gitHubLink,
+  #gitHubLink > .iconLink {
+    height: 40px;
+    width: 40px;
+  }
+
+  .text {
+    > p {
+      font-size: 1.5rem;
     }
 
-    footer {
-        height: 200px;
+    > span {
+      font-size: 1.5rem;
     }
+  }
 
-    .iconLinks {
-        width: 70%;
-    }
+  .skillCapsule,
+  .jobCapsule,
+  .projectCapsule {
+    text-decoration: underline;
+  }
 
-    .iconLinkCont {
-        height: 40px;
-        width: 40px;
-
-        .iconLink {
-            height: 40px;
-            width: 40px;
-        }
-    }
-
-    #linkedInLink > .iconLink, #gitHubLink, #gitHubLink > .iconLink {
-        height: 40px;
-        width: 40px;
-    }
-
-    .text {
-        > p {
-            font-size: 1.5rem;
-        }
-
-        > span {
-            font-size: 1.5rem;
-        }
-    }
-
-    .skillCapsule, .jobCapsule, .projectCapsule {
-        text-decoration: underline;
-    }
+  nav {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
-    nav {
-        padding-top: 4px;
-    }
+  nav {
+    padding-top: 4px;
+  }
 
-    nav > ul {
-        padding: 0;
-        width: 100%;
-    }
-}
-        
-@media only screen and (min-width: 500px) {
-    html {
-        font-size: 0.75rem;
-    }
-
-    .modal {
-        width: 80vw;
-    }
+  nav > ul {
+    padding: 0;
+    width: 100%;
+  }
 }
 
-@media only screen and (max-width: 500px) {
-    nav {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        font-size: 1.5rem;
-    }
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  html {
+    font-size: 0.7rem;
+  }
+
+  .modal {
+    width: 80vw;
+  }
 }
 
-@media only screen and (min-width: 900px) {
-    html {
-        font-size: 0.85rem;
-    }
+@media only screen and (min-width: 900px) and (max-width: 1280px) {
+  html {
+    font-size: 0.78rem;
+  }
 }
 
-    
-@media only screen and (min-width: 1280px) {
-    html {
-        font-size: 1.15rem;
-    }
+@media only screen and (min-width: 1280px) and (max-width: 1700px) {
+  html {
+    font-size: 1.05rem;
+  }
 
-    .modal {
-        width: 50vw;
-    }
+  .modal {
+    width: 50vw;
+  }
 
-    .titleCont > span {
-        font-size: 0.9rem;
-    }
-    
-    .titleCont > span > .years {
-        font-size: 0.7rem;
-    }
+  .titleCont > span {
+    font-size: 0.9rem;
+  }
+
+  .titleCont > span > .years {
+    font-size: 0.7rem;
+  }
 }
 
-@media only screen and (min-width: 1920px) {
-    html {
-        font-size: 1.25rem;
-    }
+@media only screen and (min-width: 1700px) {
+  .arrowButton {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 
-    .titleCont > span {
-        font-size: 1rem;
-        font-weight: 600;
-    }
+  html {
+    font-size: 1.15rem;
+  }
 
-    .titleCont > span > .years {
-        font-size: 0.9rem;
-    }
-    
+  .titleCont > span {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .titleCont > span > .years {
+    font-size: 0.9rem;
+  }
 }

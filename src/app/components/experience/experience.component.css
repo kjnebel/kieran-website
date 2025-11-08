@@ -1,156 +1,179 @@
 /* Experience Container */
 .expCont {
-    position: relative;
-    padding-top: 9vh;
-    height: fit-content;
-    width: 100vw;
-    mix-blend-mode: normal;
-    z-index: 7;
+  position: relative;
+  padding-top: 9vh;
+  height: fit-content;
+  width: 100vw;
+  mix-blend-mode: normal;
+  z-index: 7;
 }
 
 .cardCarouselCont {
-    height: calc((90vw / 4) * 0.90);
+  height: calc((90vw / 4) * 0.9);
 }
 
 .cardCont {
-    position: relative;
-    width: calc(90vw / 4);
-    height: calc((90vw / 4) * 0.90);
+  position: relative;
+  width: calc(90vw / 4);
+  height: calc((90vw / 4) * 0.9);
 }
 
 .card {
-    position: absolute;
-    right: 0;
-    width: 59%;
-    margin: 0;
-    z-index: 20;
-    border: 2px solid white;
+  position: absolute;
+  right: 0;
+  width: 59%;
+  margin: 0;
+  z-index: 20;
+  border: 2px solid white;
 }
 
-.card:hover, .focusedCard {
-    width: 69%;
+.card:hover,
+.focusedCard {
+  width: 69%;
 }
 
 .focusedCard {
-    border-color: red;
+  border-color: #64d8ff;
 }
 
 .cardDetail {
-    color: white;
-    width: calc(100% - 8px);
-    height: 35%;
-    padding: 8px;
-    transition: all 0.2s;
-    transition-delay: 0.5s;
+  color: white;
+  width: calc(100% - 8px);
+  height: 35%;
+  padding: 8px;
+  transition: all 0.2s;
+  transition-delay: 0.5s;
 }
 
 .number {
-    padding-left: 5%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 4;
-    height: 100%;
-    width: 39%;
-    font-size: calc((90vw / 4) * 0.90);
-    font-family: var(--roboto);
-    color: black;
-    -webkit-text-stroke: 6px rgb(128, 128, 128);
+  padding-left: 5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  height: 100%;
+  width: 39%;
+  font-size: calc((90vw / 4) * 0.9);
+  font-family: var(--roboto);
+  color: black;
+  -webkit-text-stroke: 6px rgb(128, 128, 128);
 }
 
 span {
-    margin-top: 4px;
-    height: fit-content;
-    font-size: 1rem;
-    font-weight: 600;
+  margin-top: 4px;
+  height: fit-content;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .years {
-    background-color: var(--background-light-grey);
-    color: white;
-    font-size: 1.25rem !important;
-    font-weight: 400;
-    padding: 0px;
+  background-color: var(--background-light-grey);
+  color: white;
+  padding: 0px;
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
-
 
 /* Resizing Styling */
 @media only screen and (max-width: 500px) {
+  .number {
+    display: none;
+  }
 
-    .number {
-        display: none;
-    }
+  div::-webkit-scrollbar {
+    display: none;
+  }
 
-    .cardCarouselCont {
-        margin-left: 10vw;
-        height: calc((140vw / 4) * 0.90);
-    }
+  .cardCarouselCont {
+    margin-left: 10vw;
+    height: calc((140vw / 4) * 0.9);
+    width: calc(70vw * 2);
+    margin-right: 10vw;
+  }
 
-    .cardCont {
-        position: relative;
-        width: calc(70vw / 2);
-        height: calc((140vw / 4) * 0.90);
-    }
-    
-    .card {
-        width: 95%;
-        margin: auto;
-        z-index: 20;
-        border: 2px solid white;
-    }
+  .carouselCont {
+    overflow-x: auto;
+  }
 
-    .card:hover {
-        z-index: 21;
-        width: 95%;
-    }
+  .iconbg {
+    height: 65%;
+    width: 65%;
+  }
 
-    .focusedCard {
-        transform: none;
-        border-color: red;
-    }
+  .card > .cardDetail {
+    display: block;
+    height: 35%;
+    width: 100%;
+    background-color: var(--background-light-grey);
+  }
 
-    .showMore {
-        display: none;
-    }
+  .titleCont {
+    width: 100%;
+  }
 
-    .dates {
-        display: none;
-    }
+  .cardCont {
+    position: relative;
+    width: calc(70vw / 2);
+    height: calc((140vw / 4) * 0.9);
+  }
+
+  .card {
+    width: 95%;
+    margin: auto;
+    z-index: 20;
+    border: 2px solid white;
+  }
+
+  .card:hover {
+    z-index: 21;
+    width: 95%;
+  }
+
+  .focusedCard {
+    transform: none;
+    border-color: #64d8ff;
+  }
+
+  .showMore {
+    display: none;
+  }
+
+  .dates {
+    display: none;
+  }
 }
-        
-@media only screen and (min-width: 600px) {
-    
+
+@media only screen and (min-width: 500px) and (max-width: 900px) {
 }
 
-@media only screen and (min-width: 900px) {
-    
+@media only screen and (min-width: 900px) and (max-width: 1280px) {
 }
 
-    
-@media only screen and (min-width: 1280px) {
-    .card:hover {
-        transform: scale(1.6);
+@media only screen and (min-width: 1280px) and (max-width: 1920px) {
+  .card:hover {
+    transform: scale(1.6);
 
-        .iconbg {
-            height: 60%;
-        }
-
-        .cardDetail {
-            height: 40%;
-        }
+    .iconbg {
+      height: 60%;
     }
+
+    .cardDetail {
+      height: 40%;
+    }
+  }
 }
 
 @media only screen and (min-width: 1920px) {
-    .card:hover {
-        transform: scale(1.5);
+  .card:hover {
+    transform: scale(1.5);
 
-        .iconbg {
-            height: 65%;
-        }
-
-        .cardDetail {
-            height: 35%;
-        }
+    .iconbg {
+      height: 65%;
     }
+
+    .cardDetail {
+      height: 35%;
+    }
+  }
 }

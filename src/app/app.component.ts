@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { globalCloseModal } from './public/publicVariables';
 
 let isLoading = true;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'kieran-website';
@@ -20,14 +21,17 @@ export class AppComponent {
   ngOnInit() {
     try {
       this.router.navigateByUrl('/', { replaceUrl: true });
-      window.addEventListener('scroll', function() {
-        let nav = document.getElementById("nav");
-        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-          nav!.style.background = "var(--background-grey)";
-          nav!.style.boxShadow = "var(--box-shadow)";
+      window.addEventListener('scroll', function () {
+        let nav = document.getElementById('nav');
+        if (
+          document.body.scrollTop > 80 ||
+          document.documentElement.scrollTop > 80
+        ) {
+          nav!.style.background = 'var(--background-grey)';
+          nav!.style.boxShadow = 'var(--box-shadow)';
         } else {
-          nav!.style.background = "var(--top-gradient)";
-          nav!.style.boxShadow = "none";
+          nav!.style.background = 'var(--top-gradient)';
+          nav!.style.boxShadow = 'none';
         }
       });
       window.addEventListener('load', function () {
@@ -35,5 +39,9 @@ export class AppComponent {
         isLoading = false;
       });
     } catch (err) {}
+  }
+
+  closeModals() {
+    globalCloseModal();
   }
 }
