@@ -174,7 +174,11 @@ let skills: Skill[] = [
     url: '../../../assets/images/sql.png',
     size: '100%',
     color: 'white',
-    jobs: [jobs['Guardify'], jobs['Union Pacific Railroad']],
+    jobs: [
+      jobs['Guardify'],
+      jobs['Union Pacific Railroad'],
+      jobs['W. N. Morehouse Truck Line Co.'],
+    ],
     projects: [
       projects['upProjects'],
       projects['toyStore'],
@@ -213,7 +217,11 @@ let skills: Skill[] = [
     size: '90%',
     color:
       'linear-gradient(127deg, rgba(244,255,239,1) 0%, rgba(209,255,188,1) 100%)',
-    jobs: [jobs['Union Pacific Railroad']],
+    jobs: [
+      jobs['Union Pacific Railroad'],
+      jobs['Guardify'],
+      jobs['W. N. Morehouse Truck Line Co.'],
+    ],
     projects: [
       projects['aiChatbot'],
       projects['upProjects'],

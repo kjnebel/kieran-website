@@ -73,6 +73,7 @@ const expArray: Experience[] = [
       skills['AWS'],
       skills['GitHub'],
       skills['UI/UX Design'],
+      skills['SQL'],
     ],
   },
   {
